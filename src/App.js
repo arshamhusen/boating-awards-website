@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import Banner from "./components/banner/Banner";
+import VideoPlayer from "./components/video-player/VideoPlayer";
+// Import Components
+import NavBar from "./components/nav-bar/NavBar";
+import About from "./pages/About/About";
+import Winners from "./pages/Winners/Winners";
+import Category from "./pages/Categories/Category";
+import Nominate from "./pages/Nominate/Nominate";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Banner />
+      <VideoPlayer />
+      <About />
+      <Winners />
+      <Category />
+      <Nominate />
     </div>
   );
 }
