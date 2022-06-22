@@ -9,7 +9,6 @@ function Banner() {
       }}
       className="h-screen w-screen bg-cover bg-right-bottom "
     >
-      <div className="absolute top-100 bg-gradient-to-b from-primary via-primary to-transparent h-80 z-10 w-full"></div>
       <div className=" absolute top-20  z-10 items-start pt-40 flex flex-col px-6">
         <h1 className="text-5xl leading-tight text-white font-bold">
           Celebrating the best Boats of Maldives
