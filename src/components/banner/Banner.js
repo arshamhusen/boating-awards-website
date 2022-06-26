@@ -7,13 +7,13 @@ function Banner() {
       style={{
         backgroundImage: `url(http://192.168.1.218:3000/uploads/images/banner-bg.jpg`,
       }}
-      className="h-screen w-screen bg-cover bg-right-bottom "
+      className="h-screen w-screen bg-cover bg-top flex flex-col justify-center items-center"
     >
-      <div className=" absolute top-20  z-10 items-start pt-40 flex flex-col px-6">
-        <h1 className="text-5xl leading-tight text-white font-bold">
+      <div className="text-start md:text-center items-start md:items-center  flex flex-col px-6 md:px-40 max-w-none md:max-w-full lg:max-w-7xl ">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight md:leading-snug lg:leading-relaxed text-white font-bold">
           Celebrating the best Boats of Maldives
         </h1>
-        <h3 className="text-xl w-3/4 mt-5 mb-8 text-secondary font-medium">
+        <h3 className="text-xl md:text-2xl lg:text-3xl w-3/4 mt-5 mb-8 text-white font-medium">
           Now accepting nominations for 2022 Awards
         </h3>
 

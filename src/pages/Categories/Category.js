@@ -5,12 +5,11 @@ import Button from "../../ui/button/Button";
 
 function Category() {
   return (
-    <section className="flex  flex-cols justify-start items-start p-10 mb-20">
-      <div className=" w-full gap-5">
-        <div className="mb-10">
-          <Heading heading="Categories" />
-        </div>
-        <div className="grid grid-cols-1 gap-5">
+    <section className="flex flex-cols justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center mb-20">
+      <div className="p-10 px-10 md:px-20 lg:px-0 md:flex md:flex-col md:justify-center max-w-7xl grid grid-cols-1 gap-5 md:gap-4 lg:gap-6 ">
+        <Heading heading="Categories" />
+
+        <div className="grid grid-cols-1 mt-10 md:grid-cols-2 gap-5">
           <div className="bg-lightgray w-full p-5">
             <div className="flex flex-row  justify-start items-center mb-5">
               <img
