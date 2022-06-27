@@ -114,7 +114,7 @@ function NominateForm() {
     <div className="">
       <div className="grid grid-cols-1 gap-4">
         <div className="grid grid-cols-1 gap-y-2  p-2.5">
-          <h1 className="text font-medium text-secondary">
+          <h1 className="text font-medium text-white">
             Please Select one or more categories
           </h1>
           <div className="text-sm">
@@ -128,7 +128,7 @@ function NominateForm() {
               valueRenderer={customValueRenderer}
             />
           </div>
-          <span className="text-xs md:text-sm lg:text-base text-secondary ">
+          <span className="text-xs md:text-sm lg:text-base text-white ">
             Above categories are eligible for NBAM members, and they mayb submit
             their / crew who have performed for Business and is currently
             employed in the business. Should be currently working on a
@@ -144,13 +144,13 @@ function NominateForm() {
             <Form>
               {/* Applicant details */}
               <div className="grid grid-cols-1 gap-3  p-2.5 pb-4 justify-start mb-5 text-left w-full flex-col">
-                <h1 className="text font-medium capitalize text-secondary">
+                <h1 className="text font-medium capitalize text-white">
                   Applicant details
                 </h1>
                 <div className="grid grid-cols-1 text-sm gap-y-2 w-full">
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Business Name
@@ -169,7 +169,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Boat Name
@@ -188,7 +188,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Business Address
@@ -287,13 +287,13 @@ function NominateForm() {
 
               {/* Faces of boating */}
               <div className="grid grid-cols-1 gap-3  p-2.5 pb-4 justify-start mb-5 text-left w-full flex-col">
-                <h1 className="text font-medium capitalize text-secondary">
+                <h1 className="text font-medium capitalize text-white">
                   Faces of Boating
                 </h1>
                 <div className="grid grid-cols-1 text-sm gap-y-2 w-full">
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Captain
@@ -331,7 +331,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Chef / Deckhand
@@ -369,7 +369,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Roomboy / Deckhand
@@ -407,7 +407,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Crew Member
@@ -445,7 +445,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Waiter / Deckhand
@@ -483,7 +483,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Cruise Manager
@@ -521,7 +521,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Engineer
@@ -559,7 +559,7 @@ function NominateForm() {
                   </div>
                   <div className="grid grid-cols-1 gap-y-1 w-full">
                     <label
-                      className="text-sm text-secondary font-medium  capitalize"
+                      className="text-sm text-white font-medium  capitalize"
                       htmlFor="companyName"
                     >
                       Sales / Reservation / Operations Staff
@@ -639,7 +639,7 @@ function NominateForm() {
                     </div>
                   </div>
                   <label
-                    className="form-check-label text-sm text-secondary"
+                    className="form-check-label text-sm text-white"
                     for="flexCheckDefault"
                   >
                     We confirm that we agree to the guidelines, terms and
@@ -651,7 +651,7 @@ function NominateForm() {
               <div className="flex items-center justify-center w-full">
                 <button
                   type="submit"
-                  className="px-8 p-2 bg-warning text-secondary uppercase text-sm lg:text-base font-medium hover:shadow-lg hover:brightness-105 "
+                  className="px-8 p-2 bg-warning text-white uppercase text-sm lg:text-base font-medium hover:shadow-lg hover:brightness-105 "
                 >
                   Submit
                 </button>

@@ -33,13 +33,13 @@ function Category() {
       style={{
         backgroundImage: `url(http://192.168.1.218:3000/uploads/images/nominate-bg.jpeg`,
       }}
-      className="bg-blend-darken bg-cover  bg-top flex flex-cols  bg-repeat-y justify-start md:justify-center py-16 md:py-20 items-start px-10 mb-10"
+      className="bg-blend-darken bg-cover  bg-top flex flex-cols  bg-repeat-y justify-start md:justify-center py-16 md:py-20 items-start px-2 md:px-10 "
     >
       <div className="w-full max-w-6xl gap-5 flex justify-center flex-col">
         <div className="flex justify-center items-center text-start md:text-center">
-          <div className="mb-10 gap-3 md:gap-6 grid grid-cols-1 w-full ">
-            <Heading heading="Nominate Now" />
-            <h2 className="text-secondary text-base md:text-lg lg:text-xl font-medium">
+          <div className="mb-10 gap-3 md:gap-6 grid grid-cols-1 w-full px-10 md:px-0 ">
+            <Heading heading="Nominate Now" color="white" position="center" />
+            <h2 className="text-white text-base md:text-lg lg:text-xl font-medium">
               All applicants must be eligible NBAM Members
             </h2>
             <div className="flex items-start md:items-center md:justify-center">
@@ -48,7 +48,7 @@ function Category() {
           </div>
         </div>
 
-        <div className="grid  grid-cols-1 gap-5 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-xl p-10 md:p-20 border border-lightgray border-opacity-10">
+        <div className="grid  grid-cols-1 gap-5 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-xl p-7 md:p-20 border border-lightgray border-opacity-10">
           <div>
             <FilePond
               files={files}
@@ -68,7 +68,7 @@ function Category() {
               name="files"
               labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
             />
-            <span className="text-xs text-secondary">
+            <span className="text-xs text-white">
               You are required to upload filled application form with relevant
               documents
             </span>

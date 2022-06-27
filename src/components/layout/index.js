@@ -1,13 +1,15 @@
 import React from "react";
 import BodyWrapper from "../bodyWrapper";
 import NavBar from "../nav-bar/NavBar";
+import Footer from "../Footer";
 
 function WebsiteLayout({ children, props }) {
   return (
     <BodyWrapper>
-      <div className="flex flex-row w-screen h-screen justify-start">
+      <div className="w-screen h-screen justify-center">
+        <NavBar />
         <section className="w-full">{children}</section>
-        {/* <Footer/> */}
+        <Footer />
       </div>
     </BodyWrapper>
   );

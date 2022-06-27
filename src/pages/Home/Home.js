@@ -14,7 +14,7 @@ function Home() {
         <VideoPlayer />
         <About />
         <Winners />
-        <Category />
+        {/* <Category /> */}
         <Nominate />
       </div>
     </DashboardLayout>
