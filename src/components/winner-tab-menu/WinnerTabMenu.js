@@ -232,13 +232,13 @@ function AboutTabMenu() {
                   responsive={responsive}
                 >
                   <section class="flex-shrink-0 grid grid-cols-1 gap-y-3 ml-10 ">
-                    <span>
+                    <div class="h-min overflow-hidden rounded-md">
                       <img
                         src={window.location.origin + `/uploads/images/cat.jpg`}
-                        className="bg-purple-200 w-80 lg:w-[96vh] "
+                        className="bg-purple-200 w-80 lg:w-[96vh] hover:scale-110 transition-all duration-500"
                         alt=""
                       />
-                    </span>
+                    </div>
                     <div className="flex flex-row justify-start items-center">
                       <img
                         src={
@@ -256,13 +256,14 @@ function AboutTabMenu() {
                     </p>
                   </section>
                   <section class="flex-shrink-0 grid grid-cols-1 gap-y-3 ml-10">
-                    <span>
+                    <div class="h-min overflow-hidden rounded-md">
                       <img
                         src={window.location.origin + `/uploads/images/cat.jpg`}
-                        className="bg-purple-200 w-80 lg:w-[96vh] "
+                        className="bg-purple-200 w-80 lg:w-[96vh] hover:scale-110 transition-all duration-500"
                         alt=""
                       />
-                    </span>
+                    </div>
+
                     <div className="flex flex-row justify-start items-center">
                       <img
                         src={
@@ -280,13 +281,13 @@ function AboutTabMenu() {
                     </p>
                   </section>
                   <section class="flex-shrink-0 grid grid-cols-1 gap-y-3 ml-10">
-                    <span>
+                    <div class="h-min overflow-hidden rounded-md">
                       <img
                         src={window.location.origin + `/uploads/images/cat.jpg`}
-                        className="bg-purple-200 w-80 lg:w-[96vh] "
+                        className="bg-purple-200 w-80 lg:w-[96vh] hover:scale-110 transition-all duration-500"
                         alt=""
                       />
-                    </span>
+                    </div>
                     <div className="flex flex-row justify-start items-center">
                       <img
                         src={
@@ -304,13 +305,13 @@ function AboutTabMenu() {
                     </p>
                   </section>
                   <section class="flex-shrink-0 grid grid-cols-1 gap-y-3 ml-10">
-                    <span>
+                    <div class="h-min overflow-hidden rounded-md">
                       <img
                         src={window.location.origin + `/uploads/images/cat.jpg`}
-                        className="bg-purple-200 w-80 lg:w-[96vh] "
+                        className="bg-purple-200 w-80 lg:w-[96vh] hover:scale-110 transition-all duration-500"
                         alt=""
                       />
-                    </span>
+                    </div>
                     <div className="flex flex-row justify-start items-center">
                       <img
                         src={
