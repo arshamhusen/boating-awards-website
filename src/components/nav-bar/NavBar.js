@@ -13,7 +13,7 @@ function NavBar() {
     <div>
       <div
         style={{
-          backgroundImage: `url(http://192.168.1.218:3000/uploads/images/nav-desktop.png`,
+          backgroundImage: `url(http://192.168.100.127:3000/uploads/images/nav-desktop.png`,
         }}
         className="h-20 xl:px-20 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
       >

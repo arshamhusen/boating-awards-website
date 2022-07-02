@@ -4,7 +4,7 @@ function index() {
   return (
     <footer
       style={{
-        backgroundImage: `url(http://192.168.1.218:3000/uploads/images/nav-desktop.png`,
+        backgroundImage: `url(http://192.168.100.127:3000/uploads/images/nav-desktop.png`,
       }}
       class="p-4 bg-cover bg-left md:px-6 md:py-8 dark:bg-gray-800"
     >

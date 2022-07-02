@@ -1,4 +1,7 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnType": false
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "html.format.preserveNewLines": false,
+  "editor.formatOnSaveMode": "modifications"
 }
