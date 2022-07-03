@@ -11,7 +11,7 @@ function Banner() {
   return (
     <div
       style={{
-        backgroundImage: `url(http://192.168.100.127:3000/uploads/images/banner-bg.jpg`,
+        backgroundImage: `url(https://main.d1aygiw4pvqbs8.amplifyapp.com/uploads/images/banner-bg.jpg`,
       }}
       className="h-screen w-screen bg-cover bg-top flex flex-col justify-center items-center"
     >
