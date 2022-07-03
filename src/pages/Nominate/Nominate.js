@@ -31,7 +31,7 @@ function Category() {
   return (
     <section
       style={{
-        backgroundImage: `url(https://main.d1aygiw4pvqbs8.amplifyapp.com/uploads/images/nominate-bg.jpeg`,
+        backgroundImage: `url(https://main.d1aygiw4pvqbs8.amplifyapp.com/uploads/images/banner-bg.jpg)`,
       }}
       className="bg-blend-darken bg-cover  bg-top flex flex-cols  bg-repeat-y justify-start md:justify-center py-16 md:py-20 items-start px-2 md:px-10 "
     >
