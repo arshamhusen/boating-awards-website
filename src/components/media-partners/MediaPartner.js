@@ -16,7 +16,7 @@ const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    paritialVisibilityGutter: 30,
+    paritialVisibilityGutter: 20,
   },
 };
 
@@ -26,8 +26,11 @@ function classNames(...classes) {
 
 function MediaPartner(props) {
   return (
-    <div className="w-full max-w-7xl items-center justify-center my-10">
-      <h1 data-aos="fade-up" className="text-4xl font-medium text-secondary">
+    <div className="w-full max-w-7xl items-center justify-center my-2 md:my-10 px-5 md:px-0">
+      <h1
+        data-aos="fade-up"
+        className="text-2xl md:text-3xl xl:text-4xl font-medium text-secondary"
+      >
         {props.heading}
       </h1>
       <hr className="w-full mt-3 mb-10 border text-lightgray" />
@@ -36,7 +39,6 @@ function MediaPartner(props) {
           autoPlay
           infinite
           ssr
-          partialVisbile
           itemClass="slider-image-item"
           responsive={responsive}
         >
