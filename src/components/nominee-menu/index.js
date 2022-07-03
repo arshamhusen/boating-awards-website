@@ -539,7 +539,7 @@ function Index() {
                               </div>
                             </div>
                             <div className="w-full mt-8" onClick={openModal}>
-                              <button className="w-full text-sm md:text-base  font-medium bg-warning px-2 p-2 rounded-lg hover:brightness-95 ">
+                              <button className="w-full text-white uppercase text-sm md:text-base  font-medium bg-warning px-2 p-2 rounded-lg hover:brightness-95 ">
                                 Vote now
                               </button>
                             </div>
@@ -604,7 +604,7 @@ function Index() {
                                   <Field
                                     name="phone"
                                     type="text"
-                                    className="col-span-9 p-2  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
+                                    className="col-span-9 p-2  tracking-wider form-control  focus:ring-none focus:outline-none rounded-r-lg border-borderGray border shadow-sm"
                                   />
                                 </div>
 

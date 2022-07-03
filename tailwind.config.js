@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./src/**/*.{html,js}",
@@ -25,6 +27,11 @@ module.exports = {
       black: "#000000",
       warning: "#E6CF37",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
+        cursive: ["cursive"],
+      },
+    },
   },
 };

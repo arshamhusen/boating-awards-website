@@ -1,17 +1,22 @@
-@font-face {
-  font-family: "Rubik";
-  src: url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
-}
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: "Montserrat";
+  }
+}
 .my-video {
   width: 100vw;
   aspect-ratio: 16/9;
   margin: 2px 2px 2px 2px;
 }
+
+
+
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),
