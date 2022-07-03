@@ -368,7 +368,7 @@ function Index() {
   let [isOpen, setIsOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [otpRequested, setOTPRequested] = useState(false);
+  const [OTPRequested, setOTPRequested] = useState(false);
 
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -581,11 +581,11 @@ function Index() {
                     <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                       <Dialog.Title
                         as="h1"
-                        className="text-lg md:text-2xl text-secondary font-semibold leading-6 text-gray-900"
+                        className="text-lg md:text-2xl text-center text-secondary font-semibold leading-6 text-gray-900"
                       >
                         You are required to sign in to vote
                       </Dialog.Title>
-                      {!otpRequested && (
+                      {!OTPRequested && (
                         <>
                           <div className="mt-2">
                             <p className="text-gray text-sm md:text-base">
@@ -595,8 +595,8 @@ function Index() {
                           <div className="my-4 mt-4">
                             <FormikProvider value={formik}>
                               <Form className="flex flex-col items-center justify-center">
-                                <div className="grid grid-cols-12 items-center w-3/5">
-                                  <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray h-full  shadow-sm flex items-center justify-center px-4 ">
+                                <div className="grid grid-cols-12 items-center w-4/5">
+                                  <div className=" col-span-3 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray shadow-sm flex items-center justify-center px-4 ">
                                     <p className="lg:text-base text-base text-gray">
                                       +960
                                     </p>
@@ -604,7 +604,7 @@ function Index() {
                                   <Field
                                     name="phone"
                                     type="text"
-                                    className="col-span-8 p-2  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
+                                    className="col-span-9 p-2  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
                                   />
                                 </div>
 
@@ -616,8 +616,42 @@ function Index() {
                               </Form>
                             </FormikProvider>
                           </div>
-                          <div className="mt-4">
+                          <div
+                            onClick={() => setOTPRequested(true)}
+                            className="mt-4"
+                          >
                             <Button title="Request OTP" />
+                          </div>
+                        </>
+                      )}
+                      {OTPRequested && (
+                        <>
+                          <div className="mt-2 flex items-center justify-center">
+                            <p className="text-gray text-center text-xs md:text-sm w-4/5">
+                              A 4-digit OTP has been sent to +960****529. Please
+                              Enter the OTP.
+                            </p>
+                          </div>
+
+                          <div className="my-4 mt-2">
+                            <FormikProvider value={formik}>
+                              <Form className="flex flex-col items-center justify-center">
+                                <Field
+                                  name="phone"
+                                  type="text"
+                                  className="col-span-9 w-2/4 p-2 text-2xl text-center  tracking-wider form-control focus:border-primary focus:ring-lime  border-borderGray border shadow-sm"
+                                />
+                              </Form>
+                            </FormikProvider>
+                          </div>
+                          <div className="mt-1 flex items-center justify-center text-primary text-center text-xs md:text-sm w-4/5">
+                            <p className="">I did not recieve an SMS</p>
+                          </div>
+                          <div
+                            onClick={() => setIsOpen(false)}
+                            className="mt-4"
+                          >
+                            <Button title="Confirm" />
                           </div>
                         </>
                       )}
