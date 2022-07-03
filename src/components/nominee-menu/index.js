@@ -454,14 +454,14 @@ function Index() {
             className={`flex mt-20 lg:mt-30 ${showMenu ? "flex" : "hidden"}`}
           >
             <Tab.List
-              className={`px-0 px-10 text-center lg:px-10 md:mt-5 justify-center flex lg:flex-wrap w-screen flex-col overflow-scroll items-center lg:items-start gap-x-2 md:gap-x-2 ${
+              data-aos="zoom-out"
+              className={`px-0 px-10 text-center lg:px-10 md:mt-5 justify-center flex lg:flex-wrap w-screen flex-col overflow-scroly items-center lg:items-start gap-x-2 md:gap-x-2 ${
                 showMenu ? "flex" : "hidden"
               }`}
             >
               {categories.map((cat) => (
                 <Tab
                   defaultChecked={false}
-                  data-aos="zoom-out"
                   onClick={() => categorySelect(cat)}
                   className={({ selected }) =>
                     classNames(
