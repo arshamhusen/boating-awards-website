@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Nominees from "../pages/Nominee/Nominees";
+import Partners from "../pages/Partners/index";
 
 function PageRoutes() {
   return (
@@ -15,6 +16,7 @@ function PageRoutes() {
         <Route path="/" element={<Navigate replace to="/home/1" />} />
         <Route exact path="/home/:id" element={<Home />} />
         <Route exact path="/nominees" element={<Nominees />} />
+        <Route exact path="/partners" element={<Partners />} />
       </Routes>
     </Router>
   );

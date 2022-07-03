@@ -539,7 +539,7 @@ function Index() {
                               </div>
                             </div>
                             <div className="w-full mt-8" onClick={openModal}>
-                              <button className="w-full text-white uppercase text-sm md:text-base  font-medium bg-warning px-2 p-2 rounded-lg hover:brightness-95 ">
+                              <button className="w-full text-white uppercase text-sm md:text-base  font-medium bg-secondary px-2 p-2 rounded-lg hover:brightness-110 ">
                                 Vote now
                               </button>
                             </div>
@@ -618,7 +618,7 @@ function Index() {
                           </div>
                           <div
                             onClick={() => setOTPRequested(true)}
-                            className="mt-4"
+                            className="mt-2"
                           >
                             <Button title="Request OTP" />
                           </div>

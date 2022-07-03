@@ -57,7 +57,12 @@ function NavBar() {
                   >
                     Winners
                   </Link>
-
+                  <Link
+                    to="/partners"
+                    className="link link-underline link-underline-black "
+                  >
+                    Our Partners
+                  </Link>
                   <Link
                     to="/nominees"
                     className="link link-underline link-underline-black "
