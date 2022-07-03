@@ -4,6 +4,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import Button from "../../ui/button/Button";
 import "tw-elements";
+import { ErrorMessage, Field, Form, FormikProvider, useFormik } from "formik";
+import * as Yup from "yup";
 
 const categories = [
   {
@@ -363,18 +365,59 @@ function classNames(...classes) {
 }
 
 function Index() {
-  let [isOpen, setIsOpen] = useState(false)
+  let [isOpen, setIsOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [otpRequested, setOTPRequested] = useState(false);
+
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+  const initialValues = {
+    companyName: "",
+    phone: "",
+    email: "",
+    focalPoint: "",
+    details: "",
+  };
+
+  const validationSchema = Yup.object().shape({
+    companyName: Yup.string().required("Company name is required"),
+    phone: Yup.string()
+      .min(7, "Phone number should be exaclty ")
+      .max(7)
+      .matches(phoneRegExp, "Phone number is not valid"),
+
+    focalPoint: Yup.string().required("Focal point is required"),
+    email: Yup.string().email().required("Email is required"),
+    details: Yup.string()
+      .min(1)
+      .required(" Please add some details for context"),
+  });
+
+  const inputHandler = (event, editor) => {
+    formik.setFieldValue("details", editor.getData());
+  };
+
+  const onSubmit = async (
+    values,
+    { setSubmitting, setErrors, setStatus, resetForm }
+  ) => {
+    console.log(values);
+
+    //save your form data
+    //await signatoryInfoCreateAction(fd)
+  };
+
+  const formik = useFormik({ initialValues, onSubmit, validationSchema });
 
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true)
+    setIsOpen(true);
   }
-
-  const [showMenu, setShowMenu] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState("");
 
   async function categorySelect(cat) {
     setShowMenu(false);
@@ -411,7 +454,7 @@ function Index() {
             className={`flex mt-20 lg:mt-30 ${showMenu ? "flex" : "hidden"}`}
           >
             <Tab.List
-              className={`px-0   md:px-10 text-center lg:px-10 md:mt-5 flex flex-wrap  items-start justify-center  gap-x-2 md:gap-x-2 ${
+              className={`px-0 px-10 text-center lg:px-10 md:mt-5 justify-center flex lg:flex-wrap w-screen flex-col overflow-scroll items-center lg:items-start gap-x-2 md:gap-x-2 ${
                 showMenu ? "flex" : "hidden"
               }`}
             >
@@ -422,7 +465,7 @@ function Index() {
                   onClick={() => categorySelect(cat)}
                   className={({ selected }) =>
                     classNames(
-                      "py-2.5 md:py-2 text-center bg-lightPrimary mt-2 p-2 px-4 font-medium  text-secondary capitalize  text md:text-base leading-5 ",
+                      "py-2.5 md:py-2 w-full text-center bg-lightPrimary mt-2 p-2 px-4 font-medium  text-secondary capitalize  text-sm md:text-base leading-5 ",
                       "focus:outline-none rounded-lg",
                       selected
                         ? "border-b-lime/[9] text-warning bg-primary  "
@@ -445,35 +488,35 @@ function Index() {
               <Tab.Panel className={` gap-8 `}>
                 <>
                   <div className="grid grid-cols-1 gap-y-2 my-10">
-                    <h1 className="text-3xl font-medium text-secondary">
+                    <h1 className="text-xl lg:text-3xl font-medium text-secondary">
                       {selectedCategory.name}
                     </h1>
-                    <p className="text-xl text-gray">
+                    <p className="text-sm lg:text-xl text-gray">
                       This is awarded to the best boat
                     </p>
                   </div>
 
-                  <div data-aos="fade-up" className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div
+                    data-aos="fade-up"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                  >
                     {categories.map((cat) => (
-                      <div
-
-                        className="flex justify-start rounded-xl p-10 bg-lightgray  items-start"
-                      >
-                        <div className="grid grid-cols-12 gap-x-4">
-                          <div class="overflow-hidden col-span-5 rounded-md bg-white p-2 items-center justify-center">
+                      <div className="flex rounded-xl p-4 lg:p-10 bg-lightgray">
+                        <div className="grid grid-cols-1  w-full  lg:grid-cols-12 gap-4">
+                          <div class="overflow-hidden w-full  col-span-1 flex items-center justify-center  lg:col-span-5 rounded-md bg-white p-2 ">
                             <img
                               src={
                                 "https://thehawks.biz/wp-content/uploads/2020/11/footerlogo.png"
                               }
-                              className="bg-purple-200   w-80 lg:w-[96vh] hover:scale-125 transition-all duration-500"
+                              className="bg-purple-200  hover:scale-125 transition-all duration-500"
                               alt=""
                             />
                           </div>
-                          <div className="col-span-7">
-                            <h1 className="text-xl font-medium text-secondary">
+                          <div className="col-span-1 md:col-span-7">
+                            <h1 className=" text-lg lg:text-xl font-medium text-secondary">
                               The Hawks Pvt Ltd
                             </h1>
-                            <div className="grid grid-cols-12 gap-y-3 mt-4 overflow-hidden">
+                            <div className="grid text-sm lg:text-base grid-cols-12 gap-y-2 lg:gap-y-3 mt-4 overflow-hidden">
                               <div className="grid grid-cols-1 col-span-3  text-primary font-medium">
                                 <h4>Address:</h4>
                               </div>
@@ -495,11 +538,10 @@ function Index() {
                                 <h4>+960 6581000:</h4>
                               </div>
                             </div>
-                            <div
-                              className="w-full mt-4"
-                              onClick={openModal}
-                            >
-                              <Button title="vote now" />
+                            <div className="w-full mt-8" onClick={openModal}>
+                              <button className="w-full text-sm md:text-base  font-medium bg-warning px-2 p-2 rounded-lg hover:brightness-95 ">
+                                Vote now
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -536,34 +578,55 @@ function Index() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel
-                      className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                    <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                       <Dialog.Title
                         as="h1"
-                        className="text-2xl text-secondary font-medium leading-6 text-gray-900"
-                  >
+                        className="text-lg md:text-2xl text-secondary font-semibold leading-6 text-gray-900"
+                      >
                         You are required to sign in to vote
                       </Dialog.Title>
-                      <div className="mt-2">
-                        <p className="text-gray">
-                          Please enter your phone number
-                        </p>
-                      </div>
-                      <div className="mt-2">
+                      {!otpRequested && (
+                        <>
+                          <div className="mt-2">
+                            <p className="text-gray text-sm md:text-base">
+                              Please enter your phone number
+                            </p>
+                          </div>
+                          <div className="my-4 mt-4">
+                            <FormikProvider value={formik}>
+                              <Form className="flex flex-col items-center justify-center">
+                                <div className="grid grid-cols-12 items-center w-3/5">
+                                  <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray h-full  shadow-sm flex items-center justify-center px-4 ">
+                                    <p className="lg:text-base text-base text-gray">
+                                      +960
+                                    </p>
+                                  </div>
+                                  <Field
+                                    name="phone"
+                                    type="text"
+                                    className="col-span-8 p-2  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
+                                  />
+                                </div>
 
-                      </div>
-
-                      <div className="mt-4">
-                        <Button title="Request OTP" />
-                      </div>
-
+                                <ErrorMessage
+                                  name="phone"
+                                  component="div"
+                                  className="text-primary text-sm mt-6"
+                                />
+                              </Form>
+                            </FormikProvider>
+                          </div>
+                          <div className="mt-4">
+                            <Button title="Request OTP" />
+                          </div>
+                        </>
+                      )}
                     </Dialog.Panel>
                   </Transition.Child>
                 </div>
               </div>
             </Dialog>
           </Transition>
-
         </div>
       </Tab.Group>
     </div>

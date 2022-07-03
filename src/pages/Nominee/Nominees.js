@@ -8,7 +8,7 @@ function Nominees() {
   return (
     <DashboardLayout>
       <div
-        className="text-center flex items-center justify-center flex-col  mt-40 mb-5"
+        className="text-center flex items-center justify-center flex-col  mt-32 lg:mt-40 mb-5"
         data-aos="fade-up"
       >
         <Heading heading="2022 Nominees" position="center" color="secondary" />
