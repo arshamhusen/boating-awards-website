@@ -29,7 +29,7 @@ function MediaPartner(props) {
     <div className="w-full max-w-7xl items-center justify-center my-2 md:my-10 px-5 md:px-0">
       <h1
         data-aos="fade-up"
-        className="text-2xl md:text-3xl xl:text-4xl font-medium text-secondary"
+        className="text-lg md:text-xl xl:text-4xl font-medium text-secondary"
       >
         {props.heading}
       </h1>
@@ -50,17 +50,8 @@ function MediaPartner(props) {
                 alt=""
               />
             </div>
-            <div className="flex flex-row justify-start items-center">
-              <img
-                src={window.location.origin + `/uploads/vectors/laurel.svg`}
-                className="bg-purple-200 w-14 "
-                alt=""
-              />
-              <p className="font-medium ml-4 text-primary">
-                Best Liveaboard/Yacht
-              </p>
-            </div>
-            <p className="text-2xl md:text-3xl text-secondary">
+
+            <p className="text-lg md:text-xl text-secondary">
               Alia Investment Yacht
             </p>
           </section>
@@ -73,17 +64,7 @@ function MediaPartner(props) {
               />
             </div>
 
-            <div className="flex flex-row justify-start items-center">
-              <img
-                src={window.location.origin + `/uploads/vectors/laurel.svg`}
-                className="bg-purple-200 w-14 "
-                alt=""
-              />
-              <p className="font-medium ml-4 text-primary">
-                Best Liveaboard/Yacht
-              </p>
-            </div>
-            <p className="text-2xl md:text-3xl text-secondary">
+            <p className="text-lg md:text-xl text-secondary">
               Alia Investment Yacht
             </p>
           </section>
@@ -95,17 +76,8 @@ function MediaPartner(props) {
                 alt=""
               />
             </div>
-            <div className="flex flex-row justify-start items-center">
-              <img
-                src={window.location.origin + `/uploads/vectors/laurel.svg`}
-                className="bg-purple-200 w-14 "
-                alt=""
-              />
-              <p className="font-medium ml-4 text-primary">
-                Best Liveaboard/Yacht
-              </p>
-            </div>
-            <p className="text-2xl md:text-3xl text-secondary">
+
+            <p className="text-lg md:text-xl text-secondary">
               Alia Investment Yacht
             </p>
           </section>
@@ -117,17 +89,8 @@ function MediaPartner(props) {
                 alt=""
               />
             </div>
-            <div className="flex flex-row justify-start items-center">
-              <img
-                src={window.location.origin + `/uploads/vectors/laurel.svg`}
-                className="bg-purple-200 w-14 "
-                alt=""
-              />
-              <p className="font-medium ml-4 text-primary">
-                Best Liveaboard/Yacht
-              </p>
-            </div>
-            <p className="text-2xl md:text-3xl text-secondary">
+
+            <p className="text-lg md:text-xl text-secondary">
               Alia Investment Yacht
             </p>
           </section>
