@@ -39,6 +39,7 @@ function MediaPartner(props) {
           autoPlay
           infinite
           ssr
+          arrows={false}
           itemClass="slider-image-item"
           responsive={responsive}
         >

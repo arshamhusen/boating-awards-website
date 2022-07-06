@@ -5,6 +5,11 @@ import Heading from "../../ui/heading/Heading";
 import NomineeMenu from "../../components/nominee-menu";
 
 function Nominees() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <DashboardLayout>
       <div

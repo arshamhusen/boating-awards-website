@@ -76,7 +76,7 @@ function NavBar() {
               to="/home/4"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
-              <button className="px-12 p-2 bg-warning text-secondary uppercase hover:brightness-95 font-medium text-sm md:text-base lg:text-base">
+              <button className="px-12 p-2 bg-white rounded-lg text-primary font-medium uppercase  hover:bg-lightPrimary font tracking-wider text-sm md:text-base lg:text-base">
                 Nominate
               </button>
             </Link>
