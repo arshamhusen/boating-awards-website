@@ -127,7 +127,7 @@ function NavBar() {
                   leaveFrom="opacity-100 translate-x-0"
                   leaveTo="opacity-0 translate-x-full"
                 >
-                  <Popover.Panel className="absolute h-screen z-10 top-full inset-x-0 transform shadow-lg bg-white">
+                  <Popover.Panel className="absolute h-[94vh] z-10 top-full inset-x-0 transform shadow-lg bg-white">
                     <div className="p-10 flex flex-col justify-between h-[8vh]  gap-y-10">
                       <ul className="flex flex-col items-start  justify-start gap-y-10 xl:gap-x-20 text-base uppercase text-secondary font-medium">
                         <Link
@@ -150,6 +150,13 @@ function NavBar() {
                         </Link>
 
                         <Link
+                          to="/partners"
+                          className="link link-underline link-underline-black "
+                        >
+                          Out Partners
+                        </Link>
+
+                        <Link
                           to="/nominees"
                           className="link link-underline link-underline-black "
                         >
@@ -158,9 +165,9 @@ function NavBar() {
                       </ul>
                       <Link
                         to="/home/4"
-                        className="col-span-2 hidden lg:flex items-center justify-center "
+                        className="col-span-2 flex w-full lg:flex items-center justify-center "
                       >
-                        <button className="px-12 p-2  bg-warning text-secondary uppercase hover:brightness-95 font-medium text-sm md:text-base lg:text-base">
+                        <button className="px-12 p-2 w-full rounded-lg  bg-warning text-secondary uppercase hover:brightness-95 font-medium text-sm md:text-base lg:text-base">
                           Nominate
                         </button>
                       </Link>
