@@ -29,7 +29,7 @@ function MediaPartner(props) {
     <div className="w-full max-w-7xl items-center justify-center my-2 md:my-10 px-5 md:px-0">
       <h1
         data-aos="fade-up"
-        className="text-lg md:text-xl xl:text-4xl font-medium text-secondary"
+        className="text-lg md:text-xl xl:text-3xl font-medium text-secondary"
       >
         {props.heading}
       </h1>

@@ -452,33 +452,75 @@ function Index() {
 
       <Tab.Group manual>
         <div className="grid grid-cols-1 gap-x-3">
-          <div
-            className={`flex mt-20 lg:mt-30 ${showMenu ? "flex" : "hidden"}`}
-          >
-            <Tab.List
-              data-aos="zoom-out"
-              className={`px-0 px-10 text-center lg:px-10 md:mt-5 justify-center flex lg:flex-wrap w-screen flex-col overflow-scroly items-center lg:items-start gap-x-2 md:gap-x-2 ${
-                showMenu ? "flex" : "hidden"
+          <div>
+            <div
+              className={`flex mt-20 lg:mt-30 ${
+                showMenu ? "lg:flex grid grid-cols-1 gap-y-10" : "hidden"
               }`}
             >
-              {categories.map((cat) => (
-                <Tab
-                  defaultChecked={false}
-                  onClick={() => categorySelect(cat)}
-                  className={({ selected }) =>
-                    classNames(
-                      "py-2.5 md:py-2 w-full text-center bg-lightPrimary mt-2 p-2 px-4 font-medium  text-secondary capitalize  text-sm md:text-base leading-5 ",
-                      "focus:outline-none rounded-lg",
-                      selected
-                        ? "border-b-lime/[9] text-warning bg-primary  "
-                        : "text-blue-100 hover:bg-warning "
-                    )
-                  }
+              <Tab.List
+                data-aos="zoom-out"
+                className={` px-10 text-start lg:px-10 md:mt-5 justify-center flex lg:flex-wrap w-screen flex-col overflow-scroly items-center lg:items-start gap-x-2 md:gap-x-2 ${
+                  showMenu ? "flex" : "hidden"
+                }`}
+              >
+                <h1
+                  data-aos="fade-up"
+                  className="text-lg md:text-xl xl:text-3xl  font-medium text-secondary"
                 >
-                  {cat.name}
-                </Tab>
-              ))}
-            </Tab.List>
+                  General Categories
+                </h1>
+                <hr className="w-full mt-3 mb-10 border text-lightgray" />
+                {categories.map((cat) => (
+                  <Tab
+                    defaultChecked={false}
+                    onClick={() => categorySelect(cat)}
+                    className={({ selected }) =>
+                      classNames(
+                        "py-2.5 md:py-2 w-full text-start bg-lightPrimary mt-2 p-2 px-4 font-medium  text-secondary capitalize  text-sm md:text-base leading-5 ",
+                        "focus:outline-none rounded-lg",
+                        selected
+                          ? "border-b-lime/[9] text-warning bg-primary  "
+                          : "text-blue-100 hover:bg-warning "
+                      )
+                    }
+                  >
+                    {cat.name}
+                  </Tab>
+                ))}
+              </Tab.List>
+              <Tab.List
+                data-aos="zoom-out"
+                className={` px-10 text-center lg:px-10 md:mt-5 justify-center flex lg:flex-wrap w-screen flex-col overflow-scroly items-center lg:items-start gap-x-2 md:gap-x-2 ${
+                  showMenu ? "flex" : "hidden"
+                }`}
+              >
+                <h1
+                  data-aos="fade-up"
+                  className="text-lg md:text-xl xl:text-3xl font-medium text-secondary"
+                >
+                  Faces of Boating
+                </h1>
+                <hr className="w-full mt-3 mb-10 border text-lightgray" />
+                {categories.map((cat) => (
+                  <Tab
+                    defaultChecked={false}
+                    onClick={() => categorySelect(cat)}
+                    className={({ selected }) =>
+                      classNames(
+                        "py-2.5 md:py-2 w-full text-center bg-lightPrimary mt-2 p-2 px-4 font-medium  text-secondary capitalize  text-sm md:text-base leading-5 ",
+                        "focus:outline-none rounded-lg",
+                        selected
+                          ? "border-b-lime/[9] text-warning bg-primary  "
+                          : "text-blue-100 hover:bg-warning "
+                      )
+                    }
+                  >
+                    {cat.name}
+                  </Tab>
+                ))}
+              </Tab.List>
+            </div>
           </div>
 
           <div
