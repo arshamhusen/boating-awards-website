@@ -130,24 +130,24 @@ function NavBar() {
                   <Popover.Panel className="absolute h-[94vh] z-10 top-full inset-x-0 transform shadow-lg bg-white">
                     <div className="p-10 flex flex-col justify-between h-[8vh]  gap-y-10">
                       <ul className="flex flex-col items-start  justify-start gap-y-10 xl:gap-x-20 text-base uppercase text-secondary font-medium">
-                        <Link
-                          to="/home/1"
+                        <a
+                          href="/home/1"
                           className="link link-underline link-underline-black "
                         >
                           Home
-                        </Link>
-                        <Link
-                          to="/home/2"
+                        </a>
+                        <a
+                          href="/home/2"
                           className="link link-underline link-underline-black "
                         >
                           About
-                        </Link>
-                        <Link
-                          to="/home/3"
+                        </a>
+                        <a
+                          href="/home/3"
                           className="link link-underline link-underline-black "
                         >
                           Winners
-                        </Link>
+                        </a>
 
                         <Link
                           to="/partners"
@@ -163,14 +163,14 @@ function NavBar() {
                           2022 Nominees
                         </Link>
                       </ul>
-                      <Link
-                        to="/home/4"
+                      <a
+                        href="/home/4"
                         className="col-span-2 flex w-full lg:flex items-center justify-center "
                       >
                         <button className="px-12 p-2 w-full rounded-lg  bg-warning text-secondary uppercase hover:brightness-95 font-medium text-sm md:text-base lg:text-base">
                           Nominate
                         </button>
-                      </Link>
+                      </a>
                     </div>
                   </Popover.Panel>
                 </Transition>
