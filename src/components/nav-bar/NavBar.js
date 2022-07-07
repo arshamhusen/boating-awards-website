@@ -73,11 +73,11 @@ function NavBar() {
               </div>
             </div>
             <Link
-              to="/home/4"
+              to="/nominees"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
               <button className="px-12 p-2 bg-white rounded-lg text-primary font-medium uppercase  hover:bg-lightPrimary font tracking-wider text-sm md:text-base lg:text-base">
-                Nominate
+                Vote
               </button>
             </Link>
           </div>
@@ -164,11 +164,11 @@ function NavBar() {
                         </Link>
                       </ul>
                       <a
-                        href="/home/4"
+                        href="/nominees"
                         className="col-span-2 flex w-full lg:flex items-center justify-center "
                       >
                         <button className="px-12 p-2 w-full rounded-lg  bg-warning text-secondary uppercase hover:brightness-95 font-medium text-sm md:text-base lg:text-base">
-                          Nominate
+                          Vote
                         </button>
                       </a>
                     </div>

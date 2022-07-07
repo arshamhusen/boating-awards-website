@@ -70,10 +70,6 @@ function Home() {
       <div id="3" className="pt-10">
         <Winners />
       </div>
-      {/* <Category /> */}
-      <section id="4" className="pt-20">
-        <Nominate />
-      </section>
     </DashboardLayout>
   );
 }
