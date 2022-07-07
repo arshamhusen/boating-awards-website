@@ -369,6 +369,8 @@ function Index() {
   const [showMenu, setShowMenu] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [OTPRequested, setOTPRequested] = useState(false);
+  const [voted, setVoted] = useState(false);
+  const [votedNom, setVotedNom] = useState("");
 
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -501,7 +503,11 @@ function Index() {
                     className="grid grid-cols-1 md:grid-cols-2 gap-6"
                   >
                     {categories.map((cat) => (
-                      <div className="flex rounded-xl p-4 lg:p-10 bg-lightgray">
+                      <div
+                        className={`flex rounded-xl p-4 lg:p-10  ${
+                          votedNom === cat ? "bg-lightPrimary" : "bg-lightgray"
+                        } `}
+                      >
                         <div className="grid grid-cols-1  w-full  lg:grid-cols-12 gap-4">
                           <div class="overflow-hidden w-full  col-span-1 flex items-center justify-center  lg:col-span-5 rounded-md bg-white p-2 ">
                             <img
@@ -538,11 +544,21 @@ function Index() {
                                 <h4>+960 6581000:</h4>
                               </div>
                             </div>
-                            <div className="w-full mt-8" onClick={openModal}>
-                              <button className="w-full text-white uppercase text-sm md:text-base  font-medium bg-secondary px-2 p-2 rounded-lg hover:brightness-110 ">
-                                Vote now
-                              </button>
-                            </div>
+                            {!voted && (
+                              <>
+                                <div
+                                  className="w-full mt-8"
+                                  onClick={openModal}
+                                >
+                                  <button
+                                    onClick={() => setVotedNom(cat)}
+                                    className="w-full text-white uppercase text-sm md:text-base  font-medium bg-secondary px-2 p-2 rounded-lg hover:brightness-110 "
+                                  >
+                                    Vote now
+                                  </button>
+                                </div>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -647,10 +663,7 @@ function Index() {
                           <div className="mt-1 flex items-center justify-center text-primary text-center text-xs md:text-sm w-4/5">
                             <p className="">I did not recieve an SMS</p>
                           </div>
-                          <div
-                            onClick={() => setIsOpen(false)}
-                            className="mt-4"
-                          >
+                          <div onClick={() => setVoted(true)} className="mt-4">
                             <Button title="Confirm" />
                           </div>
                         </>
