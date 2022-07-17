@@ -51,7 +51,7 @@ function AboutTabMenu() {
                     onClick={() => setMenuPicture(name.picture)}
                     className={({ selected }) =>
                       classNames(
-                        "py-2.5 md:py-5 text-secondary capitalize text-start  font-semibold text-lg md:text-xl lg:text-2xl leading-5 ",
+                        "py-2.5  text-secondary capitalize text-start  font-semibold text-sm md:text-lg lg:text-xl leading-5 ",
                         "focus:outline-none",
                         selected
                           ? "border-b-lime/[9] text-warning "
@@ -71,7 +71,7 @@ function AboutTabMenu() {
                     >
                       <p
                         data-aos="fade-up"
-                        className="text-base md:text-lg w-full lg:text-xl text-secondary"
+                        className="text-sm md:text-base w-full  text-secondary"
                       >
                         {menu.description}
                       </p>

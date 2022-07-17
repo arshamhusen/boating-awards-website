@@ -8,6 +8,7 @@ import {
 import Home from "../pages/Home/Home";
 import Nominees from "../pages/Nominee/Nominees";
 import Partners from "../pages/Partners/index";
+import Nominate from "../pages/Nominate/Nominate";
 
 function PageRoutes() {
   return (
@@ -17,6 +18,7 @@ function PageRoutes() {
         <Route exact path="/home/:id" element={<Home />} />
         <Route exact path="/nominees" element={<Nominees />} />
         <Route exact path="/partners" element={<Partners />} />
+        <Route exact path="/nominees/:id" element={<Nominate />} />
       </Routes>
     </Router>
   );

@@ -15,7 +15,7 @@ function NavBar() {
         style={{
           backgroundImage: `url(https://main.d1aygiw4pvqbs8.amplifyapp.com/uploads/images/nav-desktop.png`,
         }}
-        className="h-20 xl:px-20 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
+        className="h-[10vh] xl:px-20 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
       >
         <div className="flex justify-between items-center w-full">
           <div className="grid grid-cols-12 w-full">
@@ -38,7 +38,7 @@ function NavBar() {
             {/* Menu Items */}
             <div className=" hidden lg:flex flex-row  md:col-span-7 lg:col-span-8 justify-center items-center">
               <div>
-                <ul className="hidden md:flex items-center  justify-center gap-x-10 xl:gap-x-20 text-base uppercase text-white font-medium">
+                <ul className="hidden md:flex items-center  justify-center gap-x-10 xl:gap-x-20  text-base md:text-sm  uppercase text-white font-medium">
                   <Link
                     to="/home/1"
                     className="link link-underline link-underline-black "
