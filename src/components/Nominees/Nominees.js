@@ -486,11 +486,12 @@ function Index() {
               <h1 className="text-secondary text-2xl font-light mb-1">
                 Thank you for voting{" "}
               </h1>
-              <h4 className="font-bold text-5xl text-primary mb-5 leading-tight">Adaaran Yacht Pvt Ltd Maldives</h4>
+              <h4 className="font-bold text-5xl text-primary mb-5 leading-tight">
+                Adaaran Yacht Pvt Ltd Maldives
+              </h4>
               <div onClick={() => setVoted(false)}>
-                 <Button title="Change my vote" />
+                <Button title="Change my vote" />
               </div>
-
             </div>
           </div>
         </>
@@ -546,7 +547,7 @@ function Index() {
                       <div className="w-full mt-8" onClick={openModal}>
                         <button
                           onClick={() => setVotedNom(cat)}
-                          className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-lightSecondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-2 p-2 rounded-lg hover:brightness-110 "
+                          className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-lg hover:brightness-110 "
                         >
                           Vote now
                         </button>
@@ -570,7 +571,7 @@ function Index() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="fixed inset-0 bg-black bg-opacity-25" />
+              <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
             <div className="fixed inset-0 overflow-y-auto">
@@ -587,37 +588,32 @@ function Index() {
                   <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
-                      className="text-lg md:text-2xl text-center text-secondary font-semibold leading-6 text-gray-900"
+                      className="text-lg md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
                     >
                       You are required to sign in to vote
                     </Dialog.Title>
                     {!OTPRequested && (
                       <>
                         <div className="mt-2">
-                          <p className="text-gray text-sm md:text-base">
-                            Please enter your phone number
+                          <p className="text-primary text-xs md:text-sm">
+                            Please enter your email address
                           </p>
                         </div>
-                        <div className="my-4 mt-4">
+                        <div className="my-4 mt-4 w-full">
                           <FormikProvider value={formik}>
                             <Form className="flex flex-col items-center justify-center">
-                              <div className="grid grid-cols-12 items-center w-4/5">
-                                <div className=" col-span-3 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray shadow-sm flex items-center justify-center px-4 ">
-                                  <p className="lg:text-base text-base text-gray">
-                                    +960
-                                  </p>
-                                </div>
+                              <div className="w-3/4">
                                 <Field
-                                  name="phone"
+                                  name="email"
                                   type="text"
-                                  className="col-span-9 p-2  tracking-wider form-control  focus:ring-none focus:outline-none rounded-r-lg border-borderGray border shadow-sm"
+                                  className=" p-2 w-full  tracking-tight text-center form-control  focus:ring-none focus:outline-none rounded-lg border-borderGray border shadow-sm"
                                 />
                               </div>
 
                               <ErrorMessage
-                                name="phone"
+                                name="email"
                                 component="div"
-                                className="text-primary text-sm mt-6"
+                                className="text-primary text-xs lg:text-sm mt-2"
                               />
                             </Form>
                           </FormikProvider>
@@ -626,7 +622,9 @@ function Index() {
                           onClick={() => setOTPRequested(true)}
                           className="mt-2"
                         >
-                          <Button title="Request OTP" />
+                          <button className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-4 p-1.5 rounded-lg hover:brightness-110 ">
+                            Request OTP
+                          </button>
                         </div>
                       </>
                     )}
@@ -634,8 +632,8 @@ function Index() {
                       <>
                         <div className="mt-2 flex items-center justify-center">
                           <p className="text-gray text-center text-xs md:text-sm w-4/5">
-                            A 4-digit OTP has been sent to +960****529. Please
-                            Enter the OTP.
+                            A 6-digit OTP has been sent to
+                            arushamhussain@icloud.com. Please Enter the OTP.
                           </p>
                         </div>
 
@@ -654,7 +652,9 @@ function Index() {
                           <p className="">I did not recieve an SMS</p>
                         </div>
                         <div onClick={() => setVoted(true)} className="mt-4">
-                          <Button title="Confirm" />
+                          <button className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-4 p-1.5 rounded-lg hover:brightness-110 ">
+                            Confirm
+                          </button>
                         </div>
                       </>
                     )}

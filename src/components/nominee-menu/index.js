@@ -43,7 +43,7 @@ function Index() {
   }, []);
 
   return (
-    <div className=" w-full max-w-6xl min-w-[80vh]">
+    <div className=" w-full max-w-6xl min-h-screen">
       <div
         className="text-center flex items-center justify-center flex-col  mt-20 lg:mt-32 mb-5"
         data-aos="fade-up"
