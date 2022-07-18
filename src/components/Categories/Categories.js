@@ -5,7 +5,6 @@ import Axios from "axios";
 function Categories(props) {
   const [categories, setCategories] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const categorie = [1, 2, 2, 2, 3, 3, 2, 33, 4, 43, 3, 2, 2];
 
   React.useEffect(() => {
     Axios.get(`${process.env.REACT_APP_API_URL}/website/categories`, {
@@ -26,7 +25,7 @@ function Categories(props) {
         setLoading(true);
       }
     });
-  });
+  }, []);
 
   return (
     <>
@@ -56,7 +55,7 @@ function Categories(props) {
         <>
           <div
             data-aos="fade-up"
-            className="grid grid-cols-3 gap-5 mt-16 px-20"
+            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mt-10 lg:mt-16 px-10 lg:px-20"
           >
             {categories.map((cat) => (
               <Link

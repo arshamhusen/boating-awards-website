@@ -45,29 +45,19 @@ function NavBar() {
                   >
                     Home
                   </Link>
+
                   <Link
-                    to="/home/2"
+                    to="/nominees"
                     className="link link-underline link-underline-black "
                   >
-                    About
+                    Awards
                   </Link>
+
                   <Link
                     to="/home/3"
                     className="link link-underline link-underline-black "
                   >
                     Winners
-                  </Link>
-                  <Link
-                    to="/partners"
-                    className="link link-underline link-underline-black "
-                  >
-                    Our Partners
-                  </Link>
-                  <Link
-                    to="/nominees"
-                    className="link link-underline link-underline-black "
-                  >
-                    2022 Nominees
                   </Link>
                 </ul>
               </div>
@@ -136,32 +126,20 @@ function NavBar() {
                         >
                           Home
                         </a>
-                        <a
-                          href="/home/2"
+
+                        <Link
+                          to="/nominees"
                           className="link link-underline link-underline-black "
                         >
-                          About
-                        </a>
+                          Awards
+                        </Link>
+
                         <a
                           href="/home/3"
                           className="link link-underline link-underline-black "
                         >
                           Winners
                         </a>
-
-                        <Link
-                          to="/partners"
-                          className="link link-underline link-underline-black "
-                        >
-                          Out Partners
-                        </Link>
-
-                        <Link
-                          to="/nominees"
-                          className="link link-underline link-underline-black "
-                        >
-                          2022 Nominees
-                        </Link>
                       </ul>
                       <a
                         href="/nominees"
