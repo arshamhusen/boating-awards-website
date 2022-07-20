@@ -548,7 +548,7 @@ function Index() {
               >
                 <div className=" w-full   gap-4">
                   <div class="overflow-hidden w-full rounded-t-2xl    flex items-center justify-center  lg:col-span-5  bg-white">
-                    {pageData.people && (
+                    {pageData.people && nom.imageURI && (
                       <img
                         src={nom.imageURI}
                         className="bg-purple-200 w-full h-72 rounded-t-2xl  hover:scale-110 transition-all duration-500"
@@ -631,7 +631,7 @@ function Index() {
                       <>
                         <div className="mt-2">
                           <p className="text-primary text-xs md:text-sm">
-                            Please enter your email address
+                            Please enter your phone number
                           </p>
                         </div>
                         <div className="my-4 mt-4 w-full">

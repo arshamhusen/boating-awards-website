@@ -41,7 +41,7 @@ function Home() {
 
           {/* <VideoPlayer /> */}
           <div id="2" className="pt-5">
-            <About />
+            {pageData != null && <About data={pageData.about} />}
           </div>
           {/* <div id="3" className="pt-10">
       <Winners />

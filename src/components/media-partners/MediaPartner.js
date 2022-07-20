@@ -47,12 +47,12 @@ function MediaPartner(props) {
             <a
               key={sponsor.id}
               href={sponsor.button_href}
-              class="flex-shrink-0 grid grid-cols-1 gap-y-3 ml-10 "
+              class="flex-shrink-0 grid grid-cols-1 gap-y-3  "
             >
               <div class="h-min overflow-hidden flex justify-center items-center rounded-md">
                 <img
                   src={sponsor.image_URI}
-                  className="bg-purple-200 h-[150px] w-[180px]  hover:scale-110 transition-all duration-500"
+                  className="bg-purple-200 h-[100px] w-[120px]  hover:scale-110 transition-all duration-500"
                   alt=""
                 />
               </div>
