@@ -12,8 +12,8 @@ function Nominate() {
   
   return (
     <DashboardLayout>
-      <div className="flex justify-center min-h-[70vh]  items-start w-full ">
-        <Nominees/>
+      <div className="flex justify-center min-h-[100vh]  items-start w-full ">
+        <Nominees />
       </div>
     </DashboardLayout>
   );

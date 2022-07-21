@@ -76,26 +76,28 @@ function Index() {
       {catTypeSelected ? (
         <Categories index={selectedCatType.index} name={selectedCatType.name} />
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 px-10 lg:px-20 py-5 gap-5 lg:gap-10">
-          {category_type.map((cat) => (
-            <div
-              onClick={() => catTypeHandler(cat.index, cat.name)}
-              data-aos="fade-up"
-              key={cat.index}
-              className=" cursor-pointer hover:drop-shadow-sm"
-            >
-              <div className="h-[20vh] lg:h-[250px]  border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
-                <div className="p-5 flex items-center text-center justify-center flex-col">
-                  <h1 className="text-xl lg:text-3xl text-primary font-bold">
-                    {cat.name}
-                  </h1>
-                  <p className="text-sm lg:text-base w-2/3 mt-2 text-gray">
-                    {cat.description}
-                  </p>
+        <div className="flex justify-center items-center  h-[60vh]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 px-10 lg:px-20 py-5 gap-5 lg:gap-10">
+            {category_type.map((cat) => (
+              <div
+                onClick={() => catTypeHandler(cat.index, cat.name)}
+                data-aos="fade-up"
+                key={cat.index}
+                className=" cursor-pointer hover:drop-shadow-sm"
+              >
+                <div className="h-[40vh] lg:h-[350px]  border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
+                  <div className="p-5 flex items-center text-center justify-center flex-col">
+                    <h1 className="text-xl lg:text-3xl text-primary font-bold">
+                      {cat.name}
+                    </h1>
+                    <p className="text-sm lg:text-base w-2/3 mt-2 text-gray">
+                      {cat.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
     </div>

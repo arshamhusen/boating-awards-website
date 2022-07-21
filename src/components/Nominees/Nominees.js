@@ -12,358 +12,6 @@ import * as Yup from "yup";
 import Axios from "axios";
 import { useParams } from "react-router-dom";
 
-const categories = [
-  {
-    name: "Best Liveaboard or Yacht Builder (Building Company)",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Yacht",
-    nominees: [
-      {
-        name: "Aliaz Investment",
-        href: "#",
-        image: "#",
-      },
-      {
-        name: "Alias Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-  {
-    name: "Best Built Liveaboard or Yacht ( Boat )",
-    nominees: [
-      {
-        name: "Alia Investment",
-        href: "#",
-        image: "#",
-      },
-    ],
-  },
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -379,13 +27,15 @@ function Index() {
   const [showMenu, setShowMenu] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [OTPRequested, setOTPRequested] = useState(false);
+  const [OTPRequestedAgain, setOTPRequestedAgain] = useState(false);
+  const [otp, setOtp] = useState("");
   const [voted, setVoted] = useState(false);
   const [votedNom, setVotedNom] = useState("");
   const [pageData, setPageData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedNominee, setSelectedNominee] = useState();
   const [signedIn, setSignedIn] = useState(false);
-  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
 
   React.useEffect(() => {
     Axios.get(`${process.env.REACT_APP_API_URL}/website/nominees/${id}`, {
@@ -395,6 +45,7 @@ function Index() {
       },
     }).then((res) => {
       if (res.status === 200) {
+        console.log(res.data);
         setPageData(res.data);
         setVoted(res.data.voted);
         setSignedIn(res.data.loggedIn);
@@ -405,24 +56,68 @@ function Index() {
     });
   }, []);
 
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
   const initialValues = {
-    email: "",
+    phone: "",
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email().required("Email is required"),
+    phone: Yup.string()
+      .min(7, "Phone number should be exaclty ")
+      .max(7)
+      .matches(phoneRegExp, "Phone number is not valid"),
   });
 
   // Send OTP
-  function sendOTP() {}
+  function sendOTP(phone) {
+    const data = {
+      phone: phone,
+    };
+
+    Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
+      headers: {
+        api_key: process.env.REACT_APP_API_KEY,
+        api_secret: process.env.REACT_APP_API_SECRET,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log(res.data + "hello");
+        setOTPRequested(true);
+      } else {
+        console.log(res.data);
+      }
+    });
+  }
+
+  function OTPInsertHandler() {
+    const data = {
+      phone: phone,
+      otp: otp,
+    };
+
+    Axios.post(`${process.env.REACT_APP_API_URL}/website/login`, data, {
+      headers: {
+        api_key: process.env.REACT_APP_API_KEY,
+        api_secret: process.env.REACT_APP_API_SECRET,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        sessionStorage.setItem("token", res.data.token);
+      } else {
+        console.log(res.data);
+      }
+    });
+  }
 
   const onSubmit = async (
     values,
     { setSubmitting, setErrors, setStatus, resetForm }
   ) => {
-    console.log(values);
-    setEmail(values.email);
-    setOTPRequested(true);
+    console.log("hit");
+    setPhone(values.phone);
+    sendOTP(values.phone);
   };
 
   const formik = useFormik({ initialValues, onSubmit, validationSchema });
@@ -456,14 +151,14 @@ function Index() {
   }
 
   return (
-    <div className=" w-full flex items-center justify-center flex-col ">
+    <div className=" w-full   flex items-center justify-center flex-col ">
       <div
-        className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-10 max-w-5xl  mt-24"
+        className="grid grid-cols-1 min-h-[30vh] lg:grid-cols-12 gap-0 lg:gap-10 max-w-5xl  mt-24"
         data-aos="fade-up"
       >
         {/* Category Image */}
 
-        <div className=" border-1 col-span-7 border-primary rounded-2xl bg-cover bg-top  flex flex-col justify-center items-center">
+        <div className=" border-1 py-10 col-span-7 border-primary rounded-2xl bg-cover bg-top  flex flex-col justify-center items-center">
           <h1 className="text-5xl font-bold px-10 py-5 md:py-10 text-secondary leading-tight">
             {pageData.category_name}
           </h1>
@@ -492,11 +187,13 @@ function Index() {
           >
             <div>
               <div class="overflow-hidden w-full   flex items-center justify-center  lg:col-span-5  bg-white">
-                <img
-                  src={selectedNominee.imageURI}
-                  className="bg-purple-200 rounded-lg  hover:scale-110 transition-all duration-500"
-                  alt=""
-                />
+                {selectedNominee && (
+                  <img
+                    src={selectedNominee.imageURI}
+                    className="bg-purple-200 rounded-lg  hover:scale-110 transition-all duration-500"
+                    alt=""
+                  />
+                )}
               </div>
             </div>
             <div className="flex flex-col items-start justify-start">
@@ -538,7 +235,7 @@ function Index() {
         {!loading && (
           <div
             data-aos="fade-up"
-            className="grid grid-cols-1 max-w-5xl md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 max-w-6xl md:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {pageData.data.map((nom) => (
               <div
@@ -639,14 +336,21 @@ function Index() {
                             <div>
                               <Form className="flex justify-center items-center flex-col">
                                 <div className="flex items-center justify-center text-left w-full">
-                                  <div className="grid grid-cols-1 gap-y-2 w-3/4 text-center">
-                                    <Field
-                                      name="email"
-                                      type="text"
-                                      className="form-control px-4 p-1.5 text-center text-sm border border-primary focus:border-secondary focus:ring-lime rounded-lg  shadow-sm"
-                                    />
+                                  <div className="flex items-center justify-center flex-col gap-y-2 w-3/4 text-center">
+                                    <div className="grid grid-cols-12 items-center w-4/5">
+                                      <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray h-full  shadow-sm flex items-center justify-center px-4 ">
+                                        <p className="lg:text-base text-base text-gray">
+                                          +960
+                                        </p>
+                                      </div>
+                                      <Field
+                                        name="phone"
+                                        type="text"
+                                        className="col-span-8 p-2 focus:border-none focus:outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
+                                      />
+                                    </div>
                                     <ErrorMessage
-                                      name="email"
+                                      name="phone"
                                       component="div"
                                       className="text-primary text-xs"
                                     />
@@ -667,20 +371,31 @@ function Index() {
                         </div>
                       </>
                     )}
-                    {OTPRequested && email && (
+                    {OTPRequested && phone && (
                       <>
                         <div className="mt-2 flex items-center justify-center">
                           <p className="text-gray text-center text-xs md:text-sm w-4/5">
-                            A 6-digit OTP has been sent to {email} Please Enter
+                            A 6-digit OTP has been sent to {phone} Please Enter
                             the OTP.
                           </p>
                         </div>
+                        <input
+                          onChange={(e) => setOtp(e.target.value)}
+                          className="p-2 mt-3 px-4 text-xl border w-1/3 text-center border-primary rounded-md"
+                        ></input>
 
-                        <div className="my-4 mt-2"></div>
-                        <div className="mt-1 flex items-center justify-center text-primary text-center text-xs md:text-sm w-4/5">
+                        <div className=" mt-2"></div>
+                        <a
+                          onClick={() => sendOTP(phone)}
+                          className="mt-1 cursor-pointer flex items-center justify-center text-primary text-center text-xs md:text-sm w-4/5"
+                        >
                           <p className="">I did not recieve an SMS</p>
-                        </div>
-                        <div onClick={() => setVoted(true)} className="mt-4">
+                        </a>
+
+                        <div
+                          onClick={() => OTPInsertHandler()}
+                          className="mt-4"
+                        >
                           <button
                             type="button"
                             className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-4 p-1.5 rounded-lg hover:brightness-110 "
