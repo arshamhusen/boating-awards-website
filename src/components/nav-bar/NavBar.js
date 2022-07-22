@@ -54,7 +54,7 @@ function NavBar() {
                   </Link>
 
                   <Link
-                    to="/home/3"
+                    to="/winners"
                     className="link link-underline link-underline-black "
                   >
                     Winners
@@ -135,7 +135,7 @@ function NavBar() {
                         </Link>
 
                         <a
-                          href="/home/3"
+                          href="/winners"
                           className="link link-underline link-underline-black "
                         >
                           Winners

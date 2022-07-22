@@ -43,7 +43,7 @@ function Index() {
   }, []);
 
   return (
-    <div className=" w-full max-w-6xl min-h-screen">
+    <div className=" w-full max-w-7xl min-h-screen">
       <div
         className="text-center flex items-center justify-center flex-col  mt-32 mb-0"
         data-aos="fade-up"
@@ -77,7 +77,7 @@ function Index() {
         <Categories index={selectedCatType.index} name={selectedCatType.name} />
       ) : (
         <div className="flex justify-center items-center  h-[60vh]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 px-10 lg:px-20 py-5 gap-5 lg:gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2  py-5 gap-5 lg:gap-10">
             {category_type.map((cat) => (
               <div
                 onClick={() => catTypeHandler(cat.index, cat.name)}

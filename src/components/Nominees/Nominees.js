@@ -20,6 +20,7 @@ function classNames(...classes) {
 const nominees = [1, 2, 3, 2, 4, 4, 4, 3, 3, 6, 7, 4, 2, 3, 2, 3, 2, 3];
 
 function Index() {
+  let token = sessionStorage.getItem("token");
   let { id } = useParams();
   let [isOpen, setIsOpen] = useState(false);
   let [confirmModalOpen, setConfirmModalOpen] = useState(false);
@@ -38,23 +39,45 @@ function Index() {
   const [phone, setPhone] = useState();
 
   React.useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_URL}/website/nominees/${id}`, {
-      headers: {
-        api_key: process.env.REACT_APP_API_KEY,
-        api_secret: process.env.REACT_APP_API_SECRET,
-      },
-    }).then((res) => {
-      if (res.status === 200) {
-        console.log(res.data);
-        setPageData(res.data);
-        setVoted(res.data.voted);
-        setSignedIn(res.data.loggedIn);
-        setLoading(false);
-      } else {
-        setLoading(true);
-      }
-    });
-  }, []);
+    if (token != null) {
+      Axios.get(`${process.env.REACT_APP_API_URL}/website/nominees/${id}`, {
+        headers: {
+          api_key: process.env.REACT_APP_API_KEY,
+          api_secret: process.env.REACT_APP_API_SECRET,
+          "x-access-token": token,
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          setPageData(res.data);
+          setVoted(res.data.voted);
+          setSignedIn(res.data.loggedIn);
+          setVotedNom(res.data.voted_nominee);
+          setLoading(false);
+        } else {
+          setLoading(true);
+        }
+      });
+    } else {
+      Axios.get(`${process.env.REACT_APP_API_URL}/website/nominees/${id}`, {
+        headers: {
+          api_key: process.env.REACT_APP_API_KEY,
+          api_secret: process.env.REACT_APP_API_SECRET,
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          setPageData(res.data);
+          setVoted(res.data.voted);
+          setVotedNom(res.data.voted_nominee);
+          setSignedIn(res.data.loggedIn);
+          setLoading(false);
+        } else {
+          setLoading(true);
+        }
+      });
+    }
+  }, [voted]);
 
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -75,6 +98,16 @@ function Index() {
     const data = {
       phone: phone,
     };
+
+    function getToken() {
+      if (token != null) {
+        return {
+          "x-access-token": token,
+        };
+      } else {
+        return null;
+      }
+    }
 
     Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
       headers: {
@@ -105,8 +138,46 @@ function Index() {
     }).then((res) => {
       if (res.status === 200) {
         sessionStorage.setItem("token", res.data.token);
+        setSignedIn(true);
+        closeModal();
       } else {
         console.log(res.data);
+      }
+    });
+  }
+
+  async function voteHandler() {
+    const data = () => {
+      if (pageData.people) {
+        const data = {
+          nomineeId: selectedNominee.nominee.id,
+        };
+        return data;
+      } else {
+        const data = {
+          nomineeId: selectedNominee.id,
+        };
+        return data;
+      }
+    };
+
+    Axios.post(
+      `${process.env.REACT_APP_API_URL}/website/vote/${pageData.category_id}`,
+      data,
+      {
+        headers: {
+          api_key: process.env.REACT_APP_API_KEY,
+          api_secret: process.env.REACT_APP_API_SECRET,
+          "x-access-token": token,
+        },
+      }
+    ).then((res) => {
+      if (res.status === 200) {
+        console.log(res);
+        setVoted(true);
+        closeModal();
+      } else {
+        console.log(res);
       }
     });
   }
@@ -141,9 +212,6 @@ function Index() {
     setShowMenu(false);
     setSelectedCategory(cat);
   }
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [voted]);
 
   function handleModal(nom) {
     setIsDNomineeOpen(true);
@@ -183,25 +251,45 @@ function Index() {
           {/* Show who the person voted */}
           <div
             data-aos="fade-up"
-            className="mt-10 max-w-5xl p-10 w-full border-t-2 border-t-primary grid grid-cols-1 md:grid-cols-1 gap-10"
+            className="mt-10 max-w-5xl p-10 w-full border-t-2 border-t-primary grid grid-cols-1 lg:grid-cols-12 gap-10"
           >
-            <div>
-              <div class="overflow-hidden w-full   flex items-center justify-center  lg:col-span-5  bg-white">
-                {selectedNominee && (
-                  <img
-                    src={selectedNominee.imageURI}
-                    className="bg-purple-200 rounded-lg  hover:scale-110 transition-all duration-500"
-                    alt=""
-                  />
+            <div className="col-span-7">
+              <div class="overflow-hidden w-full  flex items-center justify-center  lg:col-span-5  bg-white">
+                {votedNom && (
+                  <>
+                    {pageData.people && (
+                      <img
+                        src={votedNom.imageURI}
+                        className="bg-purple-200 h-[300px] w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        alt=""
+                      />
+                    )}
+                    {pageData.business && (
+                      <img
+                        src={votedNom.business_imageURI}
+                        className="bg-purple-200 h-[300px] w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        alt=""
+                      />
+                    )}
+                    {pageData.boat && (
+                      <img
+                        src={votedNom.boat_imageURI}
+                        className="bg-purple-200 h-[300px] w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        alt=""
+                      />
+                    )}
+                  </>
                 )}
               </div>
             </div>
-            <div className="flex flex-col items-start justify-start">
+            <div className=" col-span-5 flex flex-col items-start justify-start">
               <h1 className="text-secondary text-xl lg:text-2xl font-light mb-1">
                 Thank you for voting{" "}
               </h1>
               <h4 className="font-bold text-3xl lg:text-4xl text-primary mb-5 leading-tight">
-                {selectedNominee.name}
+                {pageData.people && <>{votedNom.name}</>}
+                {pageData.boat && <>{votedNom.boat_name}</>}
+                {pageData.business && <>{votedNom.business_name}</>}
               </h4>
             </div>
           </div>
@@ -248,7 +336,21 @@ function Index() {
                     {pageData.people && nom.imageURI && (
                       <img
                         src={nom.imageURI}
-                        className="bg-purple-200 w-full h-72 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-80 h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        alt=""
+                      />
+                    )}
+                    {pageData.boat && (
+                      <img
+                        src={nom.boat_imageURI}
+                        className="bg-purple-200 w-80 h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        alt=""
+                      />
+                    )}
+                    {pageData.business && (
+                      <img
+                        src={nom.business_imageURI}
+                        className="bg-purple-200 w-80 h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
@@ -256,9 +358,12 @@ function Index() {
                   <div className="flex p-5 items-center justify-center flex-col w-full">
                     <h1 className=" text-lg lg:text-xl font-medium text-secondary">
                       {pageData.people && <>{nom.name}</>}
+                      {pageData.boat && <>{nom.boat_name}</>}
+                      {pageData.business && <>{nom.business_name}</>}
                     </h1>
                     <h5 className="my-2 text-sm">
                       {pageData.people && <>{nom.nominee.boat_name}</>}
+                      {pageData.boat && <>{nom.business_name}</>}
                     </h5>
                     <button
                       onClick={() => handleModal(nom)}
@@ -448,6 +553,12 @@ function Index() {
                           <h1>
                             <>
                               {pageData.people && <>{selectedNominee.name}</>}
+                              {pageData.boat && (
+                                <>{selectedNominee.boat_name}</>
+                              )}
+                              {pageData.business && (
+                                <>{selectedNominee.business_name}</>
+                              )}
                             </>
                           </h1>
                           {/* Business Name */}
@@ -457,12 +568,63 @@ function Index() {
                               {pageData.people && (
                                 <>{selectedNominee.nominee.boat_name}</>
                               )}
+                              {pageData.boat && (
+                                <>{selectedNominee.business_name}</>
+                              )}
                             </>
                           </h3>
 
+                          {/* Address info */}
+                          {pageData.business && (
+                            <div className="flex items-center justify-center">
+                              <div className="grid grid-cols-12 mb-6 font-normal text-sm text-start gap-y-3 mt-4 overflow-hidden">
+                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                  <h4>Address:</h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-9">
+                                  <h4>
+                                    {selectedNominee.address}
+                                    {selectedNominee.address_street}
+                                    {selectedNominee.address_atoll_island}{" "}
+                                  </h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                  <h4>Email:</h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-9">
+                                  <h4>{selectedNominee.address_email}</h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                  <h4>Phone:</h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-9">
+                                  <h4>{selectedNominee.address_telephone}</h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                  <h4>Website:</h4>
+                                </div>
+                                <div className="grid grid-cols-1 col-span-9">
+                                  <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={selectedNominee.address_url}
+                                  >
+                                    {selectedNominee.address_url}
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+
                           {/* Description */}
-                          <p className="text-sm font-light max-h-[40vh] overflow-y-scroll">
+                          <p className="text-sm mb-4 font-light max-h-[40vh] overflow-y-scroll">
                             {selectedNominee.resume}
+                            {pageData.boat && (
+                              <>{selectedNominee.boat_description}</>
+                            )}
+                            {pageData.business && (
+                              <>{selectedNominee.business_description}</>
+                            )}
                           </p>
                         </>
                       )}
@@ -514,6 +676,20 @@ function Index() {
                               {pageData.category_name}?{" "}
                             </>
                           )}
+                          {pageData.boat && (
+                            <>
+                              Are you sure you want to vote for{" "}
+                              {selectedNominee.boat_name} as the{" "}
+                              {pageData.category_name}?{" "}
+                            </>
+                          )}
+                          {pageData.business && (
+                            <>
+                              Are you sure you want to vote for{" "}
+                              {selectedNominee.business_name} as the{" "}
+                              {pageData.category_name}?{" "}
+                            </>
+                          )}
                         </p>
                       )}
                       <p className="text-xs font-normal text-primary">
@@ -527,7 +703,10 @@ function Index() {
                         >
                           Cancel
                         </button>
-                        <button className="p-1.5 rounded-full w-full px-4 bg-secondary text-white">
+                        <button
+                          onClick={() => voteHandler()}
+                          className="p-1.5 rounded-full w-full px-4 bg-secondary text-white"
+                        >
                           Confirm
                         </button>
                       </div>

@@ -43,9 +43,6 @@ function Home() {
           <div id="2" className="pt-5">
             {pageData != null && <About data={pageData.about} />}
           </div>
-          {/* <div id="3" className="pt-10">
-      <Winners />
-    </div> */}
           <div id="3" className="pt-5">
             {pageData != null && <Partners data={pageData.sponsors} />}
           </div>
