@@ -11,20 +11,20 @@ function Nominees(props) {
   }, []);
 
   return (
-    <>
+    <section className="bg-lightPrimary">
       <div
-        className="text-center flex items-center justify-center flex-col  mt-20"
+        className="text-center  flex items-center justify-center flex-col  mt-20"
         data-aos="fade-up"
       >
         <Heading heading="Our Sponsors" position="center" color="secondary" />
       </div>
-      <div className="flex justify-start flex-col  items-center w-full my-10">
+      <div className="flex justify-start flex-col  items-center w-full py-10">
         {/* Media Partners */}
         {/* <Partner heading="Media Partner" /> */}
         {/* Corporate Partners */}
         <Partner data={props.data} />
       </div>
-    </>
+    </section>
   );
 }
 

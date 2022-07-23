@@ -45,7 +45,7 @@ function Index() {
   return (
     <div className=" w-full max-w-7xl min-h-screen">
       <div
-        className="text-center flex items-center justify-center flex-col  mt-32 mb-0"
+        className="text-center flex items-center justify-center flex-col  mt-20 mb-0"
         data-aos="fade-up"
       >
         <Heading

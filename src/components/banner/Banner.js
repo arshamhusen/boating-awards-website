@@ -12,9 +12,9 @@ function Banner(props) {
   return (
     <div
       style={{
-        backgroundImage: `url(${props.data.image_URI})`,
+        backgroundImage: `url("https://img.freepik.com/free-vector/elegant-abstract-gold-background-with-shiny-elements_23-2148827899.jpg?t=st=1658501585~exp=1658502185~hmac=26c906b708a7f630c2b1154c36b867d9fe2e05379c6e4d62f0a8b44e614b9988&w=1480")`,
       }}
-      className="h-screen w-screen bg-cover bg-secondary bg-top flex flex-col justify-center items-center"
+      className="h-screen w-screen bg-cover  bg-top flex flex-col justify-center items-center"
     >
       <div
         data-aos="fade-up"
@@ -22,7 +22,7 @@ function Banner(props) {
       >
         <h1
           data-aos="fade-up"
-          className="text-5xl md:text-6xl lg:text-7xl leading-tight md:leading-snug lg:leading-relaxed text-white font-bold"
+          className="text-5xl md:text-6xl lg:text-7xl leading-tight md:leading-snug lg:leading-relaxed text-secondary font-bold"
         >
           {props.data.heading}
         </h1>
@@ -31,7 +31,7 @@ function Banner(props) {
         </h3>
 
         <a
-          className="uppercase p-3 px-12 font-medium text-base text-secondary hover:brightness-125 bg-lightPrimary rounded-full"
+          className="uppercase p-3 px-12 font-medium text-base text-white hover:brightness-125 bg-primary rounded-full"
           href={props.data.button_href}
         >
           {props.data.button_text}

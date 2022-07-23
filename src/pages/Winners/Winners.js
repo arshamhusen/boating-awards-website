@@ -10,7 +10,7 @@ function Winners() {
         <div className="  md:flex md:flex-col md:justify-center  grid grid-cols-1 gap-5 md:gap-4 lg:gap-6">
           <div className="px-10 md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-5">
             <Heading heading="Winners" position="center" color="secondary" />
-            <p className="text-sm md:text-base text-gray mt-2">
+            <p className="text-sm md:text-base text-gray ">
               Click on a year to expand
             </p>
           </div>

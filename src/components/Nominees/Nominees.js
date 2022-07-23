@@ -147,18 +147,8 @@ function Index() {
   }
 
   async function voteHandler() {
-    const data = () => {
-      if (pageData.people) {
-        const data = {
-          nomineeId: selectedNominee.nominee.id,
-        };
-        return data;
-      } else {
-        const data = {
-          nomineeId: selectedNominee.id,
-        };
-        return data;
-      }
+    const data = {
+      nomineeId: selectedNominee.nominee.id,
     };
 
     Axios.post(

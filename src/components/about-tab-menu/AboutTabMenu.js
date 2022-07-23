@@ -20,7 +20,7 @@ function AboutTabMenu(props) {
   return (
     <div className="min-w-[70vw] min-h-[60vh] mt-4 lg:mt-14">
       <Tab.Group>
-        <div className="md:grid md:grid-cols-2 max-w-7xl ">
+        <div className="md:grid md:grid-cols-2 max-w-6xl gap-x-10 ">
           <div className="flex justify-start items-start">
             <div className="flex flex-col  justify-start md:justify-start items-start  ">
               <Tab.List
@@ -63,12 +63,13 @@ function AboutTabMenu(props) {
             </div>
           </div>
 
-          <div
-            style={{
-              backgroundImage: `url(${menuPicture})`,
-            }}
-            className="min-h-[60vh] rounded-3xl w-full bg-cover bg-secondary bg-top flex flex-col justify-center items-center"
-          ></div>
+          <div class="h-min border-2 border-primary overflow-hidden flex justify-center items-center rounded-xl">
+            <img
+              src={menuPicture}
+              className="bg-purple-200 w-full h-[50vh] hover:scale-110 transition-all duration-500"
+              alt=""
+            />
+          </div>
         </div>
       </Tab.Group>
     </div>

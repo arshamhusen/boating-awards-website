@@ -33,7 +33,7 @@ function MediaPartner(props) {
       >
         {props.heading}
       </h1>
-      <hr className="w-full mt-3 mb-10 border text-lightgray" />
+      <hr className="w-full mt-3 border text-lightgray" />
       <div data-aos="zoom-in">
         <Carousel
           autoPlay

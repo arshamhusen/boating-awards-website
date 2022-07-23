@@ -66,9 +66,9 @@ function NavBar() {
               to="/nominees"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
-              <button className="px-12 p-2 bg-white rounded-lg text-primary font-medium uppercase  hover:bg-lightPrimary font tracking-wider text-sm md:text-base lg:text-base">
-                Vote
-              </button>
+              <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white hover:text-primary bg-transparent rounded-full">
+                vote now
+              </a>
             </Link>
           </div>
         </div>

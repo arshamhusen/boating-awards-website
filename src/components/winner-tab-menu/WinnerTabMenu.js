@@ -4,6 +4,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Axios from "axios";
+import Lottie from "lottie-react";
+import comingSoonAnimation from "../../assets/lotties/lf20_dg82izdu.json";
 
 const responsive = {
   desktop: {
@@ -23,54 +26,30 @@ const responsive = {
   },
 };
 
-const winners = [
-  {
-    year: "2021",
-    winners: [
-      {
-        category: "smt",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-    ],
-  },
-  {
-    year: "2020",
-    winners: [
-      {
-        category: "smt",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-    ],
-  },
-  {
-    year: "2019",
-    winners: [
-      {
-        category: "smt",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-    ],
-  },
-  {
-    year: "2018",
-    winners: [
-      {
-        category: "smt",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-    ],
-  },
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function AboutTabMenu() {
+  const [winners, setWinners] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  React.useEffect(() => {
+    Axios.get(`${process.env.REACT_APP_API_URL}/website/winners`, {
+      headers: {
+        api_key: process.env.REACT_APP_API_KEY,
+        api_secret: process.env.REACT_APP_API_SECRET,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setWinners(res.data);
+        setLoading(false);
+      } else {
+        setLoading(true);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -81,13 +60,13 @@ function AboutTabMenu() {
         <div className="flex justify-start md:justify-center  items-center">
           <Tab.List
             data-aos="fade-up"
-            className={`px-10 md:px-20 lg:px-20 grid grid-cols-4 gap-x-2 md:gap-x-8`}
+            className={`px-10 md:px-20 lg:px-20 grid grid-cols-3 gap-x-2 md:gap-x-8`}
           >
             {winners.map((year) => (
               <Tab
                 className={({ selected }) =>
                   classNames(
-                    "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-lg leading-5 ",
+                    "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-xl leading-5 ",
                     "focus:outline-none",
                     selected
                       ? "border-b-lime/[9] text-warning "
@@ -98,6 +77,19 @@ function AboutTabMenu() {
                 {year.year}
               </Tab>
             ))}
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-xl leading-5 ",
+                  "focus:outline-none",
+                  selected
+                    ? "border-b-lime/[9] text-warning "
+                    : "text-blue-100 hover:bg-white/[0.12] hover:text-lightPrimary"
+                )
+              }
+            >
+              2022
+            </Tab>
           </Tab.List>
         </div>
 
@@ -113,14 +105,12 @@ function AboutTabMenu() {
                   itemClass="slider-image-item"
                   responsive={responsive}
                 >
-                  {winners.map((winner) => (
-                    <section class="flex-shrink-0 grid grid-cols-1 gap-y-3 ml-10 ">
-                      <div class="h-min overflow-hidden rounded-md">
+                  {year.yearWinners.map((winner) => (
+                    <section class="flex-shrink-0 grid grid-cols-1  gap-y-3 ml-10 ">
+                      <div class="h-min  border-2 border-primary overflow-hidden rounded-md">
                         <img
-                          src={
-                            window.location.origin + `/uploads/images/cat.jpg`
-                          }
-                          className="bg-purple-200 w-80 h-[40vh] lg:w-[50vh] hover:scale-110 transition-all duration-500"
+                          src={winner.imageURI}
+                          className="bg-purple-200  h-[40vh] w-full hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       </div>
@@ -134,11 +124,11 @@ function AboutTabMenu() {
                           alt=""
                         />
                         <p className="font-medium text-sm ml-4 text-primary">
-                          Best Liveaboard/Yacht
+                          {winner.category}
                         </p>
                       </div>
                       <p className="text-sm font-medium text-center md:text-xl text-secondary">
-                        Alia Investment Yacht This yatch is
+                        {winner.winner}
                       </p>
                     </section>
                   ))}
@@ -146,6 +136,21 @@ function AboutTabMenu() {
               </Tab.Panel>
             </>
           ))}
+          <Tab.Panel
+            data-aos="fade-up"
+            className={`mt-5 h-[55vh] w-screen flex justify-center items-center flex-col`}
+          >
+            <Lottie
+              loop
+              animationData={comingSoonAnimation}
+              play
+              style={{ width: 500, height: 500 }}
+            />
+
+            <p className="text-xl">
+              Winners will be announced once the voting is completed
+            </p>
+          </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
     </div>
