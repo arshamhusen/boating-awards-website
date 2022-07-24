@@ -62,6 +62,19 @@ function AboutTabMenu() {
             data-aos="fade-up"
             className={`px-10 md:px-20 lg:px-20 grid grid-cols-3 gap-x-2 md:gap-x-8`}
           >
+            <Tab
+              className={({ selected }) =>
+                classNames(
+                  "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-xl leading-5 ",
+                  "focus:outline-none",
+                  selected
+                    ? "border-b-lime/[9] text-warning "
+                    : "text-blue-100 hover:bg-white/[0.12] hover:text-lightPrimary"
+                )
+              }
+            >
+              2022
+            </Tab>
             {winners.map((year) => (
               <Tab
                 className={({ selected }) =>
@@ -77,19 +90,6 @@ function AboutTabMenu() {
                 {year.year}
               </Tab>
             ))}
-            <Tab
-              className={({ selected }) =>
-                classNames(
-                  "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-xl leading-5 ",
-                  "focus:outline-none",
-                  selected
-                    ? "border-b-lime/[9] text-warning "
-                    : "text-blue-100 hover:bg-white/[0.12] hover:text-lightPrimary"
-                )
-              }
-            >
-              2022
-            </Tab>
           </Tab.List>
         </div>
 

@@ -59,6 +59,27 @@ function NavBar() {
                   >
                     Winners
                   </Link>
+
+                  <Link
+                    to="/gallery"
+                    className="link link-underline link-underline-black "
+                  >
+                    Gallery
+                  </Link>
+
+                  <Link
+                    to="/press-releases"
+                    className="link link-underline link-underline-black "
+                  >
+                    Press Releases
+                  </Link>
+
+                  <Link
+                    to="/downloads"
+                    className="link link-underline link-underline-black "
+                  >
+                    downloads
+                  </Link>
                 </ul>
               </div>
             </div>
@@ -139,6 +160,24 @@ function NavBar() {
                           className="link link-underline link-underline-black "
                         >
                           Winners
+                        </a>
+                        <a
+                          href="/gallery"
+                          className="link link-underline link-underline-black "
+                        >
+                          Gallery
+                        </a>
+                        <a
+                          href="/press-releases"
+                          className="link link-underline link-underline-black "
+                        >
+                          Press Releases{" "}
+                        </a>
+                        <a
+                          href="/downloads"
+                          className="link link-underline link-underline-black "
+                        >
+                          Downloads
                         </a>
                       </ul>
                       <a
