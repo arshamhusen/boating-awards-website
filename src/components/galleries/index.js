@@ -3,12 +3,15 @@ import { Tab } from "@headlessui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { saveAs } from "file-saver";
+import Axios from "axios";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Index() {
+  const [gallery, setGallery] = useState([]);
+  const [loading, setLoading] = useState([]);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -18,87 +21,30 @@ export default function Index() {
     saveAs(pic, "test.jpg"); // Put your image url here.
   };
 
-  let [categories] = useState([
-    {
-      name: "Gala Event 2018",
-      pictures: [
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://static.secure.website/wscfus/8075275/uploads/scan0013.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://static.secure.website/wscfus/8075275/uploads/scan0013.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-      ],
-    },
-    {
-      name: "Gala Event 2019",
-      pictures: [
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-        {
-          uri: "https://maldives.net.mv/wp-content/uploads/2018/12/batch_b_0Q7IfldQAW00wqfRbjLhriT62.jpg",
-          description: "This awards was given to him",
-        },
-      ],
-    },
-  ]);
+  useEffect(() => {
+    Axios.get(`${process.env.REACT_APP_API_URL}/website/gallery`, {
+      headers: {
+        api_key: process.env.REACT_APP_API_KEY,
+        api_secret: process.env.REACT_APP_API_SECRET,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setGallery(res.data);
+        setLoading(false);
+      } else {
+        setLoading(true);
+      }
+    });
+  }, []);
 
   return (
-    <div className=" w-screen flex-col max-w-7xl px-2 py-16 sm:px-0">
+    <div className=" w-screen flex-col max-w-7xl py-16 sm:px-0">
       <Tab.Group>
         <div className="flex justify-center items-center">
           <Tab.List className="flex space-x-6 w-full sm:w-1/2 rounded-xl bg-blue-900/20 p-1">
-            {categories.map((category) => (
+            {gallery.map((gallery) => (
               <Tab
-                key={category}
+                key={gallery}
                 className={({ selected }) =>
                   classNames(
                     "w-full  py-2 uppercase  font-medium leading-5 text-blue-700",
@@ -109,32 +55,34 @@ export default function Index() {
                   )
                 }
               >
-                {category.name}
+                {gallery.heading}
               </Tab>
             ))}
           </Tab.List>
         </div>
 
         <Tab.Panels className="mt-6">
-          {categories.map((category) => (
+          {gallery.map((gallery) => (
             <Tab.Panel
-              key={category}
+              key={gallery}
               className={classNames(
                 "rounded-xl bg-white p-3",
                 "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
               <div className="grid sm:grid-cols-1 sm:px-5 md:px-20 md:grid-cols-2 xl:grid-cols-3 gap-5">
-                {category.pictures.map((pic) => (
+                {gallery.media.map((media) => (
                   <div
                     data-aos="fade-up"
                     className="border border-primary rounded-3xl"
                   >
-                    <img className="rounded-t-2xl" src={pic.uri} />
-                    <div className="p-5 text-sm rounded-b-2xl flex justify-between items-center">
-                      <p>{pic.description}</p>
+                    <img className="rounded-t-2xl" src={media.media_URI} />
+                    <div className="p-5 text-xs font-medium rounded-b-2xl text-start flex justify-between items-center">
+                      <p className="w-5/6 text-secondary">
+                        {media.description}
+                      </p>
                       <a
-                        onClick={() => downloadImage(pic.uri)}
+                        onClick={() => downloadImage(media.media_URI)}
                         className="cursor-pointer text-primary hover:brightness-110"
                       >
                         <svg
