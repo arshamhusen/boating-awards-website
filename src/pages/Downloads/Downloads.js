@@ -136,7 +136,7 @@ function PressReleases() {
                       rel="noopener noreferrer"
                       target="_blank"
                       href={pr.media_URI}
-                      className=""
+                      className="yes"
                     >
                       <button className="w-full hover:brightness-150 text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-full ">
                         Download
