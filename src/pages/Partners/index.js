@@ -13,7 +13,7 @@ function Nominees(props) {
   return (
     <section className="bg-lightPrimary">
       <div
-        className="text-center  flex items-center justify-center flex-col  mt-20"
+        className="text-center  flex items-center justify-center flex-col  mt-20 pt-10"
         data-aos="fade-up"
       >
         <Heading heading="Our Sponsors" position="center" color="secondary" />

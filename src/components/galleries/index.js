@@ -38,10 +38,10 @@ export default function Index() {
   }, []);
 
   return (
-    <div className=" w-screen flex-col max-w-7xl py-16 sm:px-0">
+    <div className="w-screen flex-col max-w-7xl py-8 px-10 lg:px-0 lg:py-16 sm:px-0">
       <Tab.Group>
         <div className="flex justify-center items-center">
-          <Tab.List className="flex space-x-6 w-full sm:w-1/2 rounded-xl bg-blue-900/20 p-1">
+          <Tab.List className="flex space-x-2 lg:space-x-6 w-full sm:w-1/2 rounded-xl bg-blue-900/20 p-1">
             {gallery.map((gallery) => (
               <Tab
                 key={gallery}
@@ -61,23 +61,23 @@ export default function Index() {
           </Tab.List>
         </div>
 
-        <Tab.Panels className="mt-6">
+        <Tab.Panels className="mt-8 lg:mt-8">
           {gallery.map((gallery) => (
             <Tab.Panel
               key={gallery}
               className={classNames(
-                "rounded-xl bg-white p-3",
+                "rounded-xl bg-white p-0 lg:p-3",
                 "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
-              <div className="grid sm:grid-cols-1 sm:px-5 md:px-20 md:grid-cols-2 xl:grid-cols-3 gap-5">
+              <div className="grid sm:grid-cols-1 sm:px-5 md:px-20 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-5">
                 {gallery.media.map((media) => (
                   <div
                     data-aos="fade-up"
                     className="border border-primary rounded-3xl"
                   >
                     <img className="rounded-t-2xl" src={media.media_URI} />
-                    <div className="p-5 text-xs font-medium rounded-b-2xl text-start flex justify-between items-center">
+                    <div className="p-5 text-xs font-normal lg:font-medium rounded-b-2xl text-start flex justify-between items-center">
                       <p className="w-5/6 text-secondary">
                         {media.description}
                       </p>

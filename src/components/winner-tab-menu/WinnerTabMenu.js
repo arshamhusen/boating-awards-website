@@ -60,7 +60,7 @@ function AboutTabMenu() {
         <div className="flex justify-start md:justify-center  items-center">
           <Tab.List
             data-aos="fade-up"
-            className={`px-10 md:px-20 lg:px-20 grid grid-cols-3 gap-x-2 md:gap-x-8`}
+            className={`px-10 md:px-20 lg:px-20 grid grid-cols-3 gap-x-4 md:gap-x-8`}
           >
             <Tab
               className={({ selected }) =>
@@ -96,7 +96,7 @@ function AboutTabMenu() {
         <Tab.Panels>
           {winners.map((year) => (
             <>
-              <Tab.Panel data-aos="fade-up" className={`mt-5 w-screen`}>
+              <Tab.Panel data-aos="fade-up" className={`mt-5 w-screen pb-2`}>
                 <Carousel
                   autoPlay
                   infinite
@@ -106,30 +106,32 @@ function AboutTabMenu() {
                   responsive={responsive}
                 >
                   {year.yearWinners.map((winner) => (
-                    <section class="flex-shrink-0 grid grid-cols-1  gap-y-3 ml-10 ">
-                      <div class="h-min  border-2 border-primary overflow-hidden rounded-md">
+                    <section class="flex-shrink-0 drop-shadow-md border border-lightPrimary rounded-xl  grid grid-cols-1  gap-y-3 ml-10 ">
+                      <div class="h-min overflow-hidden rounded-t-xl">
                         <img
                           src={winner.imageURI}
                           className="bg-purple-200  h-[40vh] w-full hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       </div>
-                      <div className="flex flex-row  justify-center items-center text-center">
-                        <img
-                          src={
-                            window.location.origin +
-                            `/uploads/vectors/laurel.svg`
-                          }
-                          className="bg-purple-200 w-14 "
-                          alt=""
-                        />
-                        <p className="font-medium text-sm ml-4 text-primary">
-                          {winner.category}
+                      <div className="p-3 pb-6 rounded-b-xl bg-white">
+                        <div className="flex flex-row  justify-center items-center text-center ">
+                          <img
+                            src={
+                              window.location.origin +
+                              `/uploads/vectors/laurel.svg`
+                            }
+                            className="bg-purple-200 w-14 "
+                            alt=""
+                          />
+                          <p className=" text-xs lg:text-sm ml-4 text-primary">
+                            {winner.category}
+                          </p>
+                        </div>
+                        <p className="text-sm font-medium text-center md:text-xl text-secondary">
+                          {winner.winner}
                         </p>
                       </div>
-                      <p className="text-sm font-medium text-center md:text-xl text-secondary">
-                        {winner.winner}
-                      </p>
                     </section>
                   ))}
                 </Carousel>
@@ -138,18 +140,17 @@ function AboutTabMenu() {
           ))}
           <Tab.Panel
             data-aos="fade-up"
-            className={`mt-5 h-[55vh] w-screen flex justify-center items-center flex-col`}
+            className={`mt-5 lg:h-[55vh] w-screen flex justify-center items-center flex-col px-20`}
           >
+            <p className="text-sm lg:text-xl text-center font-medium">
+              Winners will be announced once the voting is completed
+            </p>
             <Lottie
               loop
               animationData={comingSoonAnimation}
               play
-              style={{ width: 500, height: 500 }}
+              style={{ width: 400, height: 400 }}
             />
-
-            <p className="text-xl">
-              Winners will be announced once the voting is completed
-            </p>
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

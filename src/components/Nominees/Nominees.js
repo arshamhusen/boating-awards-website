@@ -216,8 +216,8 @@ function Index() {
       >
         {/* Category Image */}
 
-        <div className=" border-1 py-10 col-span-7 border-primary rounded-2xl bg-cover bg-top  flex flex-col justify-center items-center">
-          <h1 className="text-5xl font-bold px-10 py-5 md:py-10 text-secondary leading-tight">
+        <div className=" border-1 py-5 col-span-7 border-primary rounded-2xl bg-cover bg-top  flex flex-col justify-start lg:justify-center items-start lg:items-center">
+          <h1 className="text-3xl text-start lg:text-5xl font-bold px-10 pt-2 md:pt-10 text-secondary leading-tight">
             {pageData.category_name}
           </h1>
         </div>
@@ -230,7 +230,7 @@ function Index() {
             data-aos="fade-up"
             className={`justify-center flex-col items-center flex text-start`}
           >
-            <p className="text-base max-w-2xl 2xl:text-base font-medium text-gray my-4">
+            <p className="text-sm max-w-2xl lg:text-base font-medium text-gray my-4 pb-10">
               {pageData.description}
             </p>
           </div>
@@ -241,42 +241,42 @@ function Index() {
           {/* Show who the person voted */}
           <div
             data-aos="fade-up"
-            className="mt-10 max-w-5xl p-10 w-full border-t-2 border-t-primary grid grid-cols-1 lg:grid-cols-12 gap-10"
+            className=" max-w-5xl p-5 lg:p-10 bg-lightPrimary mb-5 w-10/12 lg:w-full rounded-xl grid grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-10"
           >
-            <div className="col-span-7">
-              <div class="overflow-hidden w-full  flex items-center justify-center  lg:col-span-5  bg-white">
+            <div className="lg:col-span-7 col-span-1">
+              <div class="overflow-hidden w-full  justify-center  lg:col-span-5  bg-white">
                 {votedNom && (
-                  <>
+                  <div className="grid grid-cols-1">
                     {pageData.people && (
                       <img
                         src={votedNom.imageURI}
-                        className="bg-purple-200 h-[300px] w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.business && (
                       <img
                         src={votedNom.business_imageURI}
-                        className="bg-purple-200 h-[300px] w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.boat && (
                       <img
                         src={votedNom.boat_imageURI}
-                        className="bg-purple-200 h-[300px] w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
-                  </>
+                  </div>
                 )}
               </div>
             </div>
-            <div className=" col-span-5 flex flex-col items-start justify-start">
-              <h1 className="text-secondary text-xl lg:text-2xl font-light mb-1">
+            <div className="col-span-1 lg:col-span-5 flex flex-col items-start justify-start">
+              <h1 className="text-secondary text-xs lg:text-2xl font-light mb-1">
                 Thank you for voting{" "}
               </h1>
-              <h4 className="font-bold text-3xl lg:text-4xl text-primary mb-5 leading-tight">
+              <h4 className="font-bold text-xl lg:text-4xl text-primary mb-5 leading-tight">
                 {pageData.people && <>{votedNom.name}</>}
                 {pageData.boat && <>{votedNom.boat_name}</>}
                 {pageData.business && <>{votedNom.business_name}</>}
@@ -326,38 +326,38 @@ function Index() {
                     {pageData.people && nom.imageURI && (
                       <img
                         src={nom.imageURI}
-                        className="bg-purple-200 w-80 h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-full h-64 lg:w-80 lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.boat && (
                       <img
                         src={nom.boat_imageURI}
-                        className="bg-purple-200 w-80 h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-full h-64 lg:w-80 lg:h-80rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.business && (
                       <img
                         src={nom.business_imageURI}
-                        className="bg-purple-200 w-80 h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-full h-64 lg:w-80 lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                   </div>
                   <div className="flex p-5 items-center justify-center flex-col w-full">
-                    <h1 className=" text-lg lg:text-xl font-medium text-secondary">
+                    <h1 className="text-base lg:text-xl font-medium text-secondary">
                       {pageData.people && <>{nom.name}</>}
                       {pageData.boat && <>{nom.boat_name}</>}
                       {pageData.business && <>{nom.business_name}</>}
                     </h1>
-                    <h5 className="my-2 text-sm">
+                    <h5 className="my-1.5 lg:my-2 text-xs lg:text-sm text-primary mb-1">
                       {pageData.people && <>{nom.nominee.boat_name}</>}
                       {pageData.boat && <>{nom.business_name}</>}
                     </h5>
                     <button
                       onClick={() => handleModal(nom)}
-                      className="rounded-full border border-primary p-1.5 px-4 text-xs text-primary hover:bg-lightPrimary"
+                      className="rounded-full border border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
                     >
                       View More
                     </button>
@@ -415,7 +415,7 @@ function Index() {
                   <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
-                      className="text-lg md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
+                      className="text-base md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
                     >
                       You are required to sign in to vote
                     </Dialog.Title>
@@ -430,26 +430,24 @@ function Index() {
                           <FormikProvider value={formik}>
                             <div>
                               <Form className="flex justify-center items-center flex-col">
-                                <div className="flex items-center justify-center text-left w-full">
-                                  <div className="flex items-center justify-center flex-col gap-y-2 w-3/4 text-center">
-                                    <div className="grid grid-cols-12 items-center w-4/5">
-                                      <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray h-full  shadow-sm flex items-center justify-center px-4 ">
-                                        <p className="lg:text-base text-base text-gray">
-                                          +960
-                                        </p>
-                                      </div>
-                                      <Field
-                                        name="phone"
-                                        type="text"
-                                        className="col-span-8 p-2 focus:border-none focus:outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
-                                      />
+                                <div className="flex items-center justify-center flex-col gap-y-2 w-3/4 text-center">
+                                  <div className="grid grid-cols-12 items-center w-full lg:w-4/5">
+                                    <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray   shadow-sm flex items-center justify-center px-4 ">
+                                      <p className="lg:text-base text-sm text-gray">
+                                        +960
+                                      </p>
                                     </div>
-                                    <ErrorMessage
+                                    <Field
                                       name="phone"
-                                      component="div"
-                                      className="text-primary text-xs"
+                                      type="text"
+                                      className="col-span-8 p-2 border-none outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
                                     />
                                   </div>
+                                  <ErrorMessage
+                                    name="phone"
+                                    component="div"
+                                    className="text-primary text-xs"
+                                  />
                                 </div>
 
                                 <div className="mt-4 w-1/2">
@@ -535,7 +533,7 @@ function Index() {
                   <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-scroll bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
-                      className="text-lg md:text-xl grid grid-cols-1 gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
+                      className="text-lg md:text-xl grid grid-cols-1 gap-y-2 lg:gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
                     >
                       {selectedNominee && (
                         <>
@@ -567,37 +565,38 @@ function Index() {
                           {/* Address info */}
                           {pageData.business && (
                             <div className="flex items-center justify-center">
-                              <div className="grid grid-cols-12 mb-6 font-normal text-sm text-start gap-y-3 mt-4 overflow-hidden">
-                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                              <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
+                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
                                   <h4>Address:</h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-9">
+                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
                                   <h4>
                                     {selectedNominee.address}
                                     {selectedNominee.address_street}
                                     {selectedNominee.address_atoll_island}{" "}
                                   </h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
                                   <h4>Email:</h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-9">
+                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
                                   <h4>{selectedNominee.address_email}</h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
                                   <h4>Phone:</h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-9">
+                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
                                   <h4>{selectedNominee.address_telephone}</h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-3  text-primary ">
+                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
                                   <h4>Website:</h4>
                                 </div>
-                                <div className="grid grid-cols-1 col-span-9">
+                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
                                   <a
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     href={selectedNominee.address_url}
+                                    className="focus:ring-0 focus:outline-none"
                                   >
                                     {selectedNominee.address_url}
                                   </a>
@@ -607,7 +606,7 @@ function Index() {
                           )}
 
                           {/* Description */}
-                          <p className="text-sm mb-4 font-light max-h-[40vh] overflow-y-scroll">
+                          <p className=" text-xs lg:text-sm mb-4 font-light max-h-[40vh] overflow-y-scroll">
                             {selectedNominee.resume}
                             {pageData.boat && (
                               <>{selectedNominee.boat_description}</>
