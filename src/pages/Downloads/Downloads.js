@@ -104,7 +104,7 @@ function PressReleases() {
           <div className="grid max-w-7xl grid-cols-1 gap-2 mt-10">
             {getPaginatedData().map((pr, idx) => (
               <div key={idx} data={pr}>
-                <div className="p-2 ">
+                <div className="p-3">
                   <div className="rounded-3xl flex justify-between flex-col overflow-hidden h-auto lg:h-[340px] border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
                     <div>
                       <div className="flex flexx-row justify-start items-center">
