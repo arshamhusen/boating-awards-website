@@ -12,7 +12,7 @@ function Banner(props) {
   return (
     <div
       style={{
-        backgroundImage: `url("https://img.freepik.com/free-vector/elegant-abstract-gold-background-with-shiny-elements_23-2148827899.jpg?t=st=1658501585~exp=1658502185~hmac=26c906b708a7f630c2b1154c36b867d9fe2e05379c6e4d62f0a8b44e614b9988&w=1480")`,
+        backgroundImage: `url('${props.data.image_URI}')`,
       }}
       className="h-screen w-screen bg-cover  bg-top flex flex-col justify-center items-center"
     >
