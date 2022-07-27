@@ -38,7 +38,7 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="w-screen flex-col max-w-7xl py-8 px-10 lg:px-0 lg:py-16 sm:px-0">
+    <div className="w-screen flex-col max-w-7xl py-8 px-10 lg:px-0 lg:py-10 sm:px-0">
       <Tab.Group>
         <div className="flex justify-center items-center">
           <Tab.List className="flex space-x-2 lg:space-x-6 w-full sm:w-1/2 rounded-xl bg-blue-900/20 p-1">

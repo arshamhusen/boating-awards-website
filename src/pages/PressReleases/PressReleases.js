@@ -100,9 +100,6 @@ function PressReleases() {
             position="center"
             color="secondary"
           />
-          <p className="text-xs md:text-base text-gray ">
-            Here is our latest news feeds
-          </p>
         </div>
         <div className="w-screen px-8 lg:px-0 min-h-screen  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
           {/* <div className="flex items-center justify-center">

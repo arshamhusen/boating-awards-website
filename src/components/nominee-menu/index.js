@@ -45,7 +45,7 @@ function Index() {
   return (
     <div className=" w-full max-w-7xl min-h-screen pt-10 lg:pt-0">
       <div
-        className="text-center flex items-center justify-center flex-col  mt-20 mb-0"
+        className="text-center flex items-center space-y-5 justify-center flex-col  mt-20 mb-0"
         data-aos="fade-up"
       >
         <Heading
@@ -55,16 +55,6 @@ function Index() {
           position="center"
           color="secondary"
         />
-        <div
-          data-aos="fade-up"
-          className={`justify-center flex-col items-center flex`}
-        >
-          <p className="text-xs 2xl:text-base font-medium text-gray my-4">
-            {catTypeSelected
-              ? "Select Category you want to vote or view"
-              : "Select one of the category type below"}
-          </p>
-        </div>
         {catTypeSelected && (
           <div onClick={() => setCatTypeSelected(false)}>
             <Button title="Go Back" />
@@ -76,7 +66,7 @@ function Index() {
       {catTypeSelected ? (
         <Categories index={selectedCatType.index} name={selectedCatType.name} />
       ) : (
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center mt-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 px-5  py-5 gap-5 lg:gap-10">
             {category_type.map((cat) => (
               <div

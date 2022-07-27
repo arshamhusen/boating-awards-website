@@ -60,16 +60,16 @@ function AboutTabMenu() {
         <div className="flex justify-start md:justify-center  items-center">
           <Tab.List
             data-aos="fade-up"
-            className={`px-10 md:px-20 lg:px-20 grid grid-cols-3 gap-x-4 md:gap-x-8`}
+            className="flex space-x-2 my-4 lg:space-x-6 w-1/3 sm:w-1/2 rounded-xl bg-blue-900/20 p-1"
           >
             <Tab
               className={({ selected }) =>
                 classNames(
-                  "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-xl leading-5 ",
-                  "focus:outline-none",
+                  "w-full  py-2 uppercase  font-medium leading-5 text-blue-700",
+                  " rounded-full text-xs lg:text-sm ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "border-b-lime/[9] text-warning "
-                    : "text-blue-100 hover:bg-white/[0.12] hover:text-lightPrimary"
+                    ? "bg-primary text-white shadow ring-primary "
+                    : "text-blue-100 hover:bg-white/[0.12] hover:bg-lightPrimary border-2 border-primary text-primary"
                 )
               }
             >
@@ -77,13 +77,14 @@ function AboutTabMenu() {
             </Tab>
             {winners.map((year) => (
               <Tab
+                key={year}
                 className={({ selected }) =>
                   classNames(
-                    "py-2.5  text-secondary capitalize  font-semibold text-base md:text-lg xl:text-xl leading-5 ",
-                    "focus:outline-none",
+                    "w-full  py-2 uppercase  font-medium leading-5 text-blue-700",
+                    " rounded-full text-xs lg:text-sm ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                     selected
-                      ? "border-b-lime/[9] text-warning "
-                      : "text-blue-100 hover:bg-white/[0.12] hover:text-lightPrimary"
+                      ? "bg-primary text-white shadow ring-primary "
+                      : "text-blue-100 hover:bg-white/[0.12] hover:bg-lightPrimary border-2 border-primary text-primary"
                   )
                 }
               >

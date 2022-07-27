@@ -226,14 +226,6 @@ function Index() {
           <Link to="/nominees">
             <Button title="Go Back" />
           </Link>
-          <div
-            data-aos="fade-up"
-            className={`justify-center flex-col items-center flex text-start`}
-          >
-            <p className="text-sm max-w-2xl lg:text-base font-medium text-gray my-4 pb-10">
-              {pageData.description}
-            </p>
-          </div>
         </div>
       </div>
       {voted && (

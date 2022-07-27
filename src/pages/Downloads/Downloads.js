@@ -96,9 +96,7 @@ function PressReleases() {
       <section className="flex flex-col pt-24 py-10 w-screen md:py-20 min-h-screen  flex-cols justify-start  items-start">
         <div className="px-10 w-full md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-5">
           <Heading heading="Downloads" position="center" color="secondary" />
-          <p className="text-xs md:text-base text-gray ">
-            Downloadable Content
-          </p>
+
         </div>
         <div className="w-screen min-h-screen px-8 lg:px-0  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
           <div className="grid max-w-7xl grid-cols-1 gap-2 mt-10">
