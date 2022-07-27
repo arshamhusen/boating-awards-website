@@ -140,13 +140,13 @@ function NavBar() {
                 >
                   <Popover.Panel className="absolute h-[94vh] z-10 top-full inset-x-0 transform shadow-lg bg-white">
                     <div className="p-10 flex flex-col justify-between h-[8vh]  gap-y-10">
-                      <ul className="flex flex-col items-start  justify-start gap-y-10 xl:gap-x-20 text-base uppercase text-secondary font-medium">
-                        <a
-                          href="/home/1"
+                      <ul className="flex flex-col items-start  justify-start gap-y-5 xl:gap-x-20 text-base uppercase text-secondary font-semibold">
+                        <Link
+                          to="/home/1"
                           className="link link-underline link-underline-black "
                         >
                           Home
-                        </a>
+                        </Link>
 
                         <Link
                           to="/nominees"
@@ -155,39 +155,31 @@ function NavBar() {
                           Awards
                         </Link>
 
-                        <a
-                          href="/winners"
+                        <Link
+                          to="/winners"
                           className="link link-underline link-underline-black "
                         >
                           Winners
-                        </a>
-                        <a
-                          href="/gallery"
+                        </Link>
+                        <Link
+                          to="/gallery"
                           className="link link-underline link-underline-black "
                         >
                           Gallery
-                        </a>
-                        <a
-                          href="/press-releases"
+                        </Link>
+                        <Link
+                          to="/press-releases"
                           className="link link-underline link-underline-black "
                         >
                           Press Releases{" "}
-                        </a>
-                        <a
-                          href="/downloads"
+                        </Link>
+                        <Link
+                          to="/downloads"
                           className="link link-underline link-underline-black "
                         >
                           Downloads
-                        </a>
+                        </Link>
                       </ul>
-                      <a
-                        href="/nominees"
-                        className="col-span-2 flex w-full lg:flex items-center justify-center "
-                      >
-                        <button className="px-12 p-2 w-full rounded-lg  bg-warning text-secondary uppercase hover:brightness-95 font-medium text-sm md:text-base lg:text-base">
-                          Vote
-                        </button>
-                      </a>
                     </div>
                   </Popover.Panel>
                 </Transition>
