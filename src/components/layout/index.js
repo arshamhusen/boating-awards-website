@@ -8,7 +8,7 @@ function WebsiteLayout({ children, props }) {
     <BodyWrapper>
       <div className="w-screen  justify-center">
         <NavBar />
-        <section className="flex flex-col">{children}</section>
+        <section className="flex flex-col lg:pt-2">{children}</section>
         <Footer />
       </div>
     </BodyWrapper>

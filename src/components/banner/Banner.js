@@ -14,7 +14,7 @@ function Banner(props) {
       style={{
         backgroundImage: `url('${props.data.image_URI}')`,
       }}
-      className="h-screen w-screen bg-cover  bg-top flex flex-col justify-center items-center"
+      className="h-screen w-screen bg-cover  bg-left flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
     >
       <div
         data-aos="fade-up"
@@ -22,16 +22,16 @@ function Banner(props) {
       >
         <h1
           data-aos="fade-up"
-          className="text-5xl md:text-6xl lg:text-7xl leading-tight md:leading-snug lg:leading-relaxed text-secondary font-bold"
+          className="text-4xl md:text-6xl lg:text-7xl leading-tight md:leading-snug lg:leading-relaxed text-secondary font-bold"
         >
           {props.data.heading}
         </h1>
-        <h3 className="text-xl md:text-2xl lg:text-3xl w-3/4 mt-5 mb-8 text-primary font-medium">
+        <h3 className="text-lg md:text-2xl lg:text-3xl w-3/4 mt-5 mb-8 text-primary font-medium">
           {props.data.title}
         </h3>
 
         <a
-          className="uppercase p-3 px-12 font-medium text-base text-white hover:brightness-125 bg-primary rounded-full"
+          className="uppercase p-1.5 lg:p-3 px-12 font-medium text-sm lg:text-base text-white hover:brightness-125 bg-primary rounded-full"
           href={props.data.button_href}
         >
           {props.data.button_text}
