@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "tw-elements";
-import Heading from "../../ui/heading/Heading";
-import Categories from "../Categories/Categories";
 import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -11,7 +9,6 @@ import { ErrorMessage, Field, Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
 import { useParams } from "react-router-dom";
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -280,8 +277,11 @@ function Index() {
 
       <div className="bg-lightPrimary w-full  flex p-10 items-center justify-center">
         {loading && (
-          <div className="flex justify-center items-center w-full h-[60vh]">
-            <div className="flex justify-center items-center" role="status">
+          <div className="flex justify-center items-center w-full mt-40 h-[60vh]">
+            <div
+              className="flex justify-center items-center pt-40"
+              role="status"
+            >
               <svg
                 aria-hidden="true"
                 class="mr-2 w-20 h-20 text-lightPrimary animate-spin dark:text-gray-600 fill-primary"
@@ -318,21 +318,21 @@ function Index() {
                     {pageData.people && nom.imageURI && (
                       <img
                         src={nom.imageURI}
-                        className="bg-purple-200 w-full h-64 lg:w-80 lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-full h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.boat && (
                       <img
                         src={nom.boat_imageURI}
-                        className="bg-purple-200 w-full h-64 lg:w-80 lg:h-80rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-full h-64 lg:h-80rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.business && (
                       <img
                         src={nom.business_imageURI}
-                        className="bg-purple-200 w-full h-64 lg:w-80 lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 w-full h-64 lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
@@ -364,7 +364,7 @@ function Index() {
                         >
                           <button
                             onClick={() => setVotedNom(nom)}
-                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-full hover:brightness-110 "
+                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                           >
                             Vote now
                           </button>
@@ -445,7 +445,7 @@ function Index() {
                                 <div className="mt-4 w-1/2">
                                   <button
                                     type="submit"
-                                    className="w-full rounded-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs font-medium bg-secondary px-4 p-1.5 hover:brightness-110 "
+                                    className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                                   >
                                     Submit
                                   </button>
@@ -483,7 +483,7 @@ function Index() {
                         >
                           <button
                             type="button"
-                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-4 p-1.5 rounded-lg hover:brightness-110 "
+                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                           >
                             Confirm
                           </button>
@@ -686,7 +686,7 @@ function Index() {
                         </button>
                         <button
                           onClick={() => voteHandler()}
-                          className="p-1.5 rounded-full w-full px-4 bg-secondary text-white"
+                          className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                         >
                           Confirm
                         </button>

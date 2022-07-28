@@ -41,47 +41,56 @@ function index() {
   ];
 
   return (
-    <footer class="p-4 px-10 lg:px-0 bg-secondary bg-left md:px-6 md:py-8 dark:bg-gray-800">
-      <div class="sm:flex sm:items-center sm:justify-between">
-        <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
-          <div className="flex  flex-row justify-center items-center">
-            <img
-              src={window.location.origin + `/uploads/vectors/awards.svg`}
-              className="bg-purple-200 w-14 mr-2 "
-              alt=""
-            />
-            <img
-              src={window.location.origin + `/uploads/vectors/nbam.svg`}
-              className="bg-purple-200 pl-2 w-14 border-l border-l-white "
-              alt=""
-            />
+    <footer class="p-4 px-10 lg:px-0 flex flex-col items-center justify-center bg-primary bg-left md:px-6 md:py-8 dark:bg-gray-800">
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-10">
+        <img
+          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/awards.svg"
+          className="w-40 h-40"
+        />
+        <img
+          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/boating.svg"
+          className="w-40 h-40"
+        />
+        <img
+          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/expo.svg"
+          className="w-40 h-40"
+        />
+        <img
+          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/insider.svg"
+          className="w-40 h-40"
+        />
+        <img
+          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/privilege.svg"
+          className="w-40 h-40"
+        />
+        <img
+          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/life+jacket.svg"
+          className="w-40 h-40"
+        />
+      </div>
+      <div className="max-w-6xl flex flex-col items-center justify-center bg-primary">
+        <div className="my-10">
+          <div className="flex space-x-6">
+            {social.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-white hover:text-secondary"
+              >
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </a>
+            ))}
           </div>
-          <span class="self-center ml-5 text-sm lg:text-base  font-light whitespace-nowrap dark:text-white">
-            Maldives Boating Awards
-          </span>
-        </a>
-      </div>
-      <div className="my-10">
-        <div className="flex space-x-6">
-          {social.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-white hover:text-primary"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
-          ))}
         </div>
+        <span class="block text-xs lg:text-sm text-white sm:text-center dark:text-gray-400">
+          © 2022{" "}
+          <a href="https://flowbite.com/" class="hover:underline">
+            NBAM™
+          </a>
+          . All Rights Reserved.
+        </span>
       </div>
-      <span class="block text-xs lg:text-sm text-white sm:text-center dark:text-gray-400">
-        © 2022{" "}
-        <a href="https://flowbite.com/" class="hover:underline">
-          NBAM™
-        </a>
-        . All Rights Reserved.
-      </span>
     </footer>
   );
 }

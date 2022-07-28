@@ -79,6 +79,10 @@ function PressReleases() {
       setCurrentPage((page) => page - 1);
     }
   }
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   function generateArrayOfNumbers(pages) {
     setPageArray(Array.from(Array(pages).keys(), (n) => n + 1));
@@ -150,7 +154,7 @@ function PressReleases() {
                       href={pr.media_URI}
                       className=""
                     >
-                      <button className="w-full hover:brightness-150 text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-full ">
+                      <button className="w-full hover:brightness-110 text-white uppercase  border-2 bg-primary text-xs md:text-sm  font-medium px-2 p-1.5 rounded-full ">
                         Download
                       </button>
                     </a>

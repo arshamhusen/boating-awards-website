@@ -31,7 +31,7 @@ function Banner(props) {
         </h3>
 
         <a
-          className="uppercase p-1.5 lg:p-3 px-12 font-medium text-sm lg:text-base text-white hover:brightness-125 bg-primary rounded-full"
+          className="uppercase p-1.5 lg:p-3 px-12 lg:px-20 font-medium text-sm lg:text-base text-white hover:brightness-125 bg-primary rounded-full"
           href={props.data.button_href}
         >
           {props.data.button_text}

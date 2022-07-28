@@ -25,13 +25,13 @@ function NavBar() {
               className="flex col-span-5   md:col-span-2 lg:col-span-2 flex-row justify-center items-center"
             >
               <img
-                src={window.location.origin + `/uploads/vectors/awards.svg`}
-                className="bg-purple-200 w-14 mr-2 "
+                src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/awards.svg"
+                className="bg-purple-200 w-14 h-14 mr-2 "
                 alt=""
               />
               <img
-                src={window.location.origin + `/uploads/vectors/nbam.svg`}
-                className="bg-purple-200 pl-2 w-14 border-l border-l-white "
+                src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/nbam.svg"
+                className="bg-purple-200 pl-2 w-24 h-24  "
                 alt=""
               />
             </Link>

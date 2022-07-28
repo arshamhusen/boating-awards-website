@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Heading from "../../ui/heading/Heading";
 import WinnerTabMenu from "../../components/winner-tab-menu/WinnerTabMenu";
 import DashboardLayout from "../../components/layout/index";
 
 function Winners() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <DashboardLayout>
       <section className="flex py-10 mt-16 lg:mt-0 md:py-20 min-h-screen  flex-cols justify-start  items-start">

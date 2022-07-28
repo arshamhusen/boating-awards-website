@@ -10,11 +10,15 @@ function About(props) {
     AOS.refresh();
   }, []);
   return (
-    <section className="flex flex-cols justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
-      <div className="p-10 px-10 md:px-20 lg:px-20 md:flex md:flex-col md:justify-start  grid grid-cols-1 gap-5 md:gap-4 lg:gap-6">
-        <div data-aos="fade-up mb-20">
+    <section className="flex flex-col justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
+      <div className="p-10 px-10 md:px-20 lg:px-20 flex flex-col items-center justify-center">
+        <div data-aos="fade-up mb-20 " className="flex space-y-10 flex-col">
           <Heading heading="About NBAM" position="center" color="secondary" />
+          <div className="max-w-6xl text-secondary text-sm lg:text-base text-center flex items-center justify-center">
+            <p>{props.data[0].description}</p>
+          </div>
         </div>
+
         <AboutTabMenu data={props.data} />
       </div>
     </section>

@@ -51,6 +51,11 @@ function PressReleases() {
     keys: ["heading", "description"],
   };
 
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     Axios.get(`${process.env.REACT_APP_API_URL}/website/downloads`, {
       headers: {
@@ -96,14 +101,13 @@ function PressReleases() {
       <section className="flex flex-col pt-24 py-10 w-screen md:py-20 min-h-screen  flex-cols justify-start  items-start">
         <div className="px-10 w-full md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-5">
           <Heading heading="Downloads" position="center" color="secondary" />
-
         </div>
         <div className="w-screen min-h-screen px-8 lg:px-0  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
           <div className="grid max-w-7xl grid-cols-1 gap-2 mt-10">
             {getPaginatedData().map((pr, idx) => (
               <div key={idx} data={pr}>
                 <div className="p-3">
-                  <div className="rounded-3xl flex justify-between flex-col overflow-hidden h-auto lg:h-[340px] border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
+                  <div className="rounded-3xl flex justify-between flex-col overflow-hidden h-auto  border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
                     <div>
                       <div className="flex flexx-row justify-start items-center">
                         <svg
@@ -136,7 +140,7 @@ function PressReleases() {
                       href={pr.media_URI}
                       className="yes"
                     >
-                      <button className="w-full hover:brightness-150 text-white uppercase hover:bg-gradient-to-b border-2 border-secondary via-secondary from-secondary to-secondary text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-full ">
+                      <button className="w-full hover:brightness-110 text-white uppercase  border-2 text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full ">
                         Download
                       </button>
                     </a>

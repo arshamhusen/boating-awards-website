@@ -4,6 +4,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { saveAs } from "file-saver";
 import Axios from "axios";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -12,6 +14,20 @@ function classNames(...classes) {
 export default function Index() {
   const [gallery, setGallery] = useState([]);
   const [loading, setLoading] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+
+  function closeModal() {
+    setModalOpen(false);
+  }
+
+  function imageClickHandler(media) {
+    setModalOpen(true);
+    setImage(media.media_URI);
+    setDescription(media.description);
+  }
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -73,41 +89,62 @@ export default function Index() {
               <div className="grid sm:grid-cols-1 sm:px-5 md:px-20 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-5">
                 {gallery.media.map((media) => (
                   <div
+                    onClick={() => imageClickHandler(media)}
+                    style={{
+                      backgroundImage: `url('${media.media_URI}')`,
+                    }}
+                    className="min-h-[30vh] bg-cover hover:cursor-pointer hover:brightness-100 brightness-95 rounded-xl bg-no-repeat bg-bottom flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
                     data-aos="fade-up"
-                    className="border border-primary rounded-3xl"
-                  >
-                    <img className="rounded-t-2xl" src={media.media_URI} />
-                    <div className="p-5 text-xs font-normal lg:font-medium rounded-b-2xl text-start flex justify-between items-center">
-                      <p className="w-5/6 text-secondary">
-                        {media.description}
-                      </p>
-                      <a
-                        onClick={() => downloadImage(media.media_URI)}
-                        className="cursor-pointer text-primary hover:brightness-110"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="2"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
+                  ></div>
                 ))}
               </div>
             </Tab.Panel>
           ))}
         </Tab.Panels>
       </Tab.Group>
+      <Transition appear show={modalOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-50" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className="w-full  max-w-7xl max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl   text-left flex justify-center items-center flex-col align-middle transition-all">
+                  <div>
+                    <img
+                      className=" lg:min-h-[70vh] min-h-0 rounded-2xl"
+                      src={image}
+                    />
+                  </div>
+                  <div>
+                    <p className="text-white text-center font-medium pt-4">
+                      {description}
+                    </p>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
     </div>
   );
 }
