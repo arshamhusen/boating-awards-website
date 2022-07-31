@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Heading from "../../ui/heading/Heading";
+import parse from "html-react-parser";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -52,7 +53,7 @@ function AboutTabMenu(props) {
                         data-aos="fade-up"
                         className="text-sm text-center md:text-base w-full  text-secondary"
                       >
-                        {about.description}
+                        {parse(about.description)}
                       </p>
                     </Tab.Panel>
                   </>

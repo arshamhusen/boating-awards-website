@@ -69,7 +69,7 @@ function index() {
         />
       </div>
       <div className="max-w-6xl flex flex-col items-center justify-center bg-primary">
-        <div className="my-10">
+        <div className="my-5">
           <div className="flex space-x-6">
             {social.map((item) => (
               <a

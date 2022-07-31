@@ -6,6 +6,7 @@ import { saveAs } from "file-saver";
 import Axios from "axios";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import parse from "html-react-parser";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -135,8 +136,8 @@ export default function Index() {
                     />
                   </div>
                   <div>
-                    <p className="text-white text-center font-medium pt-4">
-                      {description}
+                    <p className="text-white text-sm lg:text-base text-center  pt-4">
+                      {parse(description)}
                     </p>
                   </div>
                 </Dialog.Panel>

@@ -57,9 +57,6 @@ function MediaPartner(props) {
                 />
               </div>
 
-              <p className="text-base md:text-lg mt-6 text-center text-secondary">
-                {sponsor.heading}
-              </p>
             </a>
           ))}
         </Carousel>

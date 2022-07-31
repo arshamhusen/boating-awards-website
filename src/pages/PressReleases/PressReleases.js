@@ -5,6 +5,7 @@ import Axios from "axios";
 import moment from "moment";
 import Fuse from "fuse.js";
 import { SearchIcon } from "@heroicons/react/outline";
+import parse from "html-react-parser";
 
 function PressReleases() {
   const [prMedia, setPrMedia] = useState([]);
@@ -79,7 +80,7 @@ function PressReleases() {
       setCurrentPage((page) => page - 1);
     }
   }
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -142,7 +143,7 @@ function PressReleases() {
                       </div>
                       <hr className="w-full mt-3 border text-lightgray" />
                       <div className="p-2 text-xs lg:text-sm text-start text-secondary">
-                        <p>{pr.description}</p>
+                        <p>{parse(pr.description)}</p>
                         <p className="mt-3 font-medium text-gray text-xs">
                           {RenderedDate(pr.createdAt)}
                         </p>
@@ -151,7 +152,7 @@ function PressReleases() {
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={pr.media_URI}
+                      href={`${pr.media_URI}`}
                       className=""
                     >
                       <button className="w-full hover:brightness-110 text-white uppercase  border-2 bg-primary text-xs md:text-sm  font-medium px-2 p-1.5 rounded-full ">

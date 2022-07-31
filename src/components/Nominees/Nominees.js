@@ -9,6 +9,7 @@ import { ErrorMessage, Field, Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
 import { useParams } from "react-router-dom";
+import parse from "html-react-parser";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -206,21 +207,19 @@ function Index() {
   }
 
   return (
-    <div className=" w-full   flex items-center justify-center flex-col ">
+    <div className=" w-full h-fit flex items-center justify-center flex-col ">
       <div
-        className="grid grid-cols-1 min-h-[30vh] lg:grid-cols-12 gap-0 lg:gap-10 max-w-5xl  mt-24"
+        className="flex max-w-7xl flex-col justify-start items-start  mt-24"
         data-aos="fade-up"
       >
         {/* Category Image */}
 
-        <div className=" border-1 py-5 col-span-7 border-primary rounded-2xl bg-cover bg-top  flex flex-col justify-start lg:justify-center items-start lg:items-center">
-          <h1 className="text-3xl text-start lg:text-5xl font-bold px-10 pt-2 md:pt-10 text-secondary leading-tight">
+        <div className=" w-full flex flex-col space-y-10 p-10">
+          <h1 className="text-3xl w-1/2 text-start lg:text-5xl font-bold  text-secondary leading-tight">
             {pageData.category_name}
           </h1>
-        </div>
 
-        <div className="flex col-span-5 mx-10 lg:mx-0 justify-center items-start flex-col">
-          <Link to="/nominees">
+          <Link className="" to="/nominees">
             <Button title="Go Back" />
           </Link>
         </div>
@@ -275,7 +274,7 @@ function Index() {
         </>
       )}
 
-      <div className="bg-lightPrimary w-full  flex p-10 items-center justify-center">
+      <div className="bg-lightPrimary w-full  flex py-10 items-center justify-center">
         {loading && (
           <div className="flex justify-center items-center w-full mt-40 h-[60vh]">
             <div
@@ -309,7 +308,7 @@ function Index() {
           >
             {pageData.data.map((nom) => (
               <div
-                className={`flex rounded-2xl bg-white min-w-[300px]   ${
+                className={`flex rounded-2xl bg-white w-[280px]   ${
                   votedNom === nom ? "dropshadow-md rounded-2xl" : "rounded-2xl"
                 } `}
               >
@@ -393,7 +392,7 @@ function Index() {
               <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
-            <div className="fixed inset-0 overflow-y-auto">
+            <div className="fixed inset-0 overflow-hidden">
               <div className="flex min-h-full items-center justify-center p-4 text-center">
                 <Transition.Child
                   as={Fragment}
@@ -511,7 +510,7 @@ function Index() {
               <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
-            <div className="fixed inset-0 overflow-y-auto">
+            <div className="fixed inset-0 overflow-hidden">
               <div className="flex min-h-full items-center justify-center p-4 text-center">
                 <Transition.Child
                   as={Fragment}
@@ -522,7 +521,7 @@ function Index() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-scroll bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
                       className="text-lg md:text-xl grid grid-cols-1 gap-y-2 lg:gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
@@ -598,13 +597,16 @@ function Index() {
                           )}
 
                           {/* Description */}
-                          <p className=" text-xs lg:text-sm mb-4 font-light max-h-[40vh] overflow-y-scroll">
-                            {selectedNominee.resume}
+                          <p className=" text-xs lg:text-sm mb-4 font-light max-h-[50vh] overflow-y-scroll">
+                            {pageData.people && (
+                              <>{parse(selectedNominee.resume)}</>
+                            )}
+
                             {pageData.boat && (
-                              <>{selectedNominee.boat_description}</>
+                              <>{parse(selectedNominee.boat_description)}</>
                             )}
                             {pageData.business && (
-                              <>{selectedNominee.business_description}</>
+                              <>{parse(selectedNominee.business_description)}</>
                             )}
                           </p>
                         </>

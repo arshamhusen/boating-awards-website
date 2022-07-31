@@ -3,6 +3,7 @@ import Heading from "../../ui/heading/Heading";
 import AboutTabMenu from "../../components/about-tab-menu/AboutTabMenu";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import parse from "html-react-parser";
 
 function About(props) {
   useEffect(() => {
@@ -15,7 +16,7 @@ function About(props) {
         <div data-aos="fade-up mb-20 " className="flex space-y-10 flex-col">
           <Heading heading="About NBAM" position="center" color="secondary" />
           <div className="max-w-6xl text-secondary text-sm lg:text-base text-center flex items-center justify-center">
-            <p>{props.data[0].description}</p>
+            <p>{parse(props.data[0].description)}</p>
           </div>
         </div>
 

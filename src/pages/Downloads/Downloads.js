@@ -5,6 +5,7 @@ import Axios from "axios";
 import moment from "moment";
 import Fuse from "fuse.js";
 import { SearchIcon } from "@heroicons/react/outline";
+import parse from "html-react-parser";
 
 function PressReleases() {
   const [prMedia, setPrMedia] = useState([]);
@@ -51,7 +52,6 @@ function PressReleases() {
     keys: ["heading", "description"],
   };
 
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -137,7 +137,7 @@ function PressReleases() {
                     <a
                       rel="noopener noreferrer"
                       target="_blank"
-                      href={pr.media_URI}
+                      href={`${pr.media_URI}`}
                       className="yes"
                     >
                       <button className="w-full hover:brightness-110 text-white uppercase  border-2 text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full ">

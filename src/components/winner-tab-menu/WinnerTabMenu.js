@@ -57,11 +57,8 @@ function AboutTabMenu() {
   return (
     <div>
       <Tab.Group>
-        <div className="flex justify-start md:justify-center  items-center">
-          <Tab.List
-            data-aos="fade-up"
-            className="flex space-x-2 my-4 lg:space-x-6 w-1/3 sm:w-1/2 rounded-xl bg-blue-900/20 p-1"
-          >
+        <div className="flex justify-center items-center px-10">
+          <Tab.List className="flex space-x-2 lg:space-x-6 w-full sm:w-1/2 rounded-xl bg-blue-900/20 p-1">
             <Tab
               className={({ selected }) =>
                 classNames(
