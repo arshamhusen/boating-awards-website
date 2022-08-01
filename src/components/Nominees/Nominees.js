@@ -214,7 +214,7 @@ function Index() {
       >
         {/* Category Image */}
 
-        <div className=" w-full flex flex-col justify-center items-center space-y-10 p-10">
+        <div className=" w-full flex flex-col justify-center text-center items-center space-y-10 p-10">
           <h1 className="text-3xl w-2/3 text-start lg:text-5xl font-bold  text-secondary leading-tight">
             {pageData.category_name}
           </h1>
