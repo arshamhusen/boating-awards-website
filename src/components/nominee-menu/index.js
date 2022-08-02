@@ -45,7 +45,7 @@ function Index() {
   return (
     <div className=" w-full max-w-7xl min-h-screen pt-10 lg:pt-0">
       <div
-        className="text-center flex items-center space-y-5 justify-center flex-col  mt-20 mb-0"
+        className="text-center flex items-center space-y-5 justify-center flex-col  mt-20 mb-10"
         data-aos="fade-up"
       >
         <Heading
@@ -64,25 +64,27 @@ function Index() {
 
       {/* Select either Faces of Boating or General Categories */}
       {catTypeSelected ? (
-        <Categories index={selectedCatType.index} name={selectedCatType.name} />
+        <div className="mt-20">
+          <Categories
+            index={selectedCatType.index}
+            name={selectedCatType.name}
+          />
+        </div>
       ) : (
-        <div className="flex justify-center items-center mt-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 px-5  py-5 gap-5 lg:gap-10">
+        <div className="flex justify-center max-w-7xl items-center mt-10">
+          <div className="grid grid-cols-1 w-full px-5   gap-2 gap-5">
             {category_type.map((cat) => (
               <div
                 onClick={() => catTypeHandler(cat.index, cat.name)}
                 data-aos="fade-up"
                 key={cat.index}
-                className=" cursor-pointer hover:drop-shadow-sm"
+                className=" cursor-pointer hover:drop-shadow-sm "
               >
-                <div className="h-[20vh] lg:h-[350px]  border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
+                <div className="border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
                   <div className="p-10 lg:p-5 flex items-center text-center justify-center flex-col">
-                    <h1 className="text-lg lg:text-3xl text-primary font-bold">
+                    <h1 className="text-lg lg:text-xl text-primary font-bold">
                       {cat.name}
                     </h1>
-                    <p className="text-xs lg:text-base w-2/3 mt-2 text-gray">
-                      {cat.description}
-                    </p>
                   </div>
                 </div>
               </div>

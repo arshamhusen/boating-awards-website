@@ -47,6 +47,7 @@ function Index() {
       }).then((res) => {
         if (res.status === 200) {
           console.log(res.data);
+
           setPageData(res.data);
           setVoted(res.data.voted);
           setSignedIn(res.data.loggedIn);
@@ -336,40 +337,44 @@ function Index() {
                       />
                     )}
                   </div>
-                  <div className="flex p-5 items-center justify-center flex-col w-full">
-                    <h1 className="text-base lg:text-xl font-medium text-secondary">
-                      {pageData.people && <>{nom.name}</>}
-                      {pageData.boat && <>{nom.boat_name}</>}
-                      {pageData.business && <>{nom.business_name}</>}
-                    </h1>
-                    <h5 className="my-1.5 lg:my-2 text-xs lg:text-sm text-primary mb-1">
-                      {pageData.people && <>{nom.nominee.boat_name}</>}
-                      {pageData.boat && <>{nom.business_name}</>}
-                    </h5>
-                    <button
-                      onClick={() => handleModal(nom)}
-                      className="rounded-full border border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
-                    >
-                      View More
-                    </button>
+                  <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
+                    <div className="h-20">
+                      <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
+                        {pageData.people && <>{nom.name}</>}
+                        {pageData.boat && <>{nom.boat_name}</>}
+                        {pageData.business && <>{nom.business_name}</>}
+                      </h1>
+                      <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
+                        {pageData.people && <>{nom.nominee.boat_name}</>}
+                        {pageData.boat && <>{nom.business_name}</>}
+                      </h5>
+                    </div>
 
-                    {!voted && (
-                      <>
-                        <div
-                          className="w-full mt-4"
-                          onClick={() =>
-                            signedIn ? openConfirmModal(nom) : setIsOpen(true)
-                          }
-                        >
-                          <button
-                            onClick={() => setVotedNom(nom)}
-                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                    <div className="h-1/2 w-full flex items-center justify-center flex-col">
+                      <button
+                        onClick={() => handleModal(nom)}
+                        className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
+                      >
+                        View More
+                      </button>
+                      {!voted && (
+                        <>
+                          <div
+                            className="w-full mt-4"
+                            onClick={() =>
+                              signedIn ? openConfirmModal(nom) : setIsOpen(true)
+                            }
                           >
-                            Vote now
-                          </button>
-                        </div>
-                      </>
-                    )}
+                            <button
+                              onClick={() => setVotedNom(nom)}
+                              className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                            >
+                              Vote now
+                            </button>
+                          </div>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -521,95 +526,120 @@ function Index() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full  max-w-6xl max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
                       className="text-lg md:text-xl grid grid-cols-1 gap-y-2 lg:gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
                     >
                       {selectedNominee && (
-                        <>
-                          {/* Boat name or persons name */}
-                          <h1>
-                            <>
-                              {pageData.people && <>{selectedNominee.name}</>}
-                              {pageData.boat && (
-                                <>{selectedNominee.boat_name}</>
-                              )}
-                              {pageData.business && (
-                                <>{selectedNominee.business_name}</>
-                              )}
-                            </>
-                          </h1>
-                          {/* Business Name */}
-                          <h3 className="text-sm text-primary font-light">
-                            {" "}
-                            <>
-                              {pageData.people && (
-                                <>{selectedNominee.nominee.boat_name}</>
-                              )}
-                              {pageData.boat && (
-                                <>{selectedNominee.business_name}</>
-                              )}
-                            </>
-                          </h3>
-
-                          {/* Address info */}
-                          {pageData.business && (
-                            <div className="flex items-center justify-center">
-                              <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
-                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                  <h4>Address:</h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                  <h4>
-                                    {selectedNominee.address}
-                                    {selectedNominee.address_street}
-                                    {selectedNominee.address_atoll_island}{" "}
-                                  </h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                  <h4>Email:</h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                  <h4>{selectedNominee.address_email}</h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                  <h4>Phone:</h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                  <h4>{selectedNominee.address_telephone}</h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                  <h4>Website:</h4>
-                                </div>
-                                <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                  <a
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    href={selectedNominee.address_url}
-                                    className="focus:ring-0 focus:outline-none"
-                                  >
-                                    {selectedNominee.address_url}
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Description */}
-                          <p className=" text-xs lg:text-sm mb-4 font-light max-h-[50vh] overflow-y-scroll">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 space-x-0 lg:space-x-14">
+                          <div className="flex justify-center items-center">
                             {pageData.people && (
-                              <>{parse(selectedNominee.resume)}</>
-                            )}
-
-                            {pageData.boat && (
-                              <>{parse(selectedNominee.boat_description)}</>
+                              <img
+                                className="h-[50vh] max-w[20vw]"
+                                src={selectedNominee.imageURI}
+                              />
                             )}
                             {pageData.business && (
-                              <>{parse(selectedNominee.business_description)}</>
+                              <img
+                                className="h-[50vh] max-w[20vw]"
+                                src={selectedNominee.business_imageURI}
+                              />
                             )}
-                          </p>
-                        </>
+                            {pageData.boat && (
+                              <img
+                                className="h-[50vh] max-w[20vw]"
+                                src={selectedNominee.boat_imageURI}
+                              />
+                            )}
+                          </div>
+                          <div className="p-5 flex flex-col justify-center items-center space-y-1 lg:space-y-4 max-w-3xl">
+                            {" "}
+                            {/* Boat name or persons name */}
+                            <h1>
+                              <>
+                                {pageData.people && <>{selectedNominee.name}</>}
+                                {pageData.boat && (
+                                  <>{selectedNominee.boat_name}</>
+                                )}
+                                {pageData.business && (
+                                  <>{selectedNominee.business_name}</>
+                                )}
+                              </>
+                            </h1>
+                            {/* Business Name */}
+                            <h3 className="text-sm text-primary font-light">
+                              {" "}
+                              <>
+                                {pageData.people && (
+                                  <>{selectedNominee.nominee.boat_name}</>
+                                )}
+                                {pageData.boat && (
+                                  <>{selectedNominee.business_name}</>
+                                )}
+                              </>
+                            </h3>
+                            {/* Address info */}
+                            {!pageData.people && (
+                              <div className="flex items-center justify-center">
+                                <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
+                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                    <h4>Address:</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                    <h4>
+                                      {selectedNominee.address}
+                                      {selectedNominee.address_street}
+                                      {
+                                        selectedNominee.address_atoll_island
+                                      }{" "}
+                                    </h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                    <h4>Email:</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                    <h4>{selectedNominee.address_email}</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                    <h4>Phone:</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                    <h4>{selectedNominee.address_telephone}</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                    <h4>Website:</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                    <a
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      href={selectedNominee.address_url}
+                                      className="focus:ring-0 focus:outline-none"
+                                    >
+                                      {selectedNominee.address_url}
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                            {/* Description */}
+                            <p className=" text-xs lg:text-sm mb-4 font-light max-h-[38vh] overflow-y-scroll">
+                              {pageData.people && (
+                                <>{parse(selectedNominee.resume)}</>
+                              )}
+
+                              {pageData.boat && (
+                                <>{parse(selectedNominee.boat_description)}</>
+                              )}
+                              {pageData.business && (
+                                <>
+                                  {parse(selectedNominee.business_description)}
+                                </>
+                              )}
+                            </p>
+                          </div>
+                        </div>
                       )}
                     </Dialog.Title>
                   </Dialog.Panel>

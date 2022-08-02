@@ -103,13 +103,13 @@ function PressReleases() {
           <Heading heading="Downloads" position="center" color="secondary" />
         </div>
         <div className="w-screen min-h-screen px-8 lg:px-0  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
-          <div className="grid max-w-7xl grid-cols-1 gap-2 mt-10">
+          <div className="grid max-w-7xl w-full grid-cols-1 gap-2 mt-10">
             {getPaginatedData().map((pr, idx) => (
               <div key={idx} data={pr}>
                 <div className="p-3">
-                  <div className="rounded-3xl flex justify-between flex-col overflow-hidden h-auto  border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
+                  <div className="rounded-3xl w-full flex justify-between flex-col lg:flex-row overflow-hidden h-auto  border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
                     <div>
-                      <div className="flex flexx-row justify-start items-center">
+                      <div className="flex flex-row justify-start items-center">
                         <svg
                           className="text-primary h-8 w-8 mr-2 lg:mr-6"
                           xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ function PressReleases() {
                       </div>
                       <hr className="w-full mt-3 border text-lightgray" />
                       <div className="p-2 text-xs lg:text-sm text-start text-secondary">
-                        <p>{pr.description}</p>
+                        <p>{parse(pr.description)}</p>
                         <p className="mt-3 font-medium text-gray text-xs">
                           {RenderedDate(pr.createdAt)}
                         </p>
@@ -140,7 +140,7 @@ function PressReleases() {
                       href={`${pr.media_URI}`}
                       className="yes"
                     >
-                      <button className="w-full hover:brightness-110 text-white uppercase  border-2 text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full ">
+                      <button className="w-full  hover:brightness-110 text-white uppercase  border-2 text-xs md:text-sm  font-medium bg-primary px-6 p-1.5 rounded-full ">
                         Download
                       </button>
                     </a>

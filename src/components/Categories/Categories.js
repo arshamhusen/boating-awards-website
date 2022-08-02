@@ -30,7 +30,7 @@ function Categories(props) {
   return (
     <>
       {loading ? (
-        <div className="flex justify-center items-center w-full">
+        <div className="flex justify-center items-center w-full mt-20">
           <div className="flex justify-center items-center" role="status">
             <svg
               aria-hidden="true"
@@ -64,15 +64,16 @@ function Categories(props) {
                 }}
                 key={cat.id}
                 to={`/nominees/${cat.id}`}
-                className="h-[160px] lg:h-[173px] bgsj hover:brightness-105 bg-gradient-to-t bg-cover bg-top from-primary via-lightPrimary to-white border-2 text-center border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
+                className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t bg-cover bg-top from-primary via-lightPrimary to-white border-2 text-center border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
               >
-                <img
-                  className="h-1/4 lg:h-1/3 mb-2"
-                  src="https://www.pngkey.com/png/full/903-9031973_laurel-wreath-illustration-png.png"
-                />
-                <p className="text-sm lg:text-base font-semibold text-secondary w-3/4">
-                  {cat.name}
-                </p>
+                <div className=" h-3/4 lg:h-2/3  flex items-center justify-center">
+                  <p className="text-sm lg:text-base font-semibold text-secondary w-3/4">
+                    <span className="text-lg text-primary">
+                      {categories.length >= 13 ? `${cat.id}. ` : ""}
+                    </span>
+                    {cat.name}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>
