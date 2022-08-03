@@ -51,30 +51,30 @@ function NavBar() {
                     className="link link-underline link-underline-black "
                   >
                     Awards
-                  </Link>
+                  </Link> */}
 
-                  <Link
+                  {/* <Link
                     to="/winners"
                     className="link link-underline link-underline-black "
                   >
                     Winners
-                  </Link>
+                  </Link> */}
 
-                  <Link
+                  {/* <Link
                     to="/gallery"
                     className="link link-underline link-underline-black "
                   >
                     Gallery
-                  </Link>
+                  </Link> */}
 
-                  <Link
+                  {/* <Link
                     to="/press-releases"
                     className="link link-underline link-underline-black "
                   >
                     Press Releases
-                  </Link>
+                  </Link> */}
 
-                  <Link
+                  {/* <Link
                     to="/downloads"
                     className="link link-underline link-underline-black "
                   >
@@ -84,7 +84,7 @@ function NavBar() {
               </div>
             </div>
             <Link
-              // to="/nominees"
+              to="/nominees"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
               <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white hover:text-primary bg-transparent rounded-full">
@@ -153,27 +153,27 @@ function NavBar() {
                           className="link link-underline link-underline-black "
                         >
                           Awards
-                        </Link>
+                        </Link> */}
 
-                        <Link
+                        {/* <Link
                           to="/winners"
                           className="link link-underline link-underline-black "
                         >
                           Winners
-                        </Link>
-                        <Link
+                        </Link> */}
+                        {/* <Link
                           to="/gallery"
                           className="link link-underline link-underline-black "
                         >
                           Gallery
-                        </Link>
-                        <Link
+                        </Link> */}
+                        {/* <Link
                           to="/press-releases"
                           className="link link-underline link-underline-black "
                         >
                           Press Releases{" "}
-                        </Link>
-                        <Link
+                        </Link> */}
+                        {/* <Link
                           to="/downloads"
                           className="link link-underline link-underline-black "
                         >
