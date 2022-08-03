@@ -16,7 +16,7 @@ function About(props) {
         <div data-aos="fade-up mb-20 " className="flex space-y-10 flex-col">
           <Heading heading="About NBAM" position="center" color="secondary" />
           <div className="max-w-6xl text-secondary text-sm lg:text-base text-justify flex items-center justify-center">
-            <p>{parse(props.data[0].description)}</p>
+            <p>{parse(props.data[1].description)}</p>
           </div>
         </div>
 

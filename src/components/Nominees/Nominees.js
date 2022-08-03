@@ -318,21 +318,21 @@ function Index() {
                     {pageData.people && nom.imageURI && (
                       <img
                         src={nom.imageURI}
-                        className="bg-purple-200 w-full h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.boat && (
                       <img
                         src={nom.boat_imageURI}
-                        className="bg-purple-200 w-full h-64 lg:h-80rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
                     {pageData.business && (
                       <img
                         src={nom.business_imageURI}
-                        className="bg-purple-200 w-full h-64 lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200  rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}

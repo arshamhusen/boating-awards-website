@@ -33,10 +33,10 @@ function AboutTabMenu(props) {
                   className={({ selected }) =>
                     classNames(
                       "py-2.5  text-secondary capitalize text-center font-bold text-2xl md:text-2xl lg:text-4xl leading-5 ",
-                      "focus:outline-none text-center",
+                      "focus:outline-none text-left",
                       selected
-                        ? "text-center"
-                        : "text-blue-100 text-center hover:bg-white/[0.12] hover:text-lightPrimary"
+                        ? "text-left"
+                        : "text-blue-100 text-left hover:bg-white/[0.12] hover:text-lightPrimary"
                     )
                   }
                 >
@@ -44,20 +44,18 @@ function AboutTabMenu(props) {
                 </Tab>
               </Tab.List>
               <Tab.Panels>
-                {props.data.map((about) => (
-                  <>
-                    <Tab.Panel
-                      className={`grid mb-10 m-0 mt-4 pt-4  border-t border-t-lightgray p-0 md:p-5 grid-cols-1 md:grid-cols-1 gap-8 md:gap-20 `}
+                <>
+                  <Tab.Panel
+                    className={`grid mb-10 m-0 mt-4 pt-4  border-t border-t-lightgray p-0 md:p-5 grid-cols-1 md:grid-cols-1 gap-8 md:gap-20 `}
+                  >
+                    <p
+                      data-aos="fade-up"
+                      className="text-sm text-center text-justify md:text-base w-full  text-secondary"
                     >
-                      <p
-                        data-aos="fade-up"
-                        className="text-sm text-center md:text-base w-full  text-secondary"
-                      >
-                        {parse(about.description)}
-                      </p>
-                    </Tab.Panel>
-                  </>
-                ))}
+                      {parse(props.data[0].description)}
+                    </p>
+                  </Tab.Panel>
+                </>
               </Tab.Panels>
             </div>
           </div>

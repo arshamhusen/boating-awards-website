@@ -46,7 +46,7 @@ function NavBar() {
                     Home
                   </Link>
 
-                  <Link
+                  {/* <Link
                     to="/nominees"
                     className="link link-underline link-underline-black "
                   >
@@ -79,12 +79,12 @@ function NavBar() {
                     className="link link-underline link-underline-black "
                   >
                     downloads
-                  </Link>
+                  </Link> */}
                 </ul>
               </div>
             </div>
             <Link
-              to="/nominees"
+              // to="/nominees"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
               <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white hover:text-primary bg-transparent rounded-full">
@@ -148,7 +148,7 @@ function NavBar() {
                           Home
                         </Link>
 
-                        <Link
+                        {/* <Link
                           to="/nominees"
                           className="link link-underline link-underline-black "
                         >
@@ -178,7 +178,7 @@ function NavBar() {
                           className="link link-underline link-underline-black "
                         >
                           Downloads
-                        </Link>
+                        </Link> */}
                       </ul>
                     </div>
                   </Popover.Panel>
