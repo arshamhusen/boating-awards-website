@@ -307,7 +307,7 @@ function Index() {
             data-aos="fade-up"
             className={`grid ${
               pageData.data.length <= 3
-                ? `grid-cols-1 grid-cols-${pageData.data.length}`
+                ? `grid-cols-1 lg:grid-cols-${pageData.data.length}`
                 : ` grid-cols-1 lg:grid-cols-4`
             } max-w-6xl gap-6`}
           >
