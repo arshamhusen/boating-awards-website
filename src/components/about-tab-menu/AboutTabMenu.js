@@ -50,7 +50,8 @@ function AboutTabMenu(props) {
                   >
                     <p
                       data-aos="fade-up"
-                      className="text-sm text-center text-justify md:text-base w-full  text-secondary"
+                      style={{ lineHeight: 1.7 }}
+                      className="text-sm text-justify md:text-base w-full  text-secondary"
                     >
                       {parse(props.data[0].description)}
                     </p>
@@ -61,6 +62,7 @@ function AboutTabMenu(props) {
           </div>
 
           <div
+            data-aos="flip-right"
             style={{
               backgroundImage: `url('${menuPicture}')`,
             }}

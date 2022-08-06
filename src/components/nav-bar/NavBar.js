@@ -46,12 +46,12 @@ function NavBar() {
                     Home
                   </Link>
 
-                  {/* <Link
+                  <Link
                     to="/nominees"
                     className="link link-underline link-underline-black "
                   >
                     Awards
-                  </Link> */}
+                  </Link>
 
                   {/* <Link
                     to="/winners"
@@ -67,19 +67,19 @@ function NavBar() {
                     Gallery
                   </Link> */}
 
-                  {/* <Link
+                  <Link
                     to="/press-releases"
                     className="link link-underline link-underline-black "
                   >
                     Press Releases
-                  </Link> */}
+                  </Link>
 
-                  {/* <Link
+                  <Link
                     to="/downloads"
                     className="link link-underline link-underline-black "
                   >
                     downloads
-                  </Link> */}
+                  </Link>
                 </ul>
               </div>
             </div>
@@ -148,12 +148,12 @@ function NavBar() {
                           Home
                         </Link>
 
-                        {/* <Link
+                        <Link
                           to="/nominees"
                           className="link link-underline link-underline-black "
                         >
                           Awards
-                        </Link> */}
+                        </Link>
 
                         {/* <Link
                           to="/winners"
@@ -167,18 +167,18 @@ function NavBar() {
                         >
                           Gallery
                         </Link> */}
-                        {/* <Link
+                        <Link
                           to="/press-releases"
                           className="link link-underline link-underline-black "
                         >
                           Press Releases{" "}
-                        </Link> */}
-                        {/* <Link
+                        </Link>
+                        <Link
                           to="/downloads"
                           className="link link-underline link-underline-black "
                         >
                           Downloads
-                        </Link> */}
+                        </Link>
                       </ul>
                     </div>
                   </Popover.Panel>

@@ -216,7 +216,7 @@ function Index() {
         {/* Category Image */}
 
         <div className=" w-full flex flex-col justify-center text-center items-center space-y-10 p-10">
-          <h1 className="text-3xl max-w-[45vw] text-center lg:text-5xl font-bold  text-secondary leading-tight">
+          <h1 className="text-3xl max-w-[75vw] lg:max-w-[45vw] text-center lg:text-5xl font-bold  text-secondary leading-tight">
             {pageData.category_name}
           </h1>
 
@@ -305,27 +305,24 @@ function Index() {
         {!loading && (
           <div
             data-aos="fade-up"
-            className="grid grid-cols-1 max-w-6xl md:grid-cols-3 xl:grid-cols-4 gap-6"
+            className={`grid ${
+              pageData.data.length <= 3
+                ? `grid-cols-1 grid-cols-${pageData.data.length}`
+                : ` grid-cols-1 lg:grid-cols-4`
+            } max-w-6xl gap-6`}
           >
             {pageData.data.map((nom) => (
               <div
-                className={`flex rounded-2xl bg-white w-[280px]   ${
+                className={`flex rounded-2xl bg-white w-[321px] lg:w-[280px]   ${
                   votedNom === nom ? "dropshadow-md rounded-2xl" : "rounded-2xl"
                 } `}
               >
                 <div className=" w-full   gap-4">
-                  <div class="overflow-hidden w-full rounded-t-2xl    flex items-center justify-center  lg:col-span-5  bg-white">
-                    {pageData.people && nom.imageURI && (
+                  <div class="overflow-hidden w-full rounded-t-2xl min-h-[30vh]    flex items-center justify-center  lg:col-span-5  bg-white">
+                    {!pageData.business && (
                       <img
                         src={nom.imageURI}
                         className="bg-purple-200 h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
-                        alt=""
-                      />
-                    )}
-                    {pageData.boat && (
-                      <img
-                        src={nom.boat_imageURI}
-                        className="bg-purple-200 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
@@ -340,13 +337,11 @@ function Index() {
                   <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
                     <div className="h-20">
                       <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
-                        {pageData.people && <>{nom.name}</>}
-                        {pageData.boat && <>{nom.boat_name}</>}
-                        {pageData.business && <>{nom.business_name}</>}
+                        {pageData.business && <>{nom.business_names}</>}
+                        {!pageData.business && <>{nom.name}</>}
                       </h1>
                       <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
-                        {pageData.people && <>{nom.nominee.boat_name}</>}
-                        {pageData.boat && <>{nom.business_name}</>}
+                        {!pageData.business && <>{nom.business_name}</>}
                       </h5>
                     </div>
 
@@ -515,7 +510,7 @@ function Index() {
               <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
-            <div className="fixed inset-0 overflow-hidden">
+            <div className="fixed inset-4 overflow-hidden">
               <div className="flex min-h-full items-center justify-center p-4 text-center">
                 <Transition.Child
                   as={Fragment}
@@ -526,30 +521,41 @@ function Index() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full  max-w-6xl max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full  max-w-6xl max-h-max lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
-                      className="text-lg md:text-xl grid grid-cols-1 gap-y-2 lg:gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
+                      className="text-lg md:text-xl grid grid-cols-1 gap-y-0 lg:gap-y-4 p-3  text-center text-secondary font-semibold leading-6 text-gray-900"
                     >
+                      <div className="flex w-full justify-end items-end">
+                        <svg
+                          onClick={() => closeModal()}
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4  text-gray cursor-pointer hover:text-primary"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </div>
                       {selectedNominee && (
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 space-x-0 lg:space-x-14">
                           <div className="flex justify-center items-center">
-                            {pageData.people && (
+                            {!pageData.business && (
                               <img
-                                className="h-[50vh] max-w[20vw]"
+                                className="h-[25vh] lg:h-[50vh] max-w[20vw]"
                                 src={selectedNominee.imageURI}
                               />
                             )}
                             {pageData.business && (
                               <img
-                                className="h-[50vh] max-w[20vw]"
+                                className="h-[25vh] lg:h-[50vh] max-w[20vw]"
                                 src={selectedNominee.business_imageURI}
-                              />
-                            )}
-                            {pageData.boat && (
-                              <img
-                                className="h-[50vh] max-w[20vw]"
-                                src={selectedNominee.boat_imageURI}
                               />
                             )}
                           </div>
@@ -558,12 +564,12 @@ function Index() {
                             {/* Boat name or persons name */}
                             <h1>
                               <>
-                                {pageData.people && <>{selectedNominee.name}</>}
-                                {pageData.boat && (
-                                  <>{selectedNominee.boat_name}</>
+                                {!pageData.business && (
+                                  <>{selectedNominee.name}</>
                                 )}
+
                                 {pageData.business && (
-                                  <>{selectedNominee.business_name}</>
+                                  <>{selectedNominee.business_names}</>
                                 )}
                               </>
                             </h1>
@@ -571,16 +577,14 @@ function Index() {
                             <h3 className="text-sm text-primary font-light">
                               {" "}
                               <>
-                                {pageData.people && (
-                                  <>{selectedNominee.nominee.boat_name}</>
-                                )}
-                                {pageData.boat && (
+                                {!pageData.business && (
                                   <>{selectedNominee.business_name}</>
                                 )}
+                                {pageData.fob && <>{setSelectedNominee.name}</>}
                               </>
                             </h3>
                             {/* Address info */}
-                            {!pageData.people && (
+                            {pageData.business && (
                               <div className="flex items-center justify-center">
                                 <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
                                   <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
@@ -623,21 +627,57 @@ function Index() {
                                 </div>
                               </div>
                             )}
-                            {/* Description */}
-                            <p className=" text-xs lg:text-sm mb-4 font-light max-h-[38vh] overflow-y-scroll">
-                              {pageData.people && (
-                                <>{parse(selectedNominee.resume)}</>
-                              )}
+                            {/* Address info */}
+                            {!pageData.business && !pageData.fob && (
+                              <div className="flex items-center justify-center">
+                                <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
+                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                    <h4>Website:</h4>
+                                  </div>
+                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                    <a
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      href={selectedNominee.url}
+                                      className="focus:ring-0 focus:outline-none"
+                                    >
+                                      {selectedNominee.url}
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                            {/* Address info */}
+                            {pageData.fob && (
+                              <div className="flex text-xs space-x-3 font-normal items-center justify-center">
+                                <div className="grid grid-cols-1   text-primary ">
+                                  <h4>ID Card Number:</h4>
+                                </div>
 
-                              {pageData.boat && (
-                                <>{parse(selectedNominee.boat_description)}</>
-                              )}
-                              {pageData.business && (
-                                <>
-                                  {parse(selectedNominee.business_description)}
-                                </>
-                              )}
-                            </p>
+                                <a className="focus:ring-0 focus:outline-none">
+                                  {selectedNominee.idNum}
+                                </a>
+                              </div>
+                            )}
+                            {/* Description */}
+                            <div className="  h-[20vh] lg:h-[38vh] overflow-y-auto  ">
+                              <p
+                                style={{ lineHeight: 1.7 }}
+                                className=" text-xs lg:text-sm mb-4 font-light"
+                              >
+                                {!pageData.business && (
+                                  <>{parse(selectedNominee.description)}</>
+                                )}
+
+                                {pageData.business && (
+                                  <>
+                                    {parse(
+                                      selectedNominee.business_description
+                                    )}
+                                  </>
+                                )}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       )}
