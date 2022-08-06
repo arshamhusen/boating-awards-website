@@ -53,18 +53,16 @@ function Categories(props) {
         </div>
       ) : (
         <>
+          <div className="w-screen h-[140vh] bg-lightPrimary absolute -z-10 inset-1 top-[40vh]"></div>
           <div
             data-aos="fade-up"
             className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10 lg:mt-16 px-5 lg:px-20"
           >
             {categories.map((cat) => (
               <Link
-                style={{
-                  backgroundImage: `url( https://t3.ftcdn.net/jpg/01/35/35/86/360_F_135358677_ocpah6tCszIH2gI0tZ438KcqeFbQ7SKl.jpg`,
-                }}
                 key={cat.id}
                 to={`/nominees/${cat.id}`}
-                className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t bg-cover bg-top from-primary via-lightPrimary to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
+                className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t  bg-white to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
               >
                 <div className=" h-3/4 lg:h-2/3  flex items-center justify-center">
                   <p className="text-sm lg:text-base font-semibold text-secondary w-3/4">

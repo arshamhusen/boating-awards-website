@@ -313,7 +313,7 @@ function Index() {
           >
             {pageData.data.map((nom) => (
               <div
-                className={`flex rounded-2xl bg-white w-[321px] lg:w-[280px]   ${
+                className={`flex rounded-2xl bg-white border border-lightgray shadow-md w-[321px] lg:w-[280px]   ${
                   votedNom === nom ? "dropshadow-md rounded-2xl" : "rounded-2xl"
                 } `}
               >
@@ -510,7 +510,7 @@ function Index() {
               <div className="fixed inset-0 bg-black bg-opacity-50" />
             </Transition.Child>
 
-            <div className="fixed inset-6 top-20 overflow-hidden">
+            <div className="fixed inset-6 overflow-hidden">
               <div className="flex min-h-full items-center justify-center  text-center">
                 <Transition.Child
                   as={Fragment}
