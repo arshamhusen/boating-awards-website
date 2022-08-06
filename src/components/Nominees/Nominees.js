@@ -511,7 +511,7 @@ function Index() {
             </Transition.Child>
 
             <div className="fixed inset-4 overflow-hidden">
-              <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <div className="flex min-h-full items-center justify-center  text-center">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-out duration-300"
@@ -521,7 +521,7 @@ function Index() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full  max-w-6xl max-h-max lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full  max-w-6xl max-h-min lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h1"
                       className="text-lg md:text-xl grid grid-cols-1 gap-y-0 lg:gap-y-4 p-3  text-center text-secondary font-semibold leading-6 text-gray-900"
@@ -554,7 +554,7 @@ function Index() {
                             )}
                             {pageData.business && (
                               <img
-                                className="h-[25vh] lg:h-[50vh] max-w[20vw]"
+                                className="h-[20vh] lg:h-[50vh] max-w[20vw]"
                                 src={selectedNominee.business_imageURI}
                               />
                             )}
