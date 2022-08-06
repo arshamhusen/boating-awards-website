@@ -64,7 +64,7 @@ function Categories(props) {
                 }}
                 key={cat.id}
                 to={`/nominees/${cat.id}`}
-                className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t bg-cover bg-top from-primary via-lightPrimary to-white border-2 text-center border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
+                className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t bg-cover bg-top from-primary via-lightPrimary to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
               >
                 <div className=" h-3/4 lg:h-2/3  flex items-center justify-center">
                   <p className="text-sm lg:text-base font-semibold text-secondary w-3/4">
