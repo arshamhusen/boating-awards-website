@@ -136,9 +136,11 @@ export default function Index() {
                     />
                   </div>
                   <div>
-                    <p className="text-white text-sm lg:text-base text-center  pt-4">
-                      {parse(description)}
-                    </p>
+                    {description && description != null && (
+                      <p className="text-white text-sm lg:text-base text-center  pt-4">
+                        {parse(description)}
+                      </p>
+                    )}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
