@@ -53,7 +53,7 @@ function Categories(props) {
         </div>
       ) : (
         <>
-          <div className="w-screen h-[140vh] bg-lightPrimary absolute -z-10 inset-1 top-[40vh]"></div>
+          <div className="w-screen h-fit absolute -z-10 inset-1 top-[40vh]"></div>
           <div
             data-aos="fade-up"
             className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10 lg:mt-16 px-5 lg:px-20"
@@ -65,7 +65,7 @@ function Categories(props) {
                 className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t  bg-white to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
               >
                 <div className=" h-3/4 lg:h-2/3  flex items-center justify-center">
-                  <p className="text-sm lg:text-base font-semibold text-secondary w-3/4">
+                  <p className="text-sm lg:text-base font-semibold text-secondary w-11/12">
                     <span className="text-lg text-primary">
                       {categories.length >= 13 ? `${cat.id}. ` : ""}
                     </span>

@@ -246,7 +246,7 @@ function Index() {
                     {pageData.business && (
                       <img
                         src={votedNom.business_imageURI}
-                        className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                        className="bg-purple-200 h-40 w-40 lg:h-[200px] lg:w-[450px] rounded-lg  hover:scale-110 transition-all duration-500"
                         alt=""
                       />
                     )}
@@ -275,502 +275,516 @@ function Index() {
         </>
       )}
 
-      <div className="bg-lightPrimary w-full  flex py-10 items-center justify-center">
-        {loading && (
-          <div className="flex justify-center items-center w-full mt-40 h-[60vh]">
-            <div
-              className="flex justify-center items-center pt-40"
-              role="status"
-            >
-              <svg
-                aria-hidden="true"
-                class="mr-2 w-20 h-20 text-lightPrimary animate-spin dark:text-gray-600 fill-primary"
-                viewBox="0 0 100 101"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                  fill="currentColor"
-                />
-                <path
-                  d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                  fill="currentFill"
-                />
-              </svg>
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-        )}
-        {!loading && (
-          <div
-            data-aos="fade-up"
-            className={`grid ${
-              pageData.data.length <= 3
-                ? `grid-cols-1 lg:grid-cols-${pageData.data.length}`
-                : ` grid-cols-1 lg:grid-cols-4`
-            } max-w-6xl gap-6`}
-          >
-            {pageData.data.map((nom) => (
+      {pageData.data && (
+        <div
+          className={`bg-lightPrimary w-full ${
+            pageData.data.length >= 1 ? "min-h-fit" : "min-h-screen"
+          }  flex py-10 items-center justify-center`}
+        >
+          {loading && (
+            <div className="flex justify-center items-center w-full mt-40 h-[60vh]">
               <div
-                className={`flex rounded-2xl bg-white border border-lightgray shadow-md w-[321px] lg:w-[280px]   ${
-                  votedNom === nom ? "dropshadow-md rounded-2xl" : "rounded-2xl"
-                } `}
+                className="flex justify-center items-center pt-40"
+                role="status"
               >
-                <div className=" w-full   gap-4">
-                  <div class="overflow-hidden w-full rounded-t-2xl min-h-[30vh]    flex items-center justify-center  lg:col-span-5  bg-white">
-                    {!pageData.business && (
-                      <img
-                        src={nom.imageURI}
-                        className="bg-purple-200 h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
-                        alt=""
-                      />
-                    )}
-                    {pageData.business && (
-                      <img
-                        src={nom.business_imageURI}
-                        className="bg-purple-200  rounded-t-2xl  hover:scale-110 transition-all duration-500"
-                        alt=""
-                      />
-                    )}
-                  </div>
-                  <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
-                    <div className="h-20">
-                      <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
-                        {pageData.business && <>{nom.business_names}</>}
-                        {!pageData.business && <>{nom.name}</>}
-                      </h1>
-                      <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
-                        {!pageData.business && <>{nom.business_name}</>}
-                      </h5>
+                <svg
+                  aria-hidden="true"
+                  class="mr-2 w-20 h-20 text-lightPrimary animate-spin dark:text-gray-600 fill-primary"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill"
+                  />
+                </svg>
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          )}
+          {!loading && (
+            <div
+              data-aos="fade-up"
+              className={`grid ${
+                pageData.data.length <= 3
+                  ? `grid-cols-1 lg:grid-cols-${pageData.data.length}`
+                  : ` grid-cols-1 lg:grid-cols-4`
+              } max-w-6xl gap-6`}
+            >
+              {pageData.data.map((nom) => (
+                <div
+                  className={`flex rounded-2xl bg-white border border-lightgray shadow-md w-[321px] lg:w-[280px]   ${
+                    votedNom === nom
+                      ? "dropshadow-md rounded-2xl"
+                      : "rounded-2xl"
+                  } `}
+                >
+                  <div className=" w-full   gap-4">
+                    <div class="overflow-hidden w-full rounded-t-2xl min-h-[30vh]    flex items-center justify-center  lg:col-span-5  bg-white">
+                      {!pageData.business && (
+                        <img
+                          src={nom.imageURI}
+                          className="bg-purple-200 h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          alt=""
+                        />
+                      )}
+                      {pageData.business && (
+                        <img
+                          src={nom.business_imageURI}
+                          className="bg-purple-200  rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          alt=""
+                        />
+                      )}
                     </div>
+                    <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
+                      <div className="h-20">
+                        <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
+                          {pageData.business && <>{nom.business_names}</>}
+                          {!pageData.business && <>{nom.name}</>}
+                        </h1>
+                        <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
+                          {!pageData.business && <>{nom.business_name}</>}
+                        </h5>
+                      </div>
 
-                    <div className="h-1/2 w-full flex items-center justify-center flex-col">
-                      <button
-                        onClick={() => handleModal(nom)}
-                        className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
+                      <div className="h-1/2 w-full flex items-center justify-center flex-col">
+                        <button
+                          onClick={() => handleModal(nom)}
+                          className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
+                        >
+                          View More
+                        </button>
+                        {!voted && (
+                          <>
+                            <div
+                              className="w-full mt-4"
+                              onClick={() =>
+                                signedIn
+                                  ? openConfirmModal(nom)
+                                  : setIsOpen(true)
+                              }
+                            >
+                              <button
+                                onClick={() => setVotedNom(nom)}
+                                className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                              >
+                                Vote now
+                              </button>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Sign up Modal */}
+          <Transition appear show={isOpen} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={closeModal}>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed inset-0 bg-black bg-opacity-50" />
+              </Transition.Child>
+
+              <div className="fixed inset-0 overflow-hidden">
+                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 scale-95"
+                    enterTo="opacity-100 scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-95"
+                  >
+                    <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                      <Dialog.Title
+                        as="h1"
+                        className="text-base md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
                       >
-                        View More
-                      </button>
-                      {!voted && (
+                        You are required to sign in to vote
+                      </Dialog.Title>
+                      {!OTPRequested && (
                         <>
+                          <div className="mt-2">
+                            <p className="text-primary text-xs md:text-sm">
+                              Please enter your phone number
+                            </p>
+                          </div>
+                          <div className="my-4 mt-4 w-full">
+                            <FormikProvider value={formik}>
+                              <div>
+                                <Form className="flex justify-center items-center flex-col">
+                                  <div className="flex items-center justify-center flex-col gap-y-2 w-3/4 text-center">
+                                    <div className="grid grid-cols-12 items-center w-full lg:w-4/5">
+                                      <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray   shadow-sm flex items-center justify-center px-4 ">
+                                        <p className="lg:text-base text-sm text-gray">
+                                          +960
+                                        </p>
+                                      </div>
+                                      <Field
+                                        name="phone"
+                                        type="text"
+                                        className="col-span-8 p-2 border-none outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
+                                      />
+                                    </div>
+                                    <ErrorMessage
+                                      name="phone"
+                                      component="div"
+                                      className="text-primary text-xs"
+                                    />
+                                  </div>
+
+                                  <div className="mt-4 w-1/2">
+                                    <button
+                                      type="submit"
+                                      className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                                    >
+                                      Submit
+                                    </button>
+                                  </div>
+                                </Form>
+                              </div>
+                            </FormikProvider>
+                          </div>
+                        </>
+                      )}
+                      {OTPRequested && phone && (
+                        <>
+                          <div className="mt-2 flex items-center justify-center">
+                            <p className="text-gray text-center text-xs md:text-sm w-4/5">
+                              A 6-digit OTP has been sent to {phone} Please
+                              Enter the OTP.
+                            </p>
+                          </div>
+                          <input
+                            onChange={(e) => setOtp(e.target.value)}
+                            className="p-2 mt-3 px-4 text-xl border w-1/3 text-center border-primary rounded-md"
+                          ></input>
+
+                          <div className=" mt-2"></div>
+                          <a
+                            onClick={() => sendOTP(phone)}
+                            className="mt-1 cursor-pointer flex items-center justify-center text-primary text-center text-xs md:text-sm w-4/5"
+                          >
+                            <p className="">I did not recieve an SMS</p>
+                          </a>
+
                           <div
-                            className="w-full mt-4"
-                            onClick={() =>
-                              signedIn ? openConfirmModal(nom) : setIsOpen(true)
-                            }
+                            onClick={() => OTPInsertHandler()}
+                            className="mt-4"
                           >
                             <button
-                              onClick={() => setVotedNom(nom)}
+                              type="button"
                               className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                             >
-                              Vote now
+                              Confirm
                             </button>
                           </div>
                         </>
                       )}
-                    </div>
-                  </div>
+                    </Dialog.Panel>
+                  </Transition.Child>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            </Dialog>
+          </Transition>
+          {/* Descriptive nominee modal */}
+          <Transition appear show={isDNomineeOpen} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={closeModal}>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed inset-0 bg-black bg-opacity-50" />
+              </Transition.Child>
 
-        {/* Sign up Modal */}
-        <Transition appear show={isOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={closeModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-black bg-opacity-50" />
-            </Transition.Child>
-
-            <div className="fixed inset-0 overflow-hidden">
-              <div className="flex min-h-full items-center justify-center p-4 text-center">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
-                    <Dialog.Title
-                      as="h1"
-                      className="text-base md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
-                    >
-                      You are required to sign in to vote
-                    </Dialog.Title>
-                    {!OTPRequested && (
-                      <>
-                        <div className="mt-2">
-                          <p className="text-primary text-xs md:text-sm">
-                            Please enter your phone number
-                          </p>
+              <div className="fixed inset-6 overflow-hidden">
+                <div className="flex min-h-full items-center justify-center  text-center">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 scale-95"
+                    enterTo="opacity-100 scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-95"
+                  >
+                    <Dialog.Panel className="w-full  max-w-6xl max-h-min lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                      <Dialog.Title
+                        as="h1"
+                        className="text-lg md:text-xl grid grid-cols-1 gap-y-0 lg:gap-y-4 p-3  text-center text-secondary font-semibold leading-6 text-gray-900"
+                      >
+                        <div className="flex w-full justify-end items-end">
+                          <svg
+                            onClick={() => closeModal()}
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4  text-gray cursor-pointer hover:text-primary"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
                         </div>
-                        <div className="my-4 mt-4 w-full">
-                          <FormikProvider value={formik}>
-                            <div>
-                              <Form className="flex justify-center items-center flex-col">
-                                <div className="flex items-center justify-center flex-col gap-y-2 w-3/4 text-center">
-                                  <div className="grid grid-cols-12 items-center w-full lg:w-4/5">
-                                    <div className=" col-span-4 p-2 bg-lightgray rounded-l-lg border-r border-r-lightgray lg:border-r-borderGray border border-borderGray   shadow-sm flex items-center justify-center px-4 ">
-                                      <p className="lg:text-base text-sm text-gray">
-                                        +960
-                                      </p>
-                                    </div>
-                                    <Field
-                                      name="phone"
-                                      type="text"
-                                      className="col-span-8 p-2 border-none outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
-                                    />
-                                  </div>
-                                  <ErrorMessage
-                                    name="phone"
-                                    component="div"
-                                    className="text-primary text-xs"
-                                  />
-                                </div>
-
-                                <div className="mt-4 w-1/2">
-                                  <button
-                                    type="submit"
-                                    className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
-                                  >
-                                    Submit
-                                  </button>
-                                </div>
-                              </Form>
+                        {selectedNominee && (
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 space-x-0 lg:space-x-14">
+                            <div className="flex justify-center items-center">
+                              {!pageData.business && (
+                                <img
+                                  className="h-[25vh] lg:h-[50vh] max-w[20vw]"
+                                  src={selectedNominee.imageURI}
+                                />
+                              )}
+                              {pageData.business && (
+                                <img
+                                  className="h-[20vh] lg:h-[50vh] max-w[20vw]"
+                                  src={selectedNominee.business_imageURI}
+                                />
+                              )}
                             </div>
-                          </FormikProvider>
-                        </div>
-                      </>
-                    )}
-                    {OTPRequested && phone && (
-                      <>
-                        <div className="mt-2 flex items-center justify-center">
-                          <p className="text-gray text-center text-xs md:text-sm w-4/5">
-                            A 6-digit OTP has been sent to {phone} Please Enter
-                            the OTP.
+                            <div className="p-5 flex flex-col justify-center items-center space-y-1 lg:space-y-4 max-w-3xl">
+                              {" "}
+                              {/* Boat name or persons name */}
+                              <h1>
+                                <>
+                                  {!pageData.business && (
+                                    <>{selectedNominee.name}</>
+                                  )}
+
+                                  {pageData.business && (
+                                    <>{selectedNominee.business_names}</>
+                                  )}
+                                </>
+                              </h1>
+                              {/* Business Name */}
+                              <h3 className="text-sm text-primary font-light">
+                                {" "}
+                                <>
+                                  {!pageData.business && (
+                                    <>{selectedNominee.business_name}</>
+                                  )}
+                                  {pageData.fob && (
+                                    <>{setSelectedNominee.name}</>
+                                  )}
+                                </>
+                              </h3>
+                              {/* Address info */}
+                              {pageData.business && (
+                                <div className="flex items-center justify-center">
+                                  <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
+                                    <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                      <h4>Address:</h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                      <h4>
+                                        {selectedNominee.address}
+                                        {selectedNominee.address_street}
+                                        {
+                                          selectedNominee.address_atoll_island
+                                        }{" "}
+                                      </h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                      <h4>Email:</h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                      <h4>{selectedNominee.address_email}</h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                      <h4>Phone:</h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                      <h4>
+                                        {selectedNominee.address_telephone}
+                                      </h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                      <h4>Website:</h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                      <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={selectedNominee.address_url}
+                                        className="focus:ring-0 focus:outline-none"
+                                      >
+                                        {selectedNominee.address_url}
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              {/* Address info */}
+                              {!pageData.business && !pageData.fob && (
+                                <div className="flex items-center justify-center">
+                                  <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
+                                    <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
+                                      <h4>Website:</h4>
+                                    </div>
+                                    <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
+                                      <a
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href={selectedNominee.url}
+                                        className="focus:ring-0 focus:outline-none"
+                                      >
+                                        {selectedNominee.url}
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              {/* Address info */}
+                              {pageData.fob && (
+                                <div className="flex text-xs space-x-3 font-normal items-center justify-center">
+                                  <div className="grid grid-cols-1   text-primary ">
+                                    <h4>ID Card Number:</h4>
+                                  </div>
+
+                                  <a className="focus:ring-0 focus:outline-none">
+                                    {selectedNominee.idNum}
+                                  </a>
+                                </div>
+                              )}
+                              {/* Description */}
+                              <div className="  h-[20vh] lg:h-[38vh] overflow-y-auto  ">
+                                <p
+                                  style={{ lineHeight: 1.7 }}
+                                  className=" text-xs lg:text-sm mb-4 font-light"
+                                >
+                                  {!pageData.business && (
+                                    <>{parse(selectedNominee.description)}</>
+                                  )}
+
+                                  {pageData.business && (
+                                    <>
+                                      {parse(
+                                        selectedNominee.business_description
+                                      )}
+                                    </>
+                                  )}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </Dialog.Title>
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
+              </div>
+            </Dialog>
+          </Transition>
+          {/* Confirm Vote Modal */}
+          <Transition appear show={confirmModalOpen} as={Fragment}>
+            <Dialog as="div" className="relative z-10" onClose={closeModal}>
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed inset-0 bg-black bg-opacity-50" />
+              </Transition.Child>
+
+              <div className="fixed inset-0 overflow-y-auto">
+                <div className="flex min-h-full items-center justify-center p-4 text-center">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 scale-95"
+                    enterTo="opacity-100 scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 scale-100"
+                    leaveTo="opacity-0 scale-95"
+                  >
+                    <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-scroll bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                      <Dialog.Title
+                        as="h1"
+                        className="text-lg md:text-xl grid grid-cols-1 gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
+                      >
+                        <h1 className="text">Voting Confirmation</h1>
+                        {selectedNominee && (
+                          <p className="text-sm font-normal">
+                            {pageData.people && (
+                              <>
+                                Are you sure you want to vote for{" "}
+                                {selectedNominee.name} as the{" "}
+                                {pageData.category_name}?{" "}
+                              </>
+                            )}
+                            {pageData.boat && (
+                              <>
+                                Are you sure you want to vote for{" "}
+                                {selectedNominee.boat_name} as the{" "}
+                                {pageData.category_name}?{" "}
+                              </>
+                            )}
+                            {pageData.business && (
+                              <>
+                                Are you sure you want to vote for{" "}
+                                {selectedNominee.business_name} as the{" "}
+                                {pageData.category_name}?{" "}
+                              </>
+                            )}
                           </p>
-                        </div>
-                        <input
-                          onChange={(e) => setOtp(e.target.value)}
-                          className="p-2 mt-3 px-4 text-xl border w-1/3 text-center border-primary rounded-md"
-                        ></input>
-
-                        <div className=" mt-2"></div>
-                        <a
-                          onClick={() => sendOTP(phone)}
-                          className="mt-1 cursor-pointer flex items-center justify-center text-primary text-center text-xs md:text-sm w-4/5"
-                        >
-                          <p className="">I did not recieve an SMS</p>
-                        </a>
-
-                        <div
-                          onClick={() => OTPInsertHandler()}
-                          className="mt-4"
-                        >
+                        )}
+                        <p className="text-xs font-normal text-primary">
+                          You will not be able to change the vote casted
+                          afterwards
+                        </p>
+                        <div className="grid grid-cols-2 gap-x-4 text-sm font-medium">
                           <button
-                            type="button"
+                            onClick={() => closeModal()}
+                            className="p-1.5 rounded-full w-full px-4 border border-primary text-primary hover:bg-lightPrimary"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            onClick={() => voteHandler()}
                             className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                           >
                             Confirm
                           </button>
                         </div>
-                      </>
-                    )}
-                  </Dialog.Panel>
-                </Transition.Child>
+                      </Dialog.Title>
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
               </div>
-            </div>
-          </Dialog>
-        </Transition>
-        {/* Descriptive nominee modal */}
-        <Transition appear show={isDNomineeOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={closeModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-black bg-opacity-50" />
-            </Transition.Child>
-
-            <div className="fixed inset-6 overflow-hidden">
-              <div className="flex min-h-full items-center justify-center  text-center">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <Dialog.Panel className="w-full  max-w-6xl max-h-min lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
-                    <Dialog.Title
-                      as="h1"
-                      className="text-lg md:text-xl grid grid-cols-1 gap-y-0 lg:gap-y-4 p-3  text-center text-secondary font-semibold leading-6 text-gray-900"
-                    >
-                      <div className="flex w-full justify-end items-end">
-                        <svg
-                          onClick={() => closeModal()}
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4  text-gray cursor-pointer hover:text-primary"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          stroke-width="2"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12"
-                          />
-                        </svg>
-                      </div>
-                      {selectedNominee && (
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 space-x-0 lg:space-x-14">
-                          <div className="flex justify-center items-center">
-                            {!pageData.business && (
-                              <img
-                                className="h-[25vh] lg:h-[50vh] max-w[20vw]"
-                                src={selectedNominee.imageURI}
-                              />
-                            )}
-                            {pageData.business && (
-                              <img
-                                className="h-[20vh] lg:h-[50vh] max-w[20vw]"
-                                src={selectedNominee.business_imageURI}
-                              />
-                            )}
-                          </div>
-                          <div className="p-5 flex flex-col justify-center items-center space-y-1 lg:space-y-4 max-w-3xl">
-                            {" "}
-                            {/* Boat name or persons name */}
-                            <h1>
-                              <>
-                                {!pageData.business && (
-                                  <>{selectedNominee.name}</>
-                                )}
-
-                                {pageData.business && (
-                                  <>{selectedNominee.business_names}</>
-                                )}
-                              </>
-                            </h1>
-                            {/* Business Name */}
-                            <h3 className="text-sm text-primary font-light">
-                              {" "}
-                              <>
-                                {!pageData.business && (
-                                  <>{selectedNominee.business_name}</>
-                                )}
-                                {pageData.fob && <>{setSelectedNominee.name}</>}
-                              </>
-                            </h3>
-                            {/* Address info */}
-                            {pageData.business && (
-                              <div className="flex items-center justify-center">
-                                <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
-                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                    <h4>Address:</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                    <h4>
-                                      {selectedNominee.address}
-                                      {selectedNominee.address_street}
-                                      {
-                                        selectedNominee.address_atoll_island
-                                      }{" "}
-                                    </h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                    <h4>Email:</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                    <h4>{selectedNominee.address_email}</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                    <h4>Phone:</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                    <h4>{selectedNominee.address_telephone}</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                    <h4>Website:</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                    <a
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      href={selectedNominee.address_url}
-                                      className="focus:ring-0 focus:outline-none"
-                                    >
-                                      {selectedNominee.address_url}
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                            {/* Address info */}
-                            {!pageData.business && !pageData.fob && (
-                              <div className="flex items-center justify-center">
-                                <div className="grid grid-cols-12 mb-6 font-normal text-xs lg:text-sm text-start gap-y-3 mt-4 overflow-hidden">
-                                  <div className="grid grid-cols-1 col-span-2 lg:col-span-3  text-primary ">
-                                    <h4>Website:</h4>
-                                  </div>
-                                  <div className="grid grid-cols-1 col-span-10 pl-2  lg:col-span-9">
-                                    <a
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      href={selectedNominee.url}
-                                      className="focus:ring-0 focus:outline-none"
-                                    >
-                                      {selectedNominee.url}
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                            {/* Address info */}
-                            {pageData.fob && (
-                              <div className="flex text-xs space-x-3 font-normal items-center justify-center">
-                                <div className="grid grid-cols-1   text-primary ">
-                                  <h4>ID Card Number:</h4>
-                                </div>
-
-                                <a className="focus:ring-0 focus:outline-none">
-                                  {selectedNominee.idNum}
-                                </a>
-                              </div>
-                            )}
-                            {/* Description */}
-                            <div className="  h-[20vh] lg:h-[38vh] overflow-y-auto  ">
-                              <p
-                                style={{ lineHeight: 1.7 }}
-                                className=" text-xs lg:text-sm mb-4 font-light"
-                              >
-                                {!pageData.business && (
-                                  <>{parse(selectedNominee.description)}</>
-                                )}
-
-                                {pageData.business && (
-                                  <>
-                                    {parse(
-                                      selectedNominee.business_description
-                                    )}
-                                  </>
-                                )}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </Dialog.Title>
-                  </Dialog.Panel>
-                </Transition.Child>
-              </div>
-            </div>
-          </Dialog>
-        </Transition>
-        {/* Confirm Vote Modal */}
-        <Transition appear show={confirmModalOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={closeModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-black bg-opacity-50" />
-            </Transition.Child>
-
-            <div className="fixed inset-0 overflow-y-auto">
-              <div className="flex min-h-full items-center justify-center p-4 text-center">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-scroll bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
-                    <Dialog.Title
-                      as="h1"
-                      className="text-lg md:text-xl grid grid-cols-1 gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
-                    >
-                      <h1 className="text">Voting Confirmation</h1>
-                      {selectedNominee && (
-                        <p className="text-sm font-normal">
-                          {pageData.people && (
-                            <>
-                              Are you sure you want to vote for{" "}
-                              {selectedNominee.name} as the{" "}
-                              {pageData.category_name}?{" "}
-                            </>
-                          )}
-                          {pageData.boat && (
-                            <>
-                              Are you sure you want to vote for{" "}
-                              {selectedNominee.boat_name} as the{" "}
-                              {pageData.category_name}?{" "}
-                            </>
-                          )}
-                          {pageData.business && (
-                            <>
-                              Are you sure you want to vote for{" "}
-                              {selectedNominee.business_name} as the{" "}
-                              {pageData.category_name}?{" "}
-                            </>
-                          )}
-                        </p>
-                      )}
-                      <p className="text-xs font-normal text-primary">
-                        You will not be able to change the vote casted
-                        afterwards
-                      </p>
-                      <div className="grid grid-cols-2 gap-x-4 text-sm font-medium">
-                        <button
-                          onClick={() => closeModal()}
-                          className="p-1.5 rounded-full w-full px-4 border border-primary text-primary hover:bg-lightPrimary"
-                        >
-                          Cancel
-                        </button>
-                        <button
-                          onClick={() => voteHandler()}
-                          className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
-                        >
-                          Confirm
-                        </button>
-                      </div>
-                    </Dialog.Title>
-                  </Dialog.Panel>
-                </Transition.Child>
-              </div>
-            </div>
-          </Dialog>
-        </Transition>
-      </div>
+            </Dialog>
+          </Transition>
+        </div>
+      )}
     </div>
   );
 }
