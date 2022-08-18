@@ -53,19 +53,19 @@ function NavBar() {
                     Awards
                   </Link>
 
-                  {/* <Link
+                   <Link
                     to="/winners"
                     className="link link-underline link-underline-black "
                   >
                     Winners
-                  </Link> */}
+                  </Link> 
 
-                  {/* <Link
+                  <Link
                     to="/gallery"
                     className="link link-underline link-underline-black "
                   >
                     Gallery
-                  </Link> */}
+                  </Link>
 
                   <Link
                     to="/press-releases"
@@ -155,18 +155,18 @@ function NavBar() {
                           Awards
                         </Link>
 
-                        {/* <Link
+                         <Link
                           to="/winners"
                           className="link link-underline link-underline-black "
                         >
                           Winners
-                        </Link> */}
-                        {/* <Link
+                        </Link> 
+                         <Link
                           to="/gallery"
                           className="link link-underline link-underline-black "
                         >
                           Gallery
-                        </Link> */}
+                        </Link> 
                         <Link
                           to="/press-releases"
                           className="link link-underline link-underline-black "
