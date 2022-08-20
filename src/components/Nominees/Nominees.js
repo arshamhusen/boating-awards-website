@@ -47,10 +47,9 @@ function Index() {
       }).then((res) => {
         if (res.status === 200) {
           console.log(res.data);
-
           setPageData(res.data);
           setVoted(res.data.voted);
-          setSignedIn(res.data.loggedIn);
+          setSignedIn(res.data.signedIn);
           setVotedNom(res.data.voted_nominee);
           setLoading(false);
         } else {
@@ -65,11 +64,10 @@ function Index() {
         },
       }).then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
           setPageData(res.data);
           setVoted(res.data.voted);
           setVotedNom(res.data.voted_nominee);
-          setSignedIn(res.data.loggedIn);
+          setSignedIn(res.data.signedIn);
           setLoading(false);
         } else {
           setLoading(true);
@@ -220,9 +218,17 @@ function Index() {
             {pageData.category_name}
           </h1>
 
-          <Link className="" to="/nominees">
+          <Link
+            className=""
+            to={!pageData.fob ? "/nominees/general" : "/nominees/fob"}
+          >
             <Button title="Go Back" />
           </Link>
+          {signedIn && (
+            <p className="w-full bg-lightprimary p-2 rounded-2xl text-gray text-xs lg:text-sm">
+              You are signed in! Please Vote the desired Nominee.
+            </p>
+          )}
         </div>
       </div>
       {voted && (
@@ -236,27 +242,11 @@ function Index() {
               <div class="overflow-hidden w-full  justify-center  lg:col-span-5  bg-white">
                 {votedNom && (
                   <div className="grid grid-cols-1">
-                    {pageData.people && (
-                      <img
-                        src={votedNom.imageURI}
-                        className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
-                        alt=""
-                      />
-                    )}
-                    {pageData.business && (
-                      <img
-                        src={votedNom.business_imageURI}
-                        className="bg-purple-200 h-40 w-40 lg:h-[200px] lg:w-[450px] rounded-lg  hover:scale-110 transition-all duration-500"
-                        alt=""
-                      />
-                    )}
-                    {pageData.boat && (
-                      <img
-                        src={votedNom.boat_imageURI}
-                        className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
-                        alt=""
-                      />
-                    )}
+                    <img
+                      src={votedNom.imageURI}
+                      className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                      alt=""
+                    />
                   </div>
                 )}
               </div>
@@ -266,9 +256,7 @@ function Index() {
                 Thank you for voting{" "}
               </h1>
               <h4 className="font-bold text-xl lg:text-4xl text-primary mb-5 leading-tight">
-                {pageData.people && <>{votedNom.name}</>}
-                {pageData.boat && <>{votedNom.boat_name}</>}
-                {pageData.business && <>{votedNom.business_name}</>}
+                <>{votedNom.name}</>
               </h4>
             </div>
           </div>
@@ -329,7 +317,7 @@ function Index() {
                       {!pageData.business && (
                         <img
                           src={nom.imageURI}
-                          className="bg-purple-200 h-64  lg:h-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200 h-64  lg:h-80 lg:w-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
@@ -342,7 +330,7 @@ function Index() {
                       )}
                     </div>
                     <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
-                      <div className="h-20">
+                      <div className="h-32">
                         <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
                           {pageData.business && <>{nom.business_names}</>}
                           {!pageData.business && <>{nom.name}</>}
@@ -716,7 +704,7 @@ function Index() {
                 <div className="fixed inset-0 bg-black bg-opacity-50" />
               </Transition.Child>
 
-              <div className="fixed inset-0 overflow-y-auto">
+              <div className="fixed inset-0 overflow-hidden">
                 <div className="flex min-h-full items-center justify-center p-4 text-center">
                   <Transition.Child
                     as={Fragment}
@@ -735,24 +723,17 @@ function Index() {
                         <h1 className="text">Voting Confirmation</h1>
                         {selectedNominee && (
                           <p className="text-sm font-normal">
-                            {pageData.people && (
-                              <>
-                                Are you sure you want to vote for{" "}
-                                {selectedNominee.name} as the{" "}
-                                {pageData.category_name}?{" "}
-                              </>
-                            )}
-                            {pageData.boat && (
-                              <>
-                                Are you sure you want to vote for{" "}
-                                {selectedNominee.boat_name} as the{" "}
-                                {pageData.category_name}?{" "}
-                              </>
-                            )}
                             {pageData.business && (
                               <>
                                 Are you sure you want to vote for{" "}
-                                {selectedNominee.business_name} as the{" "}
+                                {selectedNominee.business_names} as the{" "}
+                                {pageData.category_name}?{" "}
+                              </>
+                            )}
+                            {!pageData.business && (
+                              <>
+                                Are you sure you want to vote for{" "}
+                                {selectedNominee.name} as the{" "}
                                 {pageData.category_name}?{" "}
                               </>
                             )}

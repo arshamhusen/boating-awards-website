@@ -144,7 +144,7 @@ function AboutTabMenu() {
               Winners will be announced once the voting is completed
             </p>
             <Lottie
-              loop
+              loop={false}
               animationData={comingSoonAnimation}
               play
               style={{ width: 400, height: 400 }}

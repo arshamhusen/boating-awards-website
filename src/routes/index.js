@@ -12,6 +12,8 @@ import Nominate from "../pages/Nominate/Nominate";
 import Galllery from "../pages/Gallery/Galllery";
 import PressReleases from "../pages/PressReleases/PressReleases";
 import Downloads from "../pages/Downloads/Downloads";
+import General from "../pages/Nominee/General";
+import FOB from "../pages/Nominee/FOB";
 
 function PageRoutes() {
   return (
@@ -20,6 +22,8 @@ function PageRoutes() {
         <Route path="/" element={<Navigate replace to="/home/1" />} />
         <Route exact path="/home/:id" element={<Home />} />
         <Route exact path="/nominees" element={<Nominees />} />
+        <Route exact path="/nominees/general" element={<General />} />
+        <Route exact path="/nominees/fob" element={<FOB />} />
         <Route exact path="/winners" element={<Winners />} />
         <Route exact path="/nominees/:id" element={<Nominate />} />
         <Route exact path="/gallery" element={<Galllery />} />

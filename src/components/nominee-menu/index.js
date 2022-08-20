@@ -3,12 +3,14 @@ import "tw-elements";
 import Heading from "../../ui/heading/Heading";
 import Categories from "../Categories/Categories";
 import Button from "../../ui/button/Button";
+import { Link } from "react-router-dom";
 
 const category_type = [
   {
     index: 1,
-    name: "General Categories",
+    name: "Categories",
     description: "This category is selected based on the yachts",
+    route: "/nominees/general",
     image:
       "url(https://t4.ftcdn.net/jpg/03/11/45/49/360_F_311454984_FsUGN9gBeilmYksiEKg1SPjr78mULUrR.jpg)",
   },
@@ -16,6 +18,7 @@ const category_type = [
     index: 2,
     name: "Faces of Boating",
     description: "This category is selected based on the yachts",
+    route: "/nominees/fob",
     image:
       "url(https://t4.ftcdn.net/jpg/03/11/45/49/360_F_311454984_FsUGN9gBeilmYksiEKg1SPjr78mULUrR.jpg)",
   },
@@ -49,49 +52,39 @@ function Index() {
         data-aos="fade-up"
       >
         <Heading
-          heading={
-            catTypeSelected ? `${selectedCatType.name}` : "2022 Nominees"
-          }
+          heading={"2022 Nominees"}
           position="center"
           color="secondary"
         />
-        {catTypeSelected && (
+        {/* {catTypeSelected && (
           <div onClick={() => setCatTypeSelected(false)}>
             <Button title="Go Back" />
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Select either Faces of Boating or General Categories */}
-      {catTypeSelected ? (
-        <div className="mt-20">
-          <Categories
-            index={selectedCatType.index}
-            name={selectedCatType.name}
-          />
-        </div>
-      ) : (
-        <div className="flex justify-center max-w-7xl items-center mt-10">
-          <div className="grid grid-cols-1 w-full px-5   gap-2 gap-5">
-            {category_type.map((cat) => (
-              <div
-                onClick={() => catTypeHandler(cat.index, cat.name)}
-                data-aos="fade-up"
-                key={cat.index}
-                className=" cursor-pointer hover:drop-shadow-sm "
-              >
-                <div className="border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
-                  <div className="p-10 lg:p-5 flex items-center text-center justify-center flex-col">
-                    <h1 className="text-lg lg:text-xl text-primary font-bold">
-                      {cat.name}
-                    </h1>
-                  </div>
+
+      <div className="flex justify-center max-w-7xl items-center mt-10">
+        <div className="grid grid-cols-1 w-full px-5   gap-2 gap-5">
+          {category_type.map((cat) => (
+            <Link
+              to={cat.route}
+              data-aos="fade-up"
+              key={cat.index}
+              className=" cursor-pointer hover:drop-shadow-sm "
+            >
+              <div className="border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
+                <div className="p-10 lg:p-5 flex items-center text-center justify-center flex-col">
+                  <h1 className="text-lg lg:text-xl text-primary font-bold">
+                    {cat.name}
+                  </h1>
                 </div>
               </div>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }
