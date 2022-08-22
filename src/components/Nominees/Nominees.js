@@ -306,7 +306,7 @@ function Index() {
             >
               {pageData.data.map((nom) => (
                 <div
-                  className={`flex rounded-2xl bg-white border border-lightgray shadow-md w-[321px] lg:w-[280px]   ${
+                  className={`flex rounded-2xl bg-white border border-lightgray shadow-md h-fit w-[321px] lg:w-[280px]   ${
                     votedNom === nom
                       ? "dropshadow-md rounded-2xl"
                       : "rounded-2xl"
@@ -324,7 +324,7 @@ function Index() {
                       {pageData.business && (
                         <img
                           src={nom.business_imageURI}
-                          className="bg-purple-200  rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200  lg:h-[256px] lg:w-[420px]  rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
