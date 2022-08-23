@@ -313,18 +313,18 @@ function Index() {
                   } `}
                 >
                   <div className=" w-full   gap-4">
-                    <div class="overflow-hidden w-full rounded-t-2xl min-h-[30vh]    flex items-center justify-center  lg:col-span-5  bg-white">
+                    <div class="overflow-hidden w-full rounded-t-2xl min-h-[30vh]   flex items-center justify-center  lg:col-span-5  bg-white">
                       {!pageData.business && (
                         <img
                           src={nom.imageURI}
-                          className="bg-purple-200 h-64  lg:h-80 lg:w-80 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200 h-80  w-64 rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
                       {pageData.business && (
                         <img
                           src={nom.business_imageURI}
-                          className="bg-purple-200  lg:h-[256px] lg:w-[420px]  rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200   rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
