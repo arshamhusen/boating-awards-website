@@ -313,24 +313,24 @@ function Index() {
                   } `}
                 >
                   <div className=" w-full   gap-4">
-                    <div class="overflow-hidden w-full rounded-t-2xl min-h-[30vh]   flex items-center justify-center  lg:col-span-5  bg-white">
+                    <div class="overflow-hidden w-full rounded-t-2xl min-h-fit   flex items-start justify-center  lg:col-span-5  bg-white">
                       {!pageData.business && (
                         <img
                           src={nom.imageURI}
-                          className="bg-purple-200 h-80  w-64 rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200   rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
                       {pageData.business && (
                         <img
                           src={nom.business_imageURI}
-                          className="bg-purple-200   rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200  h-60 w-full  rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
                     </div>
                     <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
-                      <div className="h-32">
+                      <div className="h-[100px]">
                         <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
                           {pageData.business && <>{nom.business_names}</>}
                           {!pageData.business && <>{nom.name}</>}
@@ -340,7 +340,7 @@ function Index() {
                         </h5>
                       </div>
 
-                      <div className="h-1/2 w-full flex items-center justify-center flex-col">
+                      <div className=" w-full flex items-center justify-center flex-col">
                         <button
                           onClick={() => handleModal(nom)}
                           className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
