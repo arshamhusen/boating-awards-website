@@ -324,7 +324,7 @@ function Index() {
                       {pageData.business && (
                         <img
                           src={nom.business_imageURI}
-                          className="bg-purple-200  h-60 w-full  rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                          className="bg-purple-200 w-[250px] h-[250px]  rounded-t-2xl  hover:scale-110 transition-all duration-500"
                           alt=""
                         />
                       )}
