@@ -113,10 +113,8 @@ function Index() {
       },
     }).then((res) => {
       if (res.status === 200) {
-        console.log(res.data + "hello");
         setOTPRequested(true);
       } else {
-        console.log(res.data);
       }
     });
   }
@@ -138,14 +136,13 @@ function Index() {
         setSignedIn(true);
         closeModal();
       } else {
-        console.log(res.data);
       }
     });
   }
 
   async function voteHandler() {
     const data = {
-      nomineeId: selectedNominee.nominee.id,
+      nomineeId: selectedNominee?.id,
     };
 
     Axios.post(
@@ -173,7 +170,6 @@ function Index() {
     values,
     { setSubmitting, setErrors, setStatus, resetForm }
   ) => {
-    console.log("hit");
     setPhone(values.phone);
     sendOTP(values.phone);
   };
