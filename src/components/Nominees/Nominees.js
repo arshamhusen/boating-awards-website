@@ -29,7 +29,7 @@ function Index() {
   const [OTPRequestedAgain, setOTPRequestedAgain] = useState(false);
   const [otp, setOtp] = useState("");
   const [voted, setVoted] = useState(false);
-  const [votedNom, setVotedNom] = useState("");
+  const [votedNom, setVotedNom] = useState([]);
   const [pageData, setPageData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedNominee, setSelectedNominee] = useState();
@@ -145,6 +145,7 @@ function Index() {
       nomineeId: selectedNominee?.id,
     };
 
+    console.log(data);
     Axios.post(
       `${process.env.REACT_APP_API_URL}/website/vote/${pageData.category_id}`,
       data,
@@ -156,6 +157,7 @@ function Index() {
         },
       }
     ).then((res) => {
+      console.log(res);
       if (res.status === 200) {
         console.log(res);
         setVoted(true);
@@ -239,7 +241,7 @@ function Index() {
                 {votedNom && (
                   <div className="grid grid-cols-1">
                     <img
-                      src={votedNom.imageURI}
+                      src={votedNom?.imageURI}
                       className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
                       alt=""
                     />
@@ -252,7 +254,7 @@ function Index() {
                 Thank you for voting{" "}
               </h1>
               <h4 className="font-bold text-xl lg:text-4xl text-primary mb-5 leading-tight">
-                <>{votedNom.name}</>
+                <>{votedNom?.name}</>
               </h4>
             </div>
           </div>
