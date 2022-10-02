@@ -141,9 +141,22 @@ function Index() {
   }
 
   async function voteHandler() {
-    const data = {
-      nomineeId: selectedNominee?.id,
-    };
+    let data;
+    console.log(pageData.business);
+
+    if (pageData.business) {
+      data = {
+        nomineeId: selectedNominee.id,
+        fobNomineeId: 1,
+      };
+    } else {
+      data = {
+        nomineeId: 1,
+        fobNomineeId: selectedNominee.id,
+      };
+    }
+
+    console.log(data);
 
     console.log(data);
     Axios.post(
@@ -261,7 +274,7 @@ function Index() {
         </>
       )}
 
-      {pageData.data && (
+      {pageData?.data && (
         <div
           className={`bg-lightPrimary w-full ${
             pageData.data.length >= 1 ? "min-h-fit" : "min-h-screen"
