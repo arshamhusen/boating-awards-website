@@ -1587,10 +1587,7 @@ function Index() {
   };
 
   const validationSchema = Yup.object().shape({
-    phone: Yup.string()
-      .min(7, "Phone number should be exaclty ")
-      .max(7)
-      .matches(phoneRegExp, "Phone number is not valid"),
+    phone: Yup.string().matches(phoneRegExp, "Phone number is not valid"),
   });
 
   // Send OTP
