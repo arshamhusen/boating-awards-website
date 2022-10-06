@@ -1605,6 +1605,7 @@ function Index() {
         return null;
       }
     }
+    console.log(data);
 
     Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
       headers: {
