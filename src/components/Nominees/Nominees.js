@@ -1609,17 +1609,17 @@ function Index() {
     }
     console.log(data);
 
-    // Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
-    //   headers: {
-    //     api_key: process.env.REACT_APP_API_KEY,
-    //     api_secret: process.env.REACT_APP_API_SECRET,
-    //   },
-    // }).then((res) => {
-    //   if (res.status === 200) {
-    //     setOTPRequested(true);
-    //   } else {
-    //   }
-    // });
+    Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
+      headers: {
+        api_key: process.env.REACT_APP_API_KEY,
+        api_secret: process.env.REACT_APP_API_SECRET,
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setOTPRequested(true);
+      } else {
+      }
+    });
   }
 
   function OTPInsertHandler() {
