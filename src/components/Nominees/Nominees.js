@@ -1534,7 +1534,7 @@ function Index() {
   const [loading, setLoading] = useState(true);
   const [selectedNominee, setSelectedNominee] = useState();
   const [signedIn, setSignedIn] = useState(false);
-  const [phone, setPhone] = useState();
+  const [phone, setPhone] = useState("+960");
 
   const [selectedPerson, setSelectedPerson] = useState(people[0]);
   const [query, setQuery] = useState("");
@@ -1587,7 +1587,9 @@ function Index() {
   };
 
   const validationSchema = Yup.object().shape({
-    phone: Yup.string().matches(phoneRegExp, "Phone number is not valid"),
+    phone: Yup.string()
+      .min(5)
+      .matches(phoneRegExp, "Phone number is not valid"),
   });
 
   // Send OTP
@@ -1607,17 +1609,17 @@ function Index() {
     }
     console.log(data);
 
-    Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
-      headers: {
-        api_key: process.env.REACT_APP_API_KEY,
-        api_secret: process.env.REACT_APP_API_SECRET,
-      },
-    }).then((res) => {
-      if (res.status === 200) {
-        setOTPRequested(true);
-      } else {
-      }
-    });
+    // Axios.post(`${process.env.REACT_APP_API_URL}/website/send-otp`, data, {
+    //   headers: {
+    //     api_key: process.env.REACT_APP_API_KEY,
+    //     api_secret: process.env.REACT_APP_API_SECRET,
+    //   },
+    // }).then((res) => {
+    //   if (res.status === 200) {
+    //     setOTPRequested(true);
+    //   } else {
+    //   }
+    // });
   }
 
   function OTPInsertHandler() {
@@ -1648,7 +1650,7 @@ function Index() {
     if (pageData.business) {
       data = {
         nomineeId: selectedNominee.id,
-        fobNomineeId: 1,
+        fob_nomineeId: 1,
       };
     } else {
       data = {
@@ -1659,7 +1661,6 @@ function Index() {
 
     console.log(data);
 
-    console.log(data);
     Axios.post(
       `${process.env.REACT_APP_API_URL}/website/vote/${pageData.category_id}`,
       data,
@@ -1724,7 +1725,7 @@ function Index() {
       <select
         value={selectedCountryCode}
         onChange={(e) => setSelectedCountryCode(e.target.value)}
-        className="w-3/6 p-2"
+        className="w-3/6 p-2.5 rounded-l-xl border border-gray"
       >
         {countries.map((country, i) => (
           <option value={country.dialCode}>
@@ -1955,7 +1956,7 @@ function Index() {
                                       <Field
                                         name="phone"
                                         type="text"
-                                        className="w-1/2 p-2 border-none outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg border-borderGray border shadow-sm"
+                                        className="w-1/2 p-2 border border-gray outline-none  text-center  tracking-wider form-control focus:border-primary focus:ring-lime rounded-r-lg  shadow-sm"
                                       />
                                     </div>
                                     <ErrorMessage
