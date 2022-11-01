@@ -1879,7 +1879,7 @@ function Index() {
                         >
                           View More
                         </button>
-                        {!voted && (
+                        {/* {!voted && (
                           <>
                             <div
                               className="w-full mt-4"
@@ -1890,14 +1890,14 @@ function Index() {
                               }
                             >
                               <button
-                                onClick={() => setVotedNom(nom)}
+                                onClick={() => console.log(nom)}
                                 className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                               >
                                 Vote now
                               </button>
                             </div>
                           </>
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>
