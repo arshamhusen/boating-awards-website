@@ -13,7 +13,7 @@ function NavBar() {
     <div>
       <div
         style={{
-          backgroundImage: `url(https://main.d1aygiw4pvqbs8.amplifyapp.com/uploads/images/nav-desktop.png`,
+          backgroundImage: `url(https://img.freepik.com/free-photo/abstract-luxury-gold-yellow-gradient-studio-wall-well-use-as-background-layout-banner-product-presentation_1258-70988.jpg`,
         }}
         className="h-[10vh] xl:px-20 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
       >
@@ -53,12 +53,12 @@ function NavBar() {
                     Awards
                   </Link>
 
-                   <Link
+                  <Link
                     to="/winners"
                     className="link link-underline link-underline-black "
                   >
                     Winners
-                  </Link> 
+                  </Link>
 
                   <Link
                     to="/gallery"
@@ -155,18 +155,18 @@ function NavBar() {
                           Awards
                         </Link>
 
-                         <Link
+                        <Link
                           to="/winners"
                           className="link link-underline link-underline-black "
                         >
                           Winners
-                        </Link> 
-                         <Link
+                        </Link>
+                        <Link
                           to="/gallery"
                           className="link link-underline link-underline-black "
                         >
                           Gallery
-                        </Link> 
+                        </Link>
                         <Link
                           to="/press-releases"
                           className="link link-underline link-underline-black "

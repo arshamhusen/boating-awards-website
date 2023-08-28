@@ -19,7 +19,7 @@ function About(props) {
             style={{ lineHeight: 1.7 }}
             className="leading-loose  max-w-7xl text-secondary text-sm lg:text-base text-justify flex items-center justify-center "
           >
-            <p>{parse(props.data[1].description)}</p>
+            <p>{parse(props?.data[1]?.description)}</p>
           </div>
         </div>
 

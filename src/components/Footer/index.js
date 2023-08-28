@@ -41,7 +41,12 @@ function index() {
   ];
 
   return (
-    <footer class="p-4 px-8 lg:px-0 flex flex-col items-center justify-center bg-primary bg-left md:px-6 md:py-4 dark:bg-gray-800">
+    <footer
+      style={{
+        backgroundImage: `url(https://img.freepik.com/free-photo/abstract-luxury-gold-yellow-gradient-studio-wall-well-use-as-background-layout-banner-product-presentation_1258-70988.jpg`,
+      }}
+      class="p-4 bg-center px-8 lg:px-0 flex flex-col items-center justify-center bg-primary  md:px-6 md:py-4 dark:bg-gray-800"
+    >
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-10">
         <img
           src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/awards.svg"
@@ -68,7 +73,7 @@ function index() {
           className="w-28 h-28"
         />
       </div>
-      <div className="max-w-6xl flex flex-col items-center justify-center bg-primary">
+      <div className="max-w-6xl flex flex-col items-center justify-center ">
         <div className="my-2">
           <div className="flex space-x-6">
             {social.map((item) => (
