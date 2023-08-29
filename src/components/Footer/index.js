@@ -41,37 +41,57 @@ function index() {
   ];
 
   return (
-    <footer
-      style={{
-        backgroundImage: `url(https://img.freepik.com/free-photo/abstract-luxury-gold-yellow-gradient-studio-wall-well-use-as-background-layout-banner-product-presentation_1258-70988.jpg`,
-      }}
-      class="p-4 bg-center px-8 lg:px-0 flex flex-col items-center justify-center bg-primary  md:px-6 md:py-4 dark:bg-gray-800"
-    >
-      <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-10">
-        <img
-          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/awards.svg"
-          className="w-28 h-28"
-        />
-        <img
-          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/boating.svg"
-          className="w-28 h-28"
-        />
-        <img
-          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/expo.svg"
-          className="w-28 h-28"
-        />
-        <img
-          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/insider.svg"
-          className="w-28 h-28"
-        />
-        <img
-          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/privilege.svg"
-          className="w-28 h-28"
-        />
-        <img
-          src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/life+jacket.svg"
-          className="w-28 h-28"
-        />
+    <footer class="p-4 bg-white border-t border-t-primary px-8 lg:px-0 flex flex-col items-center justify-center md:px-6 md:py-4 dark:bg-gray-800">
+      <div className="grid grid-cols-2 p-10 lg:grid-cols-8 gap-20">
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/nbam.png"
+            className="w-44 "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/boatingmv.png"
+            className="w-44 "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/Boating Awards Logo.png"
+            className="w-28 "
+          />
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/marine expo.png"
+            className="w-44 "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/lifejacket.png"
+            className="w-28 "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/privilege.png"
+            className="w-44 "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/boating maldives.png"
+            className="w-44 "
+          />
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <img
+            src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/insider.png"
+            className="w-44 "
+          />
+        </div>
       </div>
       <div className="max-w-6xl flex flex-col items-center justify-center ">
         <div className="my-2">
@@ -88,7 +108,7 @@ function index() {
             ))}
           </div>
         </div>
-        <span class="block text-xs lg:text-sm text-white sm:text-center dark:text-gray-400">
+        <span class="block text-xs lg:text-sm text-primary sm:text-center dark:text-gray-400">
           © 2022{" "}
           <a href="https://flowbite.com/" class="hover:underline">
             NBAM™

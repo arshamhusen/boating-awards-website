@@ -11,34 +11,27 @@ function classNames(...classes) {
 function NavBar() {
   return (
     <div>
-      <div
-        style={{
-          backgroundImage: `url(https://img.freepik.com/free-photo/abstract-luxury-gold-yellow-gradient-studio-wall-well-use-as-background-layout-banner-product-presentation_1258-70988.jpg`,
-        }}
-        className="h-[10vh] xl:px-20 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
-      >
+      <div className="bg-white xl:px-20 p-5 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5">
         <div className="flex justify-between items-center w-full">
           <div className="grid grid-cols-12 w-full">
             {/* Logo */}
             <Link
               to="/home/1"
-              className="flex col-span-5   md:col-span-2 lg:col-span-2 flex-row justify-center items-center"
+              className="flex col-span-5 space-x-10  md:col-span-2 lg:col-span-2 flex-row justify-center items-center"
             >
               <img
-                src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/awards.svg"
-                className="bg-purple-200 w-14 h-14 mr-2 "
-                alt=""
+                src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/Boating Awards Logo.png"
+                className="w-10 "
               />
               <img
-                src="https://boating-bucket.s3.ap-south-1.amazonaws.com/others/nbam.svg"
-                className="bg-purple-200 pl-2 w-24 h-24  "
-                alt=""
+                src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/nbam.png"
+                className="w-20 "
               />
             </Link>
             {/* Menu Items */}
             <div className=" hidden lg:flex flex-row  md:col-span-7 lg:col-span-8 justify-center items-center">
               <div>
-                <ul className="hidden md:flex items-center  justify-center gap-x-10 xl:gap-x-20  text-base md:text-sm  uppercase text-white font-medium">
+                <ul className="hidden md:flex items-center  justify-center gap-x-10 xl:gap-x-20  text-base md:text-md  uppercase text-primary font-medium">
                   <Link
                     to="/home/1"
                     className="link link-underline link-underline-black "
@@ -83,14 +76,14 @@ function NavBar() {
                 </ul>
               </div>
             </div>
-            <Link
+            {/* <Link
               to="/nominees"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
               <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white hover:text-primary bg-transparent rounded-full">
                 vote now
               </a>
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* Menu */}

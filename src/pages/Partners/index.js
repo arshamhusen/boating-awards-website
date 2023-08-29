@@ -11,7 +11,7 @@ function Nominees(props) {
   }, []);
 
   return (
-    <section className="bg-lightPrimary">
+    <section className="bg-white">
       <div
         className="text-center  flex items-center justify-center flex-col   pt-10"
         data-aos="fade-up"
