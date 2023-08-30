@@ -62,9 +62,9 @@ function Categories(props) {
               <Link
                 key={cat.id}
                 to={`/nominees/${cat.id}`}
-                className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t  bg-white to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
+                className="h-[90px] lg:h-[120px] bg-primary w-full hover:brightness-105 bg-gradient-to-t  bg-white to-white border border-lightgray shadow-md text-start  hover:bg-lightPrimary rounded-2xl flex flex-col justify-start items-start"
               >
-                <div className=" h-3/4 lg:h-2/3  flex items-center justify-center">
+                <div className=" h-3/4 lg:h-2/3 w-full  flex items-start justify-start">
                   <p className="text-sm lg:text-base font-semibold text-secondary w-11/12">
                     <span className="text-lg text-primary">
                       {categories.length >= 13 ? `${cat.id}. ` : ""}

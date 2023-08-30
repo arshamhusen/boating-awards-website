@@ -17,7 +17,7 @@ function NavBar() {
             {/* Logo */}
             <Link
               to="/home/1"
-              className="flex col-span-5 space-x-10  md:col-span-2 lg:col-span-2 flex-row justify-center items-center"
+              className="flex col-span-7 space-x-5 md:space-x-10  md:col-span-2 lg:col-span-2 flex-row justify-center items-center"
             >
               <img
                 src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/Boating Awards Logo.png"
@@ -25,7 +25,7 @@ function NavBar() {
               />
               <img
                 src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/nbam.png"
-                className="w-20 "
+                className="w-16 "
               />
             </Link>
             {/* Menu Items */}
@@ -101,7 +101,7 @@ function NavBar() {
                     <>
                       <XIcon
                         className={classNames(
-                          open ? "text-white" : "text-white",
+                          open ? "text-primary" : "text-primary",
                           "h-8 w-8 mt-1 group-hover:text-secondary"
                         )}
                         aria-hidden="true"
@@ -113,7 +113,7 @@ function NavBar() {
                     <>
                       <MenuIcon
                         className={classNames(
-                          open ? "text-white" : "text-white",
+                          open ? "text-primary" : "text-primary",
                           "h-8 w-8 mt-1 group-hover:text-secondary"
                         )}
                         aria-hidden="true"
