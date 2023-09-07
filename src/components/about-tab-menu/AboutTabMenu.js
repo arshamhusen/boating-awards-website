@@ -79,7 +79,7 @@ function AboutTabMenu(props) {
             style={{
               backgroundImage: `url('https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/Boating Awards Logo.png')`,
             }}
-            className="w-full  min-h-[50vh] bg-contain bg-no-repeat bg-center"
+            className="w-full  min-h-[30vh] bg-contain bg-no-repeat bg-center"
           ></div>
         </div>
       </Tab.Group>
