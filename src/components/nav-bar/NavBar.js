@@ -31,46 +31,31 @@ function NavBar() {
             {/* Menu Items */}
             <div className=" hidden lg:flex flex-row  md:col-span-7 lg:col-span-8 justify-center items-center">
               <div>
-                <ul className="hidden md:flex items-center  justify-center gap-x-10 xl:gap-x-20  text-base md:text-md  uppercase text-primary font-medium">
-                  <Link
-                    to="/home/1"
-                    className="link link-underline link-underline-black "
-                  >
+                <ul className="hidden md:flex items-center  justify-center gap-x-5 xl:gap-x-10  text-sm md:text-md  uppercase text-primary font-medium">
+                  <Link to="/home/1" className="link hover:brightness-125 ">
                     Home
                   </Link>
 
-                  <Link
-                    to="/nominees"
-                    className="link link-underline link-underline-black "
-                  >
+                  <Link to="/nominees" className="link hover:brightness-125 ">
                     Awards
                   </Link>
 
-                  <Link
-                    to="/winners"
-                    className="link link-underline link-underline-black "
-                  >
+                  <Link to="/winners" className="link hover:brightness-125 ">
                     Winners
                   </Link>
 
-                  <Link
-                    to="/gallery"
-                    className="link link-underline link-underline-black "
-                  >
+                  <Link to="/gallery" className="link hover:brightness-125 ">
                     Gallery
                   </Link>
 
                   <Link
                     to="/press-releases"
-                    className="link link-underline link-underline-black "
+                    className="link hover:brightness-125 "
                   >
                     Press Releases
                   </Link>
 
-                  <Link
-                    to="/downloads"
-                    className="link link-underline link-underline-black "
-                  >
+                  <Link to="/downloads" className="link hover:brightness-125 ">
                     downloads
                   </Link>
                 </ul>
@@ -136,39 +121,39 @@ function NavBar() {
                       <ul className="flex flex-col items-start  justify-start gap-y-5 xl:gap-x-20 text-base uppercase text-secondary font-semibold">
                         <Link
                           to="/home/1"
-                          className="link link-underline link-underline-black "
+                          className="link hover:brightness-125 "
                         >
                           Home
                         </Link>
 
                         <Link
                           to="/nominees"
-                          className="link link-underline link-underline-black "
+                          className="link hover:brightness-125 "
                         >
                           Awards
                         </Link>
 
                         <Link
                           to="/winners"
-                          className="link link-underline link-underline-black "
+                          className="link hover:brightness-125 "
                         >
                           Winners
                         </Link>
                         <Link
                           to="/gallery"
-                          className="link link-underline link-underline-black "
+                          className="link hover:brightness-125 "
                         >
                           Gallery
                         </Link>
                         <Link
                           to="/press-releases"
-                          className="link link-underline link-underline-black "
+                          className="link hover:brightness-125 "
                         >
                           Press Releases{" "}
                         </Link>
                         <Link
                           to="/downloads"
-                          className="link link-underline link-underline-black "
+                          className="link hover:brightness-125 "
                         >
                           Downloads
                         </Link>

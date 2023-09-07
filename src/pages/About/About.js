@@ -11,13 +11,16 @@ function About(props) {
     AOS.refresh();
   }, []);
   return (
-    <section className="flex flex-col bg-lightPrimary justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
+    <section className="flex flex-col bg-white justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
       <div className="p-10 px-10 md:px-20 lg:px-20 flex flex-col items-center justify-center">
-        <div data-aos="fade-up mb-20 " className="flex space-y-10 flex-col">
+        <div
+          data-aos="fade-up mb-20 "
+          className="flex space-y-10 items-center justify-center flex-col"
+        >
           <Heading heading="About NBAM" position="center" color="secondary" />
           <div
             style={{ lineHeight: 1.7 }}
-            className="leading-loose  max-w-7xl text-secondary text-sm md:text-lg text-center  flex items-center justify-center "
+            className="leading-tight  max-w-4xl text-secondary text-sm md:text-base text-center  flex items-center justify-center "
           >
             <p>
               National Boating Association of Maldives (NBAM) has represented
@@ -31,6 +34,10 @@ function About(props) {
               related to the industry.
             </p>
           </div>
+          <img
+            src="http://boating.mv/images/content/about.jpg"
+            className="w-full object-cover max-w-4xl"
+          />
         </div>
 
         <AboutTabMenu data={props.data} />

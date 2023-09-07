@@ -5,12 +5,12 @@ import "react-multi-carousel/lib/styles.css";
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+    items: 1,
     paritialVisibilityGutter: 20,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 1,
     paritialVisibilityGutter: 50,
   },
   mobile: {
@@ -43,22 +43,20 @@ function MediaPartner(props) {
           itemClass="slider-image-item"
           responsive={responsive}
         >
-          {props.data.map((sponsor) => (
-            <a
-              key={sponsor.id}
-              href={sponsor.button_href}
-              class="flex-shrink-0 grid grid-cols-1 gap-y-3  "
-            >
-              <div class="h-min overflow-hidden flex justify-center items-center rounded-md">
-                <img
-                  src={sponsor.image_URI}
-                  className="bg-purple-200 h-[100px] w-[120px]  hover:scale-110 transition-all duration-500"
-                  alt=""
-                />
-              </div>
-
-            </a>
-          ))}
+          <a
+            // href={sponsor.button_href}
+            class="flex-shrink-0 grid grid-cols-1 gap-y-3  "
+          >
+            <div class="h-min overflow-hidden flex justify-center items-center rounded-md">
+              <img
+                src={
+                  "https://hoteliermaldives.com/wp-content/uploads/State-Trading-Organisation-STO-logo.jpg"
+                }
+                className="bg-purple-200 h-[400px] object-contain  hover:scale-110 transition-all duration-500"
+                alt=""
+              />
+            </div>
+          </a>
         </Carousel>
       </div>
     </div>

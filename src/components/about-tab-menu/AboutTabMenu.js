@@ -40,23 +40,36 @@ function AboutTabMenu(props) {
                     )
                   }
                 >
-                  {props.data[1].heading}
+                  About Boating Awards
                 </Tab>
               </Tab.List>
               <Tab.Panels>
-                <>
+                <div>
                   <Tab.Panel
-                    className={`grid mb-10 m-0 mt-4 pt-4  border-t border-t-lightgray p-0 md:p-5 grid-cols-1 md:grid-cols-1 gap-8 md:gap-20 `}
+                    className={`grid mb-10 m-0 mt-4 pt-4 bg  border-t border-t-lightgray p-0 md:p-5 grid-cols-1 md:grid-cols-1 gap-4 md:gap-8 `}
                   >
                     <p
                       data-aos="fade-up"
-                      style={{ lineHeight: 1.7 }}
                       className="text-sm text-justify md:text-base w-full  text-secondary"
                     >
-                      {parse(props.data[0].description)}
+                      Maldives Boatng Awards is an initatve of Natonal Boatng
+                      Associaton of Maldives (NBAM) which began in the year 2014
+                      to recognize the strength of boatng industry and services
+                      rendered by the service providers.
+                    </p>
+                    <p
+                      data-aos="fade-up"
+                      className="text-sm text-justify md:text-base w-full  text-secondary"
+                    >
+                      Awards are presented to nominees in different categories
+                      on various sectors inclusive of standards. The Maldives
+                      Boating Awards aim to encourage & raise service standards
+                      within the Maldivian Boating Industry. The National
+                      Boating Association of Maldives (NBAM) holds exclusive
+                      rights of the Maldives Boating Awards.
                     </p>
                   </Tab.Panel>
-                </>
+                </div>
               </Tab.Panels>
             </div>
           </div>
@@ -64,9 +77,9 @@ function AboutTabMenu(props) {
           <div
             data-aos="flip-right"
             style={{
-              backgroundImage: `url('${menuPicture}')`,
+              backgroundImage: `url('https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/Boating Awards Logo.png')`,
             }}
-            className="w-full  min-h-[70vh] bg-contain bg-no-repeat bg-center"
+            className="w-full  min-h-[50vh] bg-contain bg-no-repeat bg-center"
           ></div>
         </div>
       </Tab.Group>
