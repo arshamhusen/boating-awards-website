@@ -12,7 +12,7 @@ function Nominees() {
   
   return (
     <DashboardLayout>
-      <div className="flex justify-center max-w-xl  items-start w-full mb-20">
+      <div className="flex justify-center  items-start w-full mb-20">
         <NomineeMenu />
       </div>
     </DashboardLayout>

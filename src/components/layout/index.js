@@ -6,11 +6,9 @@ import Footer from "../Footer";
 function WebsiteLayout({ children, props }) {
   return (
     <BodyWrapper>
-      <div className="w-screen bg-secondary  justify-center">
+      <div className="w-screen  justify-center">
         <NavBar />
-        <section className="flex flex-col lg:pt-2 justify-center items-center">
-          {children}
-        </section>
+        <section className="flex flex-col lg:pt-2">{children}</section>
         <Footer />
       </div>
     </BodyWrapper>

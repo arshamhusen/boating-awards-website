@@ -12,9 +12,11 @@ function Banner(props) {
   return (
     <div
       style={{
-        backgroundImage: `url('https://img.freepik.com/free-photo/gold-fluid-art-art-background-diy-luxury-flowing-texture_53876-103603.jpg?w=2000&t=st=1694938158~exp=1694938758~hmac=4e7a7370f0726345708c066c3182db244a66fce2004081778a4bb6058587d213')`,
+        backgroundImage: `url('https://wallpapercave.com/wp/wp2253712.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
-      className="h-screen bg-cover bg-right brightness-90  w-screen bg-secondary   flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
+      className="h-screen w-screen  bg-cover  bg-left flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
     >
       <div
         data-aos="fade-up"
@@ -26,11 +28,11 @@ function Banner(props) {
         />
         <h1
           data-aos="fade-up"
-          className="text-5xl md:text-4xl lg:text-6xl  text-white font-bold"
+          className="text-4xl md:text-6xl lg:text-7xl  text-primary font-bold"
         >
           {props.data.heading}
         </h1>
-        <h3 className="text-lg md:text-xl lg:text-2xl w-3/4 mt-5 mb-8 text-white font-medium">
+        <h3 className="text-lg md:text-2xl lg:text-3xl w-3/4 mt-5 mb-8 text-secondary font-medium">
           {props.data.title}
         </h3>
 
