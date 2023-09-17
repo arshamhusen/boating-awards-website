@@ -11,12 +11,12 @@ function Nominees(props) {
   }, []);
 
   return (
-    <section className="bg-white">
+    <section className="bg-secondary">
       <div
         className="text-center  flex items-center justify-center flex-col   pt-10"
         data-aos="fade-up"
       >
-        <Heading heading="Our Sponsors" position="center" color="secondary" />
+        <Heading heading="Our Sponsors" position="center" color="primary" />
       </div>
       <div className="flex justify-start flex-col  items-center w-full py-20">
         {/* Media Partners */}

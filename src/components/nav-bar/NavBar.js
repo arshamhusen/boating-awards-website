@@ -11,7 +11,7 @@ function classNames(...classes) {
 function NavBar() {
   return (
     <div>
-      <div className="bg-white xl:px-20 p-5 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5">
+      <div className="bg-gradient-to-b from-secondary to-black xl:px-20 p-5 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5">
         <div className="flex justify-between items-center w-full">
           <div className="grid grid-cols-12 w-full">
             {/* Logo */}

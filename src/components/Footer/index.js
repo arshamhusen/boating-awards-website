@@ -41,7 +41,7 @@ function index() {
   ];
 
   return (
-    <footer class="p-4 bg-white border-t border-t-primary px-8 lg:px-0 flex flex-col items-center justify-center md:px-6 md:py-4 dark:bg-gray-800">
+    <footer class="p-4 bg-black border-t border-t-primary px-8 lg:px-0 flex flex-col items-center justify-center md:px-6 md:py-4 dark:bg-gray-800">
       <div className="grid grid-cols-2 p-10 lg:grid-cols-8 gap-20">
         <div className="flex flex-col items-center justify-center">
           <img
@@ -100,7 +100,7 @@ function index() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-secondary"
+                className="text-primary hover:brightness-110"
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />

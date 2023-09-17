@@ -11,16 +11,16 @@ function About(props) {
     AOS.refresh();
   }, []);
   return (
-    <section className="flex flex-col bg-white justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
+    <section className="flex flex-col bg-gradient-to-b from-black to-secondary justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
       <div className="p-10 px-10 md:px-20 lg:px-20 flex flex-col items-center justify-center">
         <div
           data-aos="fade-up mb-20 "
           className="flex space-y-10 items-center justify-center flex-col"
         >
-          <Heading heading="About NBAM" position="center" color="secondary" />
+          <Heading heading="About NBAM" position="center" color="primary" />
           <div
             style={{ lineHeight: 1.7 }}
-            className="leading-tight  max-w-4xl text-secondary text-sm md:text-base text-center  flex items-center justify-center "
+            className="leading-tight  max-w-4xl text-white text-sm md:text-base text-center  flex items-center justify-center "
           >
             <p>
               National Boating Association of Maldives (NBAM) has represented

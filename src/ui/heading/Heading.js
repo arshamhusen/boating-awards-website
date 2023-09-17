@@ -9,7 +9,7 @@ function Heading(props) {
   }, []);
   return (
     <h1
-      className={`text-2xl md:text-xl pt-4 lg:text-2xl xl:text-3xl mt-4 lg:mt-14 text-center md:text-${props.position} font-bold capitalize text-${props.color}`}
+      className={`text-3xl md:text-2xl pt-4 lg:text-4xl xl:text-4xl mt-4 lg:mt-14 text-center md:text-${props.position} font-bold capitalize text-${props.color}`}
     >
       {props.heading}
     </h1>

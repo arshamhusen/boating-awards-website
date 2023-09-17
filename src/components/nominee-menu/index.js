@@ -51,11 +51,7 @@ function Index() {
         className="text-center flex items-center space-y-5 justify-center flex-col  mt-20 mb-10"
         data-aos="fade-up"
       >
-        <Heading
-          heading={"2022 Nominees"}
-          position="center"
-          color="secondary"
-        />
+        <Heading heading={"2022 Nominees"} position="center" color="primary" />
         {/* {catTypeSelected && (
           <div onClick={() => setCatTypeSelected(false)}>
             <Button title="Go Back" />
@@ -74,9 +70,9 @@ function Index() {
               key={cat.index}
               className=" cursor-pointer hover:drop-shadow-sm "
             >
-              <div className="border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
+              <div className="border-2 border-primary bg-primary hover:bg-primary rounded-2xl flex flex-col justify-center items-center">
                 <div className="p-10 lg:p-5 flex items-center text-center justify-center flex-col">
-                  <h1 className="text-lg lg:text-xl text-primary font-bold">
+                  <h1 className="text-lg lg:text-xl text-secondary font-bold">
                     {cat.name}
                   </h1>
                 </div>
