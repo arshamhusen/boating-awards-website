@@ -7,6 +7,7 @@ import Axios from "axios";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import parse from "html-react-parser";
+import Heading from "../../ui/heading/Heading";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -78,24 +79,47 @@ export default function Index() {
           </Tab.List>
         </div>
 
-        <Tab.Panels className="mt-8 lg:mt-8">
+        <Tab.Panels className="mt-2 lg:mt-2">
           {gallery.map((gallery) => (
             <Tab.Panel
               key={gallery}
               className={classNames(
                 "rounded-xl bg-white p-0 lg:p-3",
-                "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                "ring-white space-y-5 ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
-              <div className="grid sm:grid-cols-1 sm:px-5 md:px-20 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-5">
+              {/* Videp */}
+
+              <div className="flex my-10 justify-center items-center">
+                <video
+                  className="w-full h-full"
+                  controls
+                  autoPlay
+                  muted
+                  src={gallery?.image_URI}
+                />
+              </div>
+
+              {/* Other Medias */}
+              <div className="flex flex-col my-10 space-y-2 justify-center items-center">
+                <Heading heading="Moments" color="primary" />
+                <p className="text-sm text-center text-gray-500">
+                  Click on any image to view in full screen and feel free to
+                  save it.
+                </p>
+              </div>
+
+              <div className="grid  mt-10 w-full sm:grid-cols-1 px-5 md:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-5">
                 {gallery.media.map((media) => (
                   <div
+                    // lazy loading
+                    key={media.id}
                     onClick={() => imageClickHandler(media)}
-                    style={{
-                      backgroundImage: `url('${media.media_URI}')`,
-                    }}
-                    className="min-h-[30vh] bg-cover hover:cursor-pointer hover:brightness-100 brightness-95 rounded-xl bg-no-repeat bg-bottom flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
                     data-aos="fade-up"
+                    style={{
+                      backgroundImage: `url('https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/${media.media_URI}')`,
+                    }}
+                    className="min-h-[30vh] w-full bg-cover hover:cursor-pointer hover:brightness-100 brightness-95 rounded-xl bg-no-repeat bg-bottom flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
                   ></div>
                 ))}
               </div>
@@ -128,11 +152,11 @@ export default function Index() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full  max-w-7xl max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl   text-left flex justify-center items-center flex-col align-middle transition-all">
+                <Dialog.Panel className="w-full mt-20  max-w-7xl max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl   text-left flex justify-center items-center flex-col align-middle transition-all">
                   <div>
                     <img
                       className=" lg:min-h-[70vh] min-h-0 rounded-2xl"
-                      src={image}
+                      src={`https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/${image}`}
                     />
                   </div>
                   <div>

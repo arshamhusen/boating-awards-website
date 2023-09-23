@@ -67,6 +67,8 @@ function Index() {
 
       <div className="flex justify-center max-w-7xl items-center mt-10">
         <div className="grid grid-cols-1 w-full px-5   gap-2 gap-5">
+          {/* search */}
+
           {category_type.map((cat) => (
             <Link
               to={cat.route}

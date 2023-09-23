@@ -5,9 +5,11 @@ import Heading from "../../ui/heading/Heading";
 import WinnerTabMenu from "../../components/winner-tab-menu/WinnerTabMenu";
 import DashboardLayout from "../../components/layout/index";
 import Button from "../../ui/button/Button";
+import { SearchCircleIcon } from "@heroicons/react/solid";
 
 function Categories(props) {
   const [categories, setCategories] = React.useState([]);
+  const [filteredCategories, setFilteredCategories] = React.useState([]); // for search bar
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -19,6 +21,7 @@ function Categories(props) {
     }).then((res) => {
       if (res.status === 200) {
         setCategories(res.data.categories);
+        setFilteredCategories(res.data.categories);
         setLoading(false);
       } else {
         setLoading(true);
@@ -30,8 +33,8 @@ function Categories(props) {
     <>
       <DashboardLayout>
         <section className="flex py-10 mt-16 lg:mt-0 md:py-20 min-h-screen  flex-cols justify-center  items-start">
-          <div className="md:flex md:flex-col md:justify-center max-w-7xl   grid grid-cols-1 gap-5 md:gap-4 lg:gap-6">
-            <div className="px-10 md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-3 lg:gap-y-5">
+          <div className="flex w-full flex-col space-y-5 md:justify-center items-center max-w-7xl  6">
+            <div className="px-10 md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-3 lg:gap-y-2">
               <Heading
                 heading="Categories"
                 position="center"
@@ -40,7 +43,7 @@ function Categories(props) {
             </div>
 
             <Link
-              className="w-full justify-center items-center flex"
+              className="w-full  justify-center items-center flex"
               to={"/nominees"}
             >
               <Button title="Go Back" />
@@ -69,30 +72,67 @@ function Categories(props) {
                 </div>
               </div>
             ) : (
-              <>
+              <div className="w-full max-w-6xl">
                 <div className="w-screen h-fit absolute -z-10 inset-1 top-[40vh]"></div>
+                {/* search bar */}
+                <div className="flex justify-center items-center w-full mt-0">
+                  <div className="grid grid-cols-1 w-full px-5 max-w-xl   gap-2 ">
+                    {/* search */}
+
+                    <input
+                      type="text"
+                      placeholder="Search"
+                      className="border border-lightgray rounded-2xl p-2 px-6 w-full"
+                      onChange={(e) => {
+                        let filtered = categories.filter((cat) => {
+                          return cat?.name
+                            .toLowerCase()
+                            .includes(e.target.value.toLowerCase());
+                        });
+                        setFilteredCategories(filtered);
+                      }}
+                    />
+                  </div>
+                </div>
                 <div
                   data-aos="fade-up"
-                  className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10 lg:mt-16 px-5 lg:px-20"
+                  className="
+                  w-full flex justify-start items-center flex-col space-y-5 mt-5 mx-10
+                  "
                 >
-                  {categories.map((cat) => (
+                  {/* search */}
+
+                  {filteredCategories.map((cat) => (
                     <Link
                       key={cat.id}
                       to={`/nominees/${cat.id}`}
-                      className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t w-full  bg-white to-primary border border-lightgray shadow-md text-start  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
+                      className=" relative z-50 hover:brightness-105 flex-col  md:flex-row  w-full border-black/10 border text-start  hover:bg-lightPrimary rounded-2xl flex md:justify-between items-start md:items-center"
                     >
                       <div className=" h-3/4 w-full lg:h-2/3  flex items-center justify-center">
-                        <p className="text-base lg:text-base font-semibold text-secondary w-full p-10">
-                          <span className="text-lg text-primary">
-                            {categories.length >= 13 ? `${cat.id}. ` : ""}
-                          </span>
+                        <p className="text-base lg:text-xl font-semibold text-secondary w-full p-10">
+                          {/* number absolute large */}
+                          <div className="absolute  overflow-hidden z-0 top-1 left-2 flex justify-center items-center">
+                            <p className="text-gray/20 text-8xl">
+                              {categories.length >= 13 ? `${cat.id}` : ""}
+                            </p>
+                          </div>
+
                           {cat.name}
                         </p>
+                      </div>
+                      {/* number of nominees */}
+                      <div className=" flex justify-center items-center">
+                        <Link
+                          to={`/nominees/${cat.id}`}
+                          className=" rounded-full w-max flex  m-5 justify-center items-center"
+                        >
+                          <Button title="View Nominees" />
+                        </Link>
                       </div>
                     </Link>
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </div>
         </section>

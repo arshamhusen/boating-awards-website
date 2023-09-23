@@ -1746,16 +1746,23 @@ function Index() {
         {/* Category Image */}
 
         <div className=" w-full flex flex-col justify-center text-center items-center space-y-10 p-10">
-          <h1 className="text-3xl max-w-[75vw] lg:max-w-[45vw] text-center lg:text-5xl font-bold  text-secondary leading-tight">
+          <h1 className="text-3xl max-w-[75vw] lg:max-w-[45vw] text-center lg:text-5xl font-bold  text-secondary ">
             {pageData.category_name}
           </h1>
-
+          {/* number of nominees */}
+          <div className="flex flex-col justify-center items-center space-y-5">
+            <h1 className="text-sm text-center lg:text-xl   text-secondary ">
+              {pageData?.data?.length}{" "}
+              {pageData?.data?.length > 1 ? "Nominees" : "Nominee"}
+            </h1>
+          </div>
           <Link
             className=""
             to={!pageData.fob ? "/nominees/general" : "/nominees/fob"}
           >
             <Button title="Go Back" />
           </Link>
+
           {signedIn && (
             <p className="w-full bg-lightprimary p-2 rounded-2xl text-gray text-xs lg:text-sm">
               You are signed in! Please Vote the desired Nominee.
@@ -1768,7 +1775,7 @@ function Index() {
           {/* Show who the person voted */}
           <div
             data-aos="fade-up"
-            className=" max-w-5xl p-5 lg:p-10 bg-lightPrimary mb-5 w-10/12 lg:w-full rounded-xl grid grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-10"
+            className=" max-w-5xl p-5 lg:p-10 bg-lightgray mb-5 w-10/12 lg:w-full rounded-xl grid grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-10"
           >
             <div className="lg:col-span-7 col-span-1">
               <div class="overflow-hidden w-full  justify-center  lg:col-span-5  bg-white">
@@ -1797,9 +1804,11 @@ function Index() {
 
       {pageData?.data && (
         <div
-          className={`bg-lightPrimary w-full ${
-            pageData.data.length >= 1 ? "min-h-fit" : "min-h-screen"
-          }  flex py-10 items-center justify-center`}
+          className={`bg-lightgray w-full ${
+            pageData.data.length >= 1
+              ? "min-h-[calc(100vh-300px)]"
+              : "min-h-screen"
+          }  flex py-10 items-start justify-center`}
         >
           {loading && (
             <div className="flex justify-center items-center w-full mt-40 h-[60vh]">
@@ -1830,79 +1839,94 @@ function Index() {
           {!loading && (
             <div
               data-aos="fade-up"
-              className={`grid ${
+              className={`grid px-10 w-fit ${
                 pageData.data.length <= 3
-                  ? `grid-cols-1 lg:grid-cols-${pageData.data.length}`
+                  ? `grid-cols-1 md:grid-cols-2  lg:grid-cols-${pageData.data.length}`
                   : ` grid-cols-1 lg:grid-cols-4`
-              } max-w-6xl gap-6`}
+              } max-w-7xl gap-6`}
             >
-              {pageData.data.map((nom) => (
-                <div
-                  className={`flex rounded-2xl bg-white border border-lightgray shadow-md h-fit w-[321px] lg:w-[280px]   ${
-                    votedNom === nom
-                      ? "dropshadow-md rounded-2xl"
-                      : "rounded-2xl"
-                  } `}
-                >
-                  <div className=" w-full   gap-4">
-                    <div class="overflow-hidden w-full rounded-t-2xl min-h-fit   flex items-start justify-center  lg:col-span-5  bg-white">
-                      {!pageData.business && (
-                        <img
-                          src={nom.imageURI}
-                          className="bg-purple-200   rounded-t-2xl  hover:scale-110 transition-all duration-500"
-                          alt=""
-                        />
-                      )}
-                      {pageData.business && (
-                        <img
-                          src={nom.business_imageURI}
-                          className="bg-purple-200 w-[250px] h-[250px]  rounded-t-2xl  hover:scale-110 transition-all duration-500"
-                          alt=""
-                        />
-                      )}
-                    </div>
-                    <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
-                      <div className="h-[100px]">
-                        <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
-                          {pageData.business && <>{nom.business_names}</>}
-                          {!pageData.business && <>{nom.name}</>}
-                        </h1>
-                        <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
-                          {!pageData.business && <>{nom.business_name}</>}
-                        </h5>
-                      </div>
+              {pageData?.data?.map(
+                (nom) =>
+                  (
+                    <div
+                      className={`flex rounded-2xl min-w-[280px] max-w-[300px] bg-white border border-lightgray shadow-md h-fit   ${
+                        votedNom === nom
+                          ? "dropshadow-md rounded-2xl"
+                          : "rounded-2xl"
+                      } `}
+                    >
+                      <div className=" w-full   gap-4">
+                        <div class="overflow-hidden w-full rounded-t-2xl min-h-fit   flex items-start justify-center  lg:col-span-5  bg-white">
+                          {!pageData.business && (
+                            <img
+                              src={nom.imageURI}
+                              className="bg-purple-200 object-cover  w-full h-[200px]  rounded-t-2xl   transition-all duration-500"
+                              alt=""
+                            />
+                          )}
+                          {pageData.business && (
+                            <img
+                              src={nom.business_imageURI}
+                              className="bg-purple-200 object-cover  w-full h-[250px] rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                              alt=""
+                            />
+                          )}
+                        </div>
+                        <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
+                          <div className="h-[100px]">
+                            <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
+                              {pageData.business && <>{nom.business_names}</>}
+                              {!pageData.business && <>{nom.name}</>}
+                            </h1>
+                            <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
+                              {!pageData.business && <>{nom.business_name}</>}
+                            </h5>
+                          </div>
 
-                      <div className=" w-full flex items-center justify-center flex-col">
-                        <button
-                          onClick={() => handleModal(nom)}
-                          className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
-                        >
-                          View More
-                        </button>
-                        {/* {!voted && (
-                          <>
-                            <div
-                              className="w-full mt-4"
-                              onClick={() =>
-                                signedIn
-                                  ? openConfirmModal(nom)
-                                  : setIsOpen(true)
-                              }
+                          <div className=" w-full flex items-center justify-center flex-col">
+                            <button
+                              onClick={() => handleModal(nom)}
+                              className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
                             >
-                              <button
-                                onClick={() => console.log(nom)}
-                                className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
-                              >
-                                Vote now
-                              </button>
-                            </div>
-                          </>
-                        )} */}
+                              View More
+                            </button>
+                            {!voted && (
+                              <>
+                                <div
+                                  className="w-full mt-4"
+                                  onClick={() =>
+                                    signedIn
+                                      ? openConfirmModal(nom)
+                                      : setIsOpen(true)
+                                  }
+                                >
+                                  <button
+                                    onClick={() => console.log(nom)}
+                                    disabled={!voted}
+                                    // if disabled, show a message saying you have already voted
+
+                                    className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-gray/20 px-2 p-1.5 rounded-full hover:brightness-110 "
+                                  >
+                                    Vote now
+                                  </button>
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  ) ?? (
+                    <div className="flex justify-center items-center w-full mt-40 h-[60vh]">
+                      <div
+                        className="flex justify-center items-center pt-40"
+                        role="status"
+                      >
+                        <p> no</p>
+                      </div>
+                    </div>
+                  )
+              )}
             </div>
           )}
 
@@ -1932,7 +1956,7 @@ function Index() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel className="w-full max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                    <Dialog.Panel className="w-full mt-20 max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                       <Dialog.Title
                         as="h1"
                         className="text-base md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
@@ -2046,7 +2070,7 @@ function Index() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel className="w-full  max-w-6xl max-h-min lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                    <Dialog.Panel className="w-full mt-20  max-w-6xl max-h-min lg:max-h-[80vh] overflow-hidden bg-cover bg-right transform rounded-2xl bg-white p-2 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                       <Dialog.Title
                         as="h1"
                         className="text-lg md:text-xl grid grid-cols-1 gap-y-0 lg:gap-y-4 p-3  text-center text-secondary font-semibold leading-6 text-gray-900"

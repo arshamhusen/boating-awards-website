@@ -53,7 +53,7 @@ function Categories(props) {
         </div>
       ) : (
         <>
-          <div className="w-screen h-fit absolute -z-10 inset-1 top-[40vh]"></div>
+          <div className="w-screen h-fit absolute -z-10 inset-1 top-[10vh]"></div>
           <div
             data-aos="fade-up"
             className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10 lg:mt-16 px-5 lg:px-20"

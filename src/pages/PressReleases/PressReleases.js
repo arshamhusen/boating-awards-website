@@ -60,7 +60,7 @@ function PressReleases() {
       },
     }).then((res) => {
       if (res.status === 200) {
-        setPrMedia(res.data[0].media);
+        setPrMedia(res.data);
         setLoading(false);
       } else {
         setLoading(true);
@@ -68,18 +68,6 @@ function PressReleases() {
     });
     generateArrayOfNumbers(pages);
   }, []);
-
-  function goToNextPage() {
-    if (currentPage < pages) {
-      setCurrentPage((page) => page + 1);
-    }
-  }
-
-  function goToPreviousPage() {
-    if (currentPage > 1) {
-      setCurrentPage((page) => page - 1);
-    }
-  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -90,15 +78,9 @@ function PressReleases() {
     console.log(pageArray);
   }
 
-  const getPaginatedData = () => {
-    const startIndex = currentPage * dataLimit - dataLimit;
-    const endIndex = startIndex + dataLimit;
-    return prMedia.slice(startIndex, endIndex);
-  };
-
   return (
     <DashboardLayout>
-      <section className="flex flex-col pt-24 py-10 w-screen md:py-20 min-h-screen  flex-cols justify-start  items-start">
+      <section className="flex flex-col pt-24 py-10 w-screen md:py-20 min-h-screen  flex-cols justify-center  items-center">
         <div className="px-10 w-full md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-5">
           <Heading
             heading="Press Releases"
@@ -106,7 +88,7 @@ function PressReleases() {
             color="secondary"
           />
         </div>
-        <div className="w-screen px-8 lg:px-0 min-h-screen  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
+        <div className="w-screen  px-8 lg:px-0 min-h-screen  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
           {/* <div className="flex items-center justify-center">
             <div className="border-borderGray bg-white focus:border-primary focus:outline ring-offset-primary outline-primary  border rounded-full flex flex-row items-center px-5">
               <SearchIcon className="w-4 h-4 text-secondary" />
@@ -118,10 +100,10 @@ function PressReleases() {
               />
             </div>
           </div> */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-6 lg:mt-10">
-            {prMedia.map((pr, idx) => (
+          <div className="grid  w-fit grid-cols-1 gap-2 mt-6 lg:mt-10">
+            {prMedia?.map((pr, idx) => (
               <div key={idx} data={pr}>
-                <div className="p-2 max-w-[380px]">
+                <div className="p-2 min-w-[480px]">
                   <div className="rounded-3xl flex justify-between flex-col overflow-hidden h-auto lg:h-[340px] border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
                     <div>
                       <div className="flex flexx-row justify-start items-center">
