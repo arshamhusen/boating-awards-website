@@ -11,7 +11,12 @@ function classNames(...classes) {
 function NavBar() {
   return (
     <div>
-      <div className="bg-white xl:px-20 p-5 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5">
+      {/* blur tailwin */}
+      <div
+        className="bg-black/40
+        backdrop-filter backdrop-blur-xl 
+      xl:px-20 p-5 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
+      >
         <div className="flex justify-between items-center w-full">
           <div className="grid grid-cols-12 w-full">
             {/* Logo */}
@@ -61,14 +66,14 @@ function NavBar() {
                 </ul>
               </div>
             </div>
-            {/* <Link
-              to="/nominees"
+            <Link
+              to="#"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
-              <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white hover:text-primary bg-transparent rounded-full">
+              <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white/2 hover:text-primary bg-transparent rounded-full">
                 vote now
               </a>
-            </Link> */}
+            </Link>
           </div>
         </div>
         {/* Menu */}

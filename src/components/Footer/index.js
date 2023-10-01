@@ -1,7 +1,6 @@
 import React from "react";
 
-function index() {
-
+function Footer() {
   const social = [
     {
       name: "Facebook",
@@ -41,7 +40,13 @@ function index() {
   ];
 
   return (
-    <footer class="p-4 bg-white border-t border-t-primary px-8 lg:px-0 flex flex-col items-center justify-center md:px-6 md:py-4 dark:bg-gray-800">
+    // blur backgr0ound
+    <footer
+      class="p-4 z-50 relative border-t
+      bg-black/40
+        backdrop-filter backdrop-blur-xl 
+    border-t-primary/20 px-8 lg:px-0 flex flex-col items-center justify-center md:px-6 md:py-4 dark:bg-gray-800"
+    >
       <div className="grid grid-cols-2 p-10 lg:grid-cols-8 gap-20">
         <div className="flex flex-col items-center justify-center">
           <img
@@ -120,4 +125,4 @@ function index() {
   );
 }
 
-export default index;
+export default Footer;

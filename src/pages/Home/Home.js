@@ -5,6 +5,7 @@ import Banner from "../../components/banner/Banner";
 import About from "../../pages/About/About";
 import Partners from "../Partners/index";
 import Axios from "axios";
+import Footer from "../../components/Footer";
 
 function Home() {
   const { id } = useParams();
@@ -40,12 +41,24 @@ function Home() {
           </div>
 
           {/* <VideoPlayer /> */}
-          <div id="2" className="">
+          <div id="2" className="z-50">
             {pageData != null && <About data={pageData?.about} />}
           </div>
-          <div id="3" className="pt-5">
+          <div id="3" className="pt-5 z-50">
             {pageData != null && <Partners data={pageData.sponsors} />}
           </div>
+          <Footer />
+          <video
+            autoPlay
+            muted
+            loop
+            className="absolute bottom-[calc(20vh-200px)] rotate-180 z-0 w-full object-contain"
+          >
+            <source
+              src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/videos/loop.mp4"
+              type="video/mp4"
+            />
+          </video>
         </>
       )}
       {loading && <div className="min-h-screen" />}

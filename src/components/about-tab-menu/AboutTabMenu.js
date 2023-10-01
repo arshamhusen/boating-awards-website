@@ -32,7 +32,7 @@ function AboutTabMenu(props) {
                   onClick={() => setMenuPicture(props.data[1].image_URI)}
                   className={({ selected }) =>
                     classNames(
-                      "py-2.5  text-secondary capitalize text-center font-bold text-2xl md:text-2xl lg:text-4xl leading-5 ",
+                      "py-2.5  text-white capitalize text-center font-bold text-2xl md:text-2xl lg:text-4xl leading-5 ",
                       "focus:outline-none text-left",
                       selected
                         ? "text-left"
@@ -50,7 +50,7 @@ function AboutTabMenu(props) {
                   >
                     <p
                       data-aos="fade-up"
-                      className="text-sm text-justify md:text-base w-full  text-secondary"
+                      className="text-sm text-justify md:text-xl w-full  text-white"
                     >
                       Maldives Boatng Awards is an initatve of Natonal Boatng
                       Associaton of Maldives (NBAM) which began in the year 2014
@@ -59,7 +59,7 @@ function AboutTabMenu(props) {
                     </p>
                     <p
                       data-aos="fade-up"
-                      className="text-sm text-justify md:text-base w-full  text-secondary"
+                      className="text-sm text-justify md:text-xl w-full  text-white"
                     >
                       Awards are presented to nominees in different categories
                       on various sectors inclusive of standards. The Maldives

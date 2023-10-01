@@ -9,7 +9,7 @@ module.exports = {
   plugins: [require("tw-elements/dist/plugin")],
   theme: {
     colors: {
-      primary: "#B78533",
+      primary: "#FFFFFF",
       lightPrimary: "#FFFAEA",
       secondary: "#23204A",
       lightSecondary: "#FDF3D4",

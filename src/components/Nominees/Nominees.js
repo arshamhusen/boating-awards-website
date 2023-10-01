@@ -1841,7 +1841,7 @@ function Index() {
               data-aos="fade-up"
               className={`grid px-10 w-fit ${
                 pageData.data.length <= 3
-                  ? `grid-cols-1 md:grid-cols-2  lg:grid-cols-${pageData.data.length}`
+                  ? `grid-cols-1  md:grid lg:grid-cols-${pageData.data.length}`
                   : ` grid-cols-1 lg:grid-cols-4`
               } max-w-7xl gap-6`}
             >
@@ -1867,7 +1867,7 @@ function Index() {
                           {pageData.business && (
                             <img
                               src={nom.business_imageURI}
-                              className="bg-purple-200 object-cover  w-full h-[250px] rounded-t-2xl  hover:scale-110 transition-all duration-500"
+                              className="bg-purple-200 object-contain  w-full h-[250px] rounded-t-2xl  hover:scale-110 transition-all duration-500"
                               alt=""
                             />
                           )}
@@ -1878,9 +1878,12 @@ function Index() {
                               {pageData.business && <>{nom.business_names}</>}
                               {!pageData.business && <>{nom.name}</>}
                             </h1>
-                            <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
-                              {!pageData.business && <>{nom.business_name}</>}
-                            </h5>
+
+                            {!pageData.business && (
+                              <h5 className="my-1.5 lg:my-2 text-center text-xs lg:text-sm text-primary mb-1">
+                                {nom.business_name}
+                              </h5>
+                            )}
                           </div>
 
                           <div className=" w-full flex items-center justify-center flex-col">

@@ -11,7 +11,7 @@ function About(props) {
     AOS.refresh();
   }, []);
   return (
-    <section className="flex flex-col bg-white justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
+    <section className="flex flex-col bg-black justify-start md:justify-center lg:justify-center  items-start md:items-center lg:items-center">
       <div className="p-10 px-10 md:px-20 lg:px-20 flex flex-col items-center justify-center">
         <div
           data-aos="fade-up mb-20 "
@@ -20,7 +20,7 @@ function About(props) {
           <Heading heading="About NBAM" position="center" color="secondary" />
           <div
             style={{ lineHeight: 1.7 }}
-            className="leading-tight  max-w-4xl text-secondary text-sm md:text-base text-center  flex items-center justify-center "
+            className="leading-tight  max-w-4xl text-white text-sm md:text-xl text-center  flex items-center justify-center "
           >
             <p>
               National Boating Association of Maldives (NBAM) has represented
@@ -34,10 +34,15 @@ function About(props) {
               related to the industry.
             </p>
           </div>
-          <img
-            src="http://boating.mv/images/content/about.jpg"
-            className="w-full object-cover max-w-4xl"
-          />
+          <div className="flex relative flex-col items-center justify-center space-y-5">
+            {/* layer dark */}
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+            {/* layer light */}
+            {/* <img
+              src="http://boating.mv/images/content/about.jpg"
+              className="w-full object-cover brightness-75 max-w-4xl"
+            /> */}
+          </div>
         </div>
 
         <AboutTabMenu data={props.data} />

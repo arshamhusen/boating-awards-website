@@ -1,15 +1,16 @@
 import React from "react";
 import BodyWrapper from "../bodyWrapper";
 import NavBar from "../nav-bar/NavBar";
-import Footer from "../Footer";
+
 
 function WebsiteLayout({ children, props }) {
   return (
     <BodyWrapper>
-      <div className="w-screen  justify-center">
+      <div className="w-screen h-full relative  justify-center">
         <NavBar />
-        <section className="flex flex-col lg:pt-2">{children}</section>
-        <Footer />
+        <section className="flex z-50 flex-col lg:pt-2 bg-black">
+          {children}
+        </section>
       </div>
     </BodyWrapper>
   );
