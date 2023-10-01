@@ -32,9 +32,23 @@ function Categories(props) {
   return (
     <>
       <DashboardLayout>
-        <section className="flex py-10 mt-16 lg:mt-0 md:py-20 min-h-screen  flex-cols justify-center  items-start">
-          <div className="flex w-full flex-col space-y-5 md:justify-center items-center max-w-7xl  6">
-            <div className="px-10 md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-3 lg:gap-y-2">
+        <div className=" w-full relative  flex justify-center items-center">
+          <video
+            autoPlay
+            muted
+            playsInline
+            loop
+            className="w-full h-full top-0 object-cover min-h-[100vh] absolute"
+          >
+            <source
+              src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/videos/loop.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <section className="flex z-30 py-10 mt-16 lg:mt-0 md:py-20 min-h-screen  flex-cols justify-center  items-center">
+          <div className="flex w-full flex-col space-y-5 md:justify-center items-center   6">
+            <div className="px-10 md:px-20 lg:px-20 flex  flex-col gap-y-3 lg:gap-y-2">
               <Heading
                 heading="Categories"
                 position="center"
@@ -73,7 +87,7 @@ function Categories(props) {
               </div>
             ) : (
               <div className="w-full max-w-6xl">
-                <div className="w-screen h-fit absolute -z-10 inset-1 top-[40vh]"></div>
+                <div className="absolute -z-10 inset-1 top-[40vh]"></div>
                 {/* search bar */}
                 <div className="flex justify-center items-center w-full mt-0">
                   <div className="grid grid-cols-1 w-full px-5 max-w-xl   gap-2 ">
@@ -82,7 +96,7 @@ function Categories(props) {
                     <input
                       type="text"
                       placeholder="Search"
-                      className="border border-lightgray rounded-2xl p-2 px-6 w-full"
+                      className="border border-lightgray bg-white/20 rounded-2xl p-2 px-6 w-full"
                       onChange={(e) => {
                         let filtered = categories.filter((cat) => {
                           return cat?.name
@@ -106,14 +120,17 @@ function Categories(props) {
                     <Link
                       key={cat.id}
                       to={`/nominees/${cat.id}`}
-                      className=" relative z-50 hover:brightness-105 flex-col  md:flex-row  w-full border-black/10 border text-start  hover:bg-lightPrimary rounded-2xl flex md:justify-between items-start md:items-center"
+                      className=" relative
+                         
+                      backdrop-filter backdrop-blur-xl 
+                      hover:brightness-105 flex-col  md:flex-row  w-full border-black/10 border text-start  hover:bg-lightPrimary/20 rounded-2xl flex mr"
                     >
                       <div className=" h-3/4 w-full lg:h-2/3  flex items-center justify-center">
-                        <p className="text-base lg:text-xl font-semibold text-secondary w-full p-10">
+                        <p className="text-base lg:text-2xl font-semibold text-white w-full p-10">
                           {/* number absolute large */}
                           <div className="absolute  overflow-hidden z-0 top-1 left-2 flex justify-center items-center">
-                            <p className="text-gray/20 text-8xl">
-                              {categories.length >= 13 ? `${cat.id}` : ""}
+                            <p className="text-white/40 text-8xl">
+                              {categories.length <= 30 ? `${cat.id}` : ""}
                             </p>
                           </div>
 

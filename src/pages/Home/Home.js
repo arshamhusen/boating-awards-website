@@ -50,9 +50,10 @@ function Home() {
           <Footer />
           <video
             autoPlay
+            playsInline
             muted
             loop
-            className="absolute bottom-[calc(20vh-200px)] rotate-180 z-0 w-full object-contain"
+            className="absolute bottom-[calc(20vh-160px)] rotate-180 z-0 w-full object-contain"
           >
             <source
               src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/videos/loop.mp4"

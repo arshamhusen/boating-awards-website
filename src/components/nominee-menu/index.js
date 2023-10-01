@@ -9,7 +9,7 @@ const category_type = [
   {
     index: 1,
     name: "Categories",
-    description: "This category is selected based on the yachts",
+    description: "Contains all the categories for the awards",
     route: "/nominees/general",
     image:
       "url(https://t4.ftcdn.net/jpg/03/11/45/49/360_F_311454984_FsUGN9gBeilmYksiEKg1SPjr78mULUrR.jpg)",
@@ -17,7 +17,7 @@ const category_type = [
   {
     index: 2,
     name: "Faces of Boating",
-    description: "This category is selected based on the yachts",
+    description: "Contains Faces of Boating categories",
     route: "/nominees/fob",
     image:
       "url(https://t4.ftcdn.net/jpg/03/11/45/49/360_F_311454984_FsUGN9gBeilmYksiEKg1SPjr78mULUrR.jpg)",
@@ -46,45 +46,66 @@ function Index() {
   }, []);
 
   return (
-    <div className=" w-full max-w-7xl min-h-screen pt-10 lg:pt-0">
-      <div
-        className="text-center flex items-center space-y-5 justify-center flex-col  mt-20 mb-10"
-        data-aos="fade-up"
+    <div className=" w-full relative  flex justify-center items-center">
+      <video
+        autoPlay
+        muted
+        playsInline
+        loop
+        className="w-full h-full top-0 object-cover min-h-[100vh] absolute"
       >
-        <Heading
-          heading={"2022 Nominees"}
-          position="center"
-          color="secondary"
+        <source
+          src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/videos/loop.mp4"
+          type="video/mp4"
         />
-        {/* {catTypeSelected && (
+      </video>
+      <div className=" w-full relative max-w-7xl min-h-screen pt-10 lg:pt-0">
+        <div
+          className="text-start flex items-start space-y-5 justify-center flex-col  mt-20 mb-10"
+          data-aos="fade-up"
+        >
+          <Heading
+            heading={"2022 Nominees"}
+            position="center"
+            color="secondary"
+          />
+          {/* {catTypeSelected && (
           <div onClick={() => setCatTypeSelected(false)}>
             <Button title="Go Back" />
           </div>
         )} */}
-      </div>
+        </div>
 
-      {/* Select either Faces of Boating or General Categories */}
+        {/* Select either Faces of Boating or General Categories */}
 
-      <div className="flex justify-center max-w-7xl items-center mt-10">
-        <div className="grid grid-cols-1 w-full px-5   gap-2 gap-5">
-          {/* search */}
+        <div className="flex justify-center max-w-7xl items-center mt-10">
+          <div className="grid grid-cols-2 w-full  gap-5">
+            {/* search */}
 
-          {category_type.map((cat) => (
-            <Link
-              to={cat.route}
-              data-aos="fade-up"
-              key={cat.index}
-              className=" cursor-pointer hover:drop-shadow-sm "
-            >
-              <div className="border-2 border-primary hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center">
-                <div className="p-10 lg:p-5 flex items-center text-center justify-center flex-col">
-                  <h1 className="text-lg lg:text-xl text-primary font-bold">
-                    {cat.name}
-                  </h1>
+            {category_type.map((cat) => (
+              <Link
+                to={cat.route}
+                data-aos="fade-up"
+                key={cat.index}
+                className=" cursor-pointer hover:drop-shadow-sm "
+              >
+                <div
+                  className="border-2
+               backdrop-filter backdrop-blur-md
+                border-primary hover:bg-lightPrimary/20 rounded-2xl flex flex-col justify-center items-start"
+                >
+                  <div className="p-10 lg:p-5 flex items-start text-center justify-center flex-col">
+                    <h1 className="text-lg lg:text-2xl text-primary font-bold">
+                      {cat.name}
+                    </h1>
+                    <p className="text-sm lg:text-lg text-primary/80 font-medium">
+                      {cat.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

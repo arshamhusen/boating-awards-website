@@ -20,6 +20,7 @@ function Banner(props) {
       <video
         autoPlay
         muted
+        playsInline
         loop
         className="w-full h-full top-0 object-cover min-h-[100vh] absolute"
       >
