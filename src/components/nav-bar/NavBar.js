@@ -13,8 +13,11 @@ function NavBar() {
     <div>
       {/* blur tailwin */}
       <div
+        style={{
+          zIndex: "9999",
+        }}
         className="bg-black/40
-        backdrop-filter backdrop-blur-xl 
+        backdrop-filter backdrop-blur-xl border-b border-white/20
       xl:px-20 p-5 bg-cover bg-right  fixed top-0 shadow-md flex z-50 w-full items-center justify-between px-5"
       >
         <div className="flex justify-between items-center w-full">

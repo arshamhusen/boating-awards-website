@@ -59,7 +59,7 @@ function Index() {
           type="video/mp4"
         />
       </video>
-      <div className=" w-full relative max-w-7xl min-h-screen pt-10 lg:pt-0">
+      <div className=" w-full mx-5  relative max-w-7xl min-h-screen pt-10 lg:pt-0">
         <div
           className="text-start flex items-start space-y-5 justify-center flex-col  mt-20 mb-10"
           data-aos="fade-up"
@@ -79,7 +79,7 @@ function Index() {
         {/* Select either Faces of Boating or General Categories */}
 
         <div className="flex justify-center max-w-7xl items-center mt-10">
-          <div className="grid grid-cols-2 w-full  gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full  gap-5">
             {/* search */}
 
             {category_type.map((cat) => (
@@ -90,12 +90,12 @@ function Index() {
                 className=" cursor-pointer hover:drop-shadow-sm "
               >
                 <div
-                  className="border-2
+                  className="border
                backdrop-filter backdrop-blur-md
-                border-primary hover:bg-lightPrimary/20 rounded-2xl flex flex-col justify-center items-start"
+                border-primary/20 hover:bg-lightPrimary/20 rounded-2xl flex flex-col justify-center items-start"
                 >
                   <div className="p-10 lg:p-5 flex items-start text-center justify-center flex-col">
-                    <h1 className="text-lg lg:text-2xl text-primary font-bold">
+                    <h1 className="text-xl lg:text-2xl text-primary font-bold">
                       {cat.name}
                     </h1>
                     <p className="text-sm lg:text-lg text-primary/80 font-medium">

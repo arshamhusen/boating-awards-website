@@ -32,22 +32,8 @@ function Categories(props) {
   return (
     <>
       <DashboardLayout>
-        <div className=" w-full relative  flex justify-center items-center">
-          <video
-            autoPlay
-            muted
-            playsInline
-            loop
-            className="w-full h-full top-0 object-cover min-h-[100vh] absolute"
-          >
-            <source
-              src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/videos/loop.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
         <section className="flex z-30 py-10 mt-16 lg:mt-0 md:py-20 min-h-screen  flex-cols justify-center  items-center">
-          <div className="flex w-full flex-col space-y-5 md:justify-center items-center   6">
+          <div className="flex w-full flex-col space-y-5 justify-center items-center   6">
             <div className="px-10 md:px-20 lg:px-20 flex  flex-col gap-y-3 lg:gap-y-2">
               <Heading
                 heading="Categories"
@@ -68,7 +54,7 @@ function Categories(props) {
                 <div className="flex justify-center items-center" role="status">
                   <svg
                     aria-hidden="true"
-                    class="mr-2 w-20 h-20 text-lightPrimary animate-spin dark:text-gray-600 fill-primary"
+                    class="mr-2 w-20 h-20 text-lightPrimary/20 animate-spin dark:text-gray-600 fill-primary"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,43 +97,46 @@ function Categories(props) {
                 <div
                   data-aos="fade-up"
                   className="
-                  w-full flex justify-start items-center flex-col space-y-5 mt-5 mx-10
+                   flex mx-5 justify-start items-center  flex-col space-y-5 mt-5
                   "
                 >
                   {/* search */}
 
-                  {filteredCategories.map((cat) => (
-                    <Link
-                      key={cat.id}
-                      to={`/nominees/${cat.id}`}
-                      className=" relative
-                         
+                  <div className="flex flex-col space-y-5 justify-center items-center">
+                    {filteredCategories.map((cat, index) => (
+                      <Link
+                        key={cat.id}
+                        to={`/nominees/${cat.id}`}
+                        className=" 
+                      bg-white/20 w-full flex-col md:flex-row flex border border-lightgray/20 rounded-2xl shadow-md text-start  hover:bg-lightPrimary/20 hover:drop-shadow-sm
                       backdrop-filter backdrop-blur-xl 
-                      hover:brightness-105 flex-col  md:flex-row  w-full border-black/10 border text-start  hover:bg-lightPrimary/20 rounded-2xl flex mr"
-                    >
-                      <div className=" h-3/4 w-full lg:h-2/3  flex items-center justify-center">
-                        <p className="text-base lg:text-2xl font-semibold text-white w-full p-10">
-                          {/* number absolute large */}
-                          <div className="absolute  overflow-hidden z-0 top-1 left-2 flex justify-center items-center">
-                            <p className="text-white/40 text-8xl">
-                              {categories.length <= 30 ? `${cat.id}` : ""}
+      "
+                      >
+                        <div className=" h-3/4 w-full lg:h-2/3  flex items-center justify-center">
+                          <p className="text-base relative lg:text-2xl font-semibold text-white w-full p-10">
+                            {/* number absolute large */}
+                            <div className="absolute z-10  overflow-hidden  top-1 left-5 flex justify-center items-center">
+                              <p className="text-black/40 text-8xl">
+                                {categories.length >= 10 ? `${index + 1}` : ""}
+                              </p>
+                            </div>
+                            <p className="text-2xl z-50 text-primary">
+                              {cat.name}
                             </p>
-                          </div>
-
-                          {cat.name}
-                        </p>
-                      </div>
-                      {/* number of nominees */}
-                      <div className=" flex justify-center items-center">
-                        <Link
-                          to={`/nominees/${cat.id}`}
-                          className=" rounded-full w-max flex  m-5 justify-center items-center"
-                        >
-                          <Button title="View Nominees" />
-                        </Link>
-                      </div>
-                    </Link>
-                  ))}
+                          </p>
+                        </div>
+                        {/* number of nominees */}
+                        <div className=" flex justify-center items-center">
+                          <Link
+                            to={`/nominees/${cat.id}`}
+                            className=" rounded-full w-max flex  m-5 justify-center items-center"
+                          >
+                            <Button title="View Nominees" />
+                          </Link>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}

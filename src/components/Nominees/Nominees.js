@@ -1746,12 +1746,12 @@ function Index() {
         {/* Category Image */}
 
         <div className=" w-full flex flex-col justify-center text-center items-center space-y-10 p-10">
-          <h1 className="text-3xl max-w-[75vw] lg:max-w-[45vw] text-center lg:text-5xl font-bold  text-secondary ">
+          <h1 className="text-4xl max-w-[75vw] lg:max-w-[45vw] text-center lg:text-5xl font-bold  text-white ">
             {pageData.category_name}
           </h1>
           {/* number of nominees */}
           <div className="flex flex-col justify-center items-center space-y-5">
-            <h1 className="text-sm text-center lg:text-xl   text-secondary ">
+            <h1 className="text-sm text-center lg:text-md   text-white ">
               {pageData?.data?.length}{" "}
               {pageData?.data?.length > 1 ? "Nominees" : "Nominee"}
             </h1>
@@ -1775,7 +1775,7 @@ function Index() {
           {/* Show who the person voted */}
           <div
             data-aos="fade-up"
-            className=" max-w-5xl p-5 lg:p-10 bg-lightgray mb-5 w-10/12 lg:w-full rounded-xl grid grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-10"
+            className=" max-w-5xl p-5 lg:p-10 bg-black/20 mb-5 w-10/12 lg:w-full rounded-xl grid grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-10"
           >
             <div className="lg:col-span-7 col-span-1">
               <div class="overflow-hidden w-full  justify-center  lg:col-span-5  bg-white">
@@ -1804,7 +1804,7 @@ function Index() {
 
       {pageData?.data && (
         <div
-          className={`bg-lightgray w-full ${
+          className={`bg-black/20 w-full ${
             pageData.data.length >= 1
               ? "min-h-[calc(100vh-300px)]"
               : "min-h-screen"
@@ -1818,7 +1818,7 @@ function Index() {
               >
                 <svg
                   aria-hidden="true"
-                  class="mr-2 w-20 h-20 text-lightPrimary animate-spin dark:text-gray-600 fill-primary"
+                  class="mr-2 w-20 h-20 text-lightPrimary/20 animate-spin dark:text-gray-600 fill-primary"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1840,8 +1840,8 @@ function Index() {
             <div
               data-aos="fade-up"
               className={`grid px-10 w-fit ${
-                pageData.data.length <= 3
-                  ? `grid-cols-1  md:grid lg:grid-cols-${pageData.data.length}`
+                pageData.data.length < 4
+                  ? `grid-cols-1   md:grid-cols-${pageData.data.length}`
                   : ` grid-cols-1 lg:grid-cols-4`
               } max-w-7xl gap-6`}
             >
@@ -1849,7 +1849,7 @@ function Index() {
                 (nom) =>
                   (
                     <div
-                      className={`flex rounded-2xl min-w-[280px] max-w-[300px] bg-white border border-lightgray shadow-md h-fit   ${
+                      className={`flex rounded-2xl min-w-[280px] max-w-[300px] bg-black/20 backdrop-blur-xl border border-lightgray shadow-md h-fit   ${
                         votedNom === nom
                           ? "dropshadow-md rounded-2xl"
                           : "rounded-2xl"
@@ -1874,7 +1874,7 @@ function Index() {
                         </div>
                         <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
                           <div className="h-[100px]">
-                            <h1 className="text-base text-center lg:text-xl font-medium text-secondary">
+                            <h1 className="text-base text-center lg:text-xl font-medium text-white">
                               {pageData.business && <>{nom.business_names}</>}
                               {!pageData.business && <>{nom.name}</>}
                             </h1>
@@ -1889,7 +1889,7 @@ function Index() {
                           <div className=" w-full flex items-center justify-center flex-col">
                             <button
                               onClick={() => handleModal(nom)}
-                              className="rounded-full border  border-primary p-1.5 px-4 text-xs mt-1 text-primary hover:bg-lightPrimary"
+                              className="rounded-full  p-1.5 px-4 text-xs mt-1 text-primary hover:text-white/20"
                             >
                               View More
                             </button>
@@ -1908,7 +1908,7 @@ function Index() {
                                     disabled={!voted}
                                     // if disabled, show a message saying you have already voted
 
-                                    className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-gray/20 px-2 p-1.5 rounded-full hover:brightness-110 "
+                                    className="w-full text-white uppercase bg-gradient-to-t from-secondary to-black/20 hover:bg-gradient-to-b border  text-xs md:text-sm  font-medium bg-gray/20 px-2 p-1.5 rounded-full hover:brightness-110 "
                                   >
                                     Vote now
                                   </button>
