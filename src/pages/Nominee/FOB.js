@@ -30,7 +30,7 @@ function Categories(props) {
     <>
       <DashboardLayout>
         <section className="flex py-10 mt-16 lg:mt-0 md:py-20 min-h-screen  flex-cols justify-center  items-start">
-          <div className="md:flex md:flex-col md:justify-center max-w-7xl  grid grid-cols-1 gap-5 md:gap-4 lg:gap-6">
+          <div className="md:flex z-50 md:flex-col md:justify-center max-w-7xl  grid grid-cols-1 gap-5 md:gap-4 lg:gap-6">
             <div className="px-10 md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-3 lg:gap-y-5">
               <Heading
                 heading="Faces of Boating"
@@ -79,10 +79,10 @@ function Categories(props) {
                     <Link
                       key={cat.id}
                       to={`/nominees/${cat.id}`}
-                      className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t  bg-white to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary rounded-2xl flex flex-col justify-center items-center"
+                      className="h-[90px] lg:h-[120px] bgsj hover:brightness-105 bg-gradient-to-t  bg-white/20 to-white border border-lightgray shadow-md text-center  hover:bg-lightPrimary/40 rounded-2xl flex flex-col justify-center items-center"
                     >
                       <div className=" h-3/4 lg:h-2/3  flex flex-col items-center justify-center">
-                        <p className="text-sm lg:text-base font-semibold text-secondary w-full p-10">
+                        <p className="text-xl lg:text-2xl font-semibold text-white w-full p-10">
                           <span className="text-lg text-primary">
                             {categories.length >= 13 ? `${cat.id}. ` : ""}
                           </span>

@@ -56,13 +56,6 @@ function NavBar() {
                     Gallery
                   </Link>
 
-                  <Link
-                    to="/press-releases"
-                    className="link hover:brightness-125 "
-                  >
-                    Press Releases
-                  </Link>
-
                   <Link to="/downloads" className="link hover:brightness-125 ">
                     downloads
                   </Link>
@@ -87,15 +80,15 @@ function NavBar() {
                 <Popover.Button
                   className={classNames(
                     open ? "text-white" : "text-white",
-                    "group  rounded-md inline-flex items-center text-base  font-medium hover:text-secondary focus:outline-none  focus:ring-secondary"
+                    "group  rounded-md inline-flex items-center text-base  font-medium hover:text-white focus:outline-none  focus:ring-secondary"
                   )}
                 >
                   {open && (
                     <>
                       <XIcon
                         className={classNames(
-                          open ? "text-primary" : "text-primary",
-                          "h-8 w-8 mt-1 group-hover:text-secondary"
+                          open ? "text-primary/20" : "text-primary",
+                          "h-8 w-8 mt-1 group-hover:text-white"
                         )}
                         aria-hidden="true"
                       />
@@ -106,8 +99,8 @@ function NavBar() {
                     <>
                       <MenuIcon
                         className={classNames(
-                          open ? "text-primary" : "text-primary",
-                          "h-8 w-8 mt-1 group-hover:text-secondary"
+                          open ? "text-primary/20" : "text-primary",
+                          "h-8 w-8 mt-1 group-hover:text-white"
                         )}
                         aria-hidden="true"
                       />
@@ -124,9 +117,9 @@ function NavBar() {
                   leaveFrom="opacity-100 translate-x-0"
                   leaveTo="opacity-0 translate-x-full"
                 >
-                  <Popover.Panel className="absolute h-[94vh] z-10 top-full inset-x-0 transform shadow-lg bg-white">
+                  <Popover.Panel className="absolute backdrop-blur-8xl h-[94vh] z-10 top-full inset-x-0 transform shadow-lg bg-black/90">
                     <div className="p-10 flex flex-col justify-between h-[8vh]  gap-y-10">
-                      <ul className="flex flex-col items-start  justify-start gap-y-5 xl:gap-x-20 text-base uppercase text-secondary font-semibold">
+                      <ul className="flex flex-col items-start  justify-start gap-y-5 xl:gap-x-20 text-base uppercase text-white/80 font-semibold">
                         <Link
                           to="/home/1"
                           className="link hover:brightness-125 "
@@ -152,12 +145,6 @@ function NavBar() {
                           className="link hover:brightness-125 "
                         >
                           Gallery
-                        </Link>
-                        <Link
-                          to="/press-releases"
-                          className="link hover:brightness-125 "
-                        >
-                          Press Releases{" "}
                         </Link>
                         <Link
                           to="/downloads"

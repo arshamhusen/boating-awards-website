@@ -9,22 +9,11 @@ import parse from "html-react-parser";
 
 function PressReleases() {
   const [prMedia, setPrMedia] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [dataLimit, setDataLimit] = useState(6);
-  const [pageLimit, setPageLimit] = useState(3);
   const [pageArray, setPageArray] = useState([]);
-  const [query, updateQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [searched, setSearched] = useState(false);
-  const [pages] = useState(Math.round(prMedia.length / dataLimit));
+  const [pages] = useState(Math.round(prMedia?.length / dataLimit));
   const [currentPage, setCurrentPage] = useState(1);
-
-  const dateComponent = (date) => {
-    const newDate = moment(`${date}`, "YYYY-MM-DD HH:mm:ss Z").format(
-      "Do MMMM YYYY"
-    );
-    return <p>{newDate.toString()}</p>;
-  };
+  const [loading, setLoading] = useState(true);
 
   // Posted time and date render
   const RenderedDate = (today) => {
@@ -35,36 +24,19 @@ function PressReleases() {
     return <p>Posted {postedTimeDate}</p>;
   };
 
-  const options = {
-    isCaseSensitive: false,
-    includeScore: false,
-    shouldSort: true,
-    includeMatches: false,
-    findAllMatches: false,
-    minMatchCharLength: 1,
-    location: 0,
-    threshold: 0.6,
-    distance: 100,
-    useExtendedSearch: false,
-    ignoreLocation: false,
-    ignoreFieldNorm: false,
-    fieldNormWeight: 1,
-    keys: ["heading", "description"],
-  };
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_URL}/website/downloads`, {
+    Axios.get(`${process.env.REACT_APP_API_URL}/website/press-releases`, {
       headers: {
         api_key: process.env.REACT_APP_API_KEY,
         api_secret: process.env.REACT_APP_API_SECRET,
       },
     }).then((res) => {
       if (res.status === 200) {
-        setPrMedia(res.data[0].media);
+        setPrMedia(res.data);
         setLoading(false);
       } else {
         setLoading(true);
@@ -72,18 +44,6 @@ function PressReleases() {
     });
     generateArrayOfNumbers(pages);
   }, []);
-
-  function goToNextPage() {
-    if (currentPage < pages) {
-      setCurrentPage((page) => page + 1);
-    }
-  }
-
-  function goToPreviousPage() {
-    if (currentPage > 1) {
-      setCurrentPage((page) => page - 1);
-    }
-  }
 
   function generateArrayOfNumbers(pages) {
     setPageArray(Array.from(Array(pages).keys(), (n) => n + 1));
@@ -93,21 +53,26 @@ function PressReleases() {
   const getPaginatedData = () => {
     const startIndex = currentPage * dataLimit - dataLimit;
     const endIndex = startIndex + dataLimit;
-    return prMedia.slice(startIndex, endIndex);
+    return prMedia?.slice(startIndex, endIndex);
   };
 
   return (
     <DashboardLayout>
-      <section className="flex flex-col pt-24 py-10 w-screen md:py-20 min-h-screen  flex-cols justify-start  items-start">
+      <section
+        style={{
+          zIndex: 999,
+        }}
+        className="flex flex-col pt-24 py-10 w-screen md:py-20 min-h-screen  flex-cols justify-start  items-start"
+      >
         <div className="px-10 w-full md:px-20 lg:px-20 flex text-start md:text-center flex-col gap-y-5">
           <Heading heading="Downloads" position="center" color="secondary" />
         </div>
         <div className="w-screen min-h-screen px-8 lg:px-0  flex justify-start  items-center text-start md:text-center flex-col gap-y-5">
-          <div className="grid max-w-7xl w-full grid-cols-1 gap-2 mt-10">
-            {getPaginatedData().map((pr, idx) => (
+          <div className="grid max-w-4xl w-full grid-cols-1 gap-2 mt-10">
+            {getPaginatedData()?.map((pr, idx) => (
               <div key={idx} data={pr}>
                 <div className="p-3">
-                  <div className="rounded-3xl w-full flex justify-between flex-col lg:flex-row overflow-hidden h-auto  border border-primary hover:cursor-pointer hover:bg-lightPrimary transition-all p-5">
+                  <div className="rounded-3xl w-full flex justify-between flex-col lg:flex-row overflow-hidden h-auto  border border-primary/20 bg-white/10 hover:cursor-pointer hover:bg-lightPrimary/20 transition-all p-5">
                     <div>
                       <div className="flex flex-row justify-start items-center">
                         <svg
@@ -122,14 +87,14 @@ function PressReleases() {
                             clip-rule="evenodd"
                           />
                         </svg>
-                        <h1 className="text-secondary text-sm lg:text-base font-semibold">
+                        <h1 className="text-white text-sm lg:text-base font-semibold">
                           {pr.heading}
                         </h1>
                       </div>
                       <hr className="w-full mt-3 border text-lightgray" />
-                      <div className="p-2 text-xs lg:text-sm text-start text-secondary">
+                      <div className="p-2 text-xs lg:text-sm text-start text-white">
                         <p>{parse(pr.description)}</p>
-                        <p className="mt-3 font-medium text-gray text-xs">
+                        <p className="mt-3 font-medium text-white text-xs">
                           {RenderedDate(pr.createdAt)}
                         </p>
                       </div>
@@ -140,7 +105,7 @@ function PressReleases() {
                       href={`${pr.media_URI}`}
                       className="yes"
                     >
-                      <button className="w-full  hover:brightness-110 text-white uppercase  border-2 text-xs md:text-sm  font-medium bg-primary px-6 p-1.5 rounded-full ">
+                      <button className="w-full  hover:brightness-110 text-white uppercase text-xs md:text-sm  font-medium bg-primary/20 px-6 p-1.5 rounded-full ">
                         Download
                       </button>
                     </a>

@@ -65,7 +65,7 @@ function AboutTabMenu() {
                   " w-fit px-10  py-2 uppercase  font-medium leading-5 text-blue-700",
                   " rounded-full text-xs lg:text-sm ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                   selected
-                    ? "bg-primary text-white shadow ring-primary "
+                    ? "bg-white/20 text-white shadow ring-primary "
                     : "text-blue-100 hover:bg-white/[0.12] hover:bg-lightPrimary border-2 border-primary text-primary"
                 )
               }
@@ -80,7 +80,7 @@ function AboutTabMenu() {
                     "w-full  py-2 uppercase  font-medium leading-5 text-blue-700",
                     " rounded-full text-xs lg:text-sm ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                     selected
-                      ? "bg-primary text-white shadow ring-primary "
+                      ? "bg-primary/20 text-white shadow ring-primary "
                       : "text-blue-100 hover:bg-white/[0.12] hover:bg-lightPrimary border-2 border-primary text-primary"
                   )
                 }
@@ -140,7 +140,7 @@ function AboutTabMenu() {
             data-aos="fade-up"
             className={`mt-5 lg:h-[55vh] w-screen flex justify-center items-center flex-col px-20`}
           >
-            <p className="text-sm lg:text-xl text-center font-medium">
+            <p className="text-sm lg:text-3xl text-white text-center font-medium">
               Winners will be announced once the voting is completed
             </p>
             <Lottie

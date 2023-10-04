@@ -68,7 +68,7 @@ export default function Index() {
                     "w-full  py-2 uppercase  font-medium leading-5 text-blue-700",
                     " rounded-full text-xs lg:text-sm ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                     selected
-                      ? "bg-primary text-white shadow ring-primary "
+                      ? "bg-primary/20 text-white shadow ring-primary "
                       : "text-blue-100 hover:bg-white/[0.12] hover:bg-lightPrimary border-2 border-primary text-primary"
                   )
                 }
@@ -84,26 +84,24 @@ export default function Index() {
             <Tab.Panel
               key={gallery}
               className={classNames(
-                "rounded-xl bg-white p-0 lg:p-3",
+                "rounded-xl  p-0 lg:p-3",
                 "ring-white space-y-5 ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
               {/* Videp */}
 
-              <div className="flex my-10 justify-center items-center">
+              {/* <div className="flex my-10 justify-center items-center">
                 <video
                   className="w-full h-full"
                   controls
-                  autoPlay
                   muted
                   src={gallery?.image_URI}
                 />
-              </div>
+              </div> */}
 
               {/* Other Medias */}
-              <div className="flex flex-col my-10 space-y-2 justify-center items-center">
-                <Heading heading="Moments" color="primary" />
-                <p className="text-sm text-center text-gray-500">
+              <div className="flex flex-col my-10 space-y-2 bg-black/20 justify-center items-center">
+                <p className="text-xl z-50  text-center text-white">
                   Click on any image to view in full screen and feel free to
                   save it.
                 </p>
@@ -128,7 +126,7 @@ export default function Index() {
         </Tab.Panels>
       </Tab.Group>
       <Transition appear show={modalOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
