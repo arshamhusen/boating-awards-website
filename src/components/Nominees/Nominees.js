@@ -1791,7 +1791,7 @@ function Index() {
               </div>
             </div>
             <div className="col-span-1 lg:col-span-5 flex flex-col items-start justify-start">
-              <h1 className="text-secondary text-xs lg:text-2xl font-light mb-1">
+              <h1 className="text-white text-xl lg:text-2xl font-light mb-1">
                 Thank you for voting{" "}
               </h1>
               <h4 className="font-bold text-xl lg:text-4xl text-primary mb-5 leading-tight">
