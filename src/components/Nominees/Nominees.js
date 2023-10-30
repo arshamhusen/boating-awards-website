@@ -1518,7 +1518,8 @@ const countries = [
 ];
 
 function Index() {
-  let token = sessionStorage.getItem("token");
+  let token = localStorage.getItem("token");
+  let [error, setError] = useState("");
   let { id } = useParams();
   let [isOpen, setIsOpen] = useState(false);
   let [confirmModalOpen, setConfirmModalOpen] = useState(false);
@@ -1541,6 +1542,7 @@ function Index() {
 
   React.useEffect(() => {
     if (token != null) {
+      setSignedIn(true);
       Axios.get(`${process.env.REACT_APP_API_URL}/website/nominees/${id}`, {
         headers: {
           api_key: process.env.REACT_APP_API_KEY,
@@ -1552,7 +1554,6 @@ function Index() {
           console.log(res.data);
           setPageData(res.data);
           setVoted(res.data.voted);
-          setSignedIn(res.data.signedIn);
           setVotedNom(res.data.voted_nominee);
           setLoading(false);
         } else {
@@ -1570,7 +1571,6 @@ function Index() {
           setPageData(res.data);
           setVoted(res.data.voted);
           setVotedNom(res.data.voted_nominee);
-          setSignedIn(res.data.signedIn);
           setLoading(false);
         } else {
           setLoading(true);
@@ -1635,10 +1635,11 @@ function Index() {
       },
     }).then((res) => {
       if (res.status === 200) {
-        sessionStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", res.data.token);
         setSignedIn(true);
         closeModal();
       } else {
+        setError(res.data.err);
       }
     });
   }
@@ -1650,11 +1651,9 @@ function Index() {
     if (pageData.business) {
       data = {
         nomineeId: selectedNominee.id,
-        fob_nomineeId: 1,
       };
     } else {
       data = {
-        nomineeId: 1,
         fobNomineeId: selectedNominee.id,
       };
     }
@@ -1679,6 +1678,7 @@ function Index() {
         closeModal();
       } else {
         console.log(res);
+        alert(res.data);
       }
     });
   }
@@ -1764,7 +1764,7 @@ function Index() {
           </Link>
 
           {signedIn && (
-            <p className="w-full bg-lightprimary p-2 rounded-2xl text-gray text-xs lg:text-sm">
+            <p className="w-full bg-lightprimary p-2 rounded-2xl text-white text-xl lg:text-2xl">
               You are signed in! Please Vote the desired Nominee.
             </p>
           )}
@@ -1873,7 +1873,7 @@ function Index() {
                           )}
                         </div>
                         <div className="flex p-5 space-y-2 items-center justify-center flex-col w-full">
-                          <div className="h-[100px]">
+                          <div className="h-[80px]">
                             <h1 className="text-base text-center lg:text-xl font-medium text-white">
                               {pageData.business && <>{nom.business_names}</>}
                               {!pageData.business && <>{nom.name}</>}
@@ -1887,16 +1887,16 @@ function Index() {
                           </div>
 
                           <div className=" w-full flex items-center justify-center flex-col">
-                            <button
+                            {/* <button
                               onClick={() => handleModal(nom)}
                               className="rounded-full  p-1.5 px-4 text-xs mt-1 text-primary hover:text-white/20"
                             >
                               View More
-                            </button>
+                            </button> */}
                             {!voted && (
                               <>
                                 <div
-                                  className="w-full mt-4"
+                                  className="w-full mt-3"
                                   onClick={() =>
                                     signedIn
                                       ? openConfirmModal(nom)
@@ -1904,8 +1904,8 @@ function Index() {
                                   }
                                 >
                                   <button
-                                    onClick={() => console.log(nom)}
-                                    disabled={!voted}
+                                    onClick={() => setIsOpen(true)}
+                                    disabled={voted}
                                     // if disabled, show a message saying you have already voted
 
                                     className="w-full text-white uppercase bg-gradient-to-t from-secondary to-black/20 hover:bg-gradient-to-b border  text-xs md:text-sm  font-medium bg-gray/20 px-2 p-1.5 rounded-full hover:brightness-110 "
@@ -1959,10 +1959,10 @@ function Index() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel className="w-full mt-20 max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                    <Dialog.Panel className="w-full mt-20 max-w-md bg-cover bg-right transform overflow-hidden rounded-2xl bg-black/80 p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                       <Dialog.Title
                         as="h1"
-                        className="text-base md:text-xl text-center text-secondary font-semibold leading-6 text-gray-900"
+                        className="text-base md:text-xl text-center text-white font-semibold leading-6 text-gray-900"
                       >
                         You are required to sign in to vote
                       </Dialog.Title>
@@ -1996,7 +1996,7 @@ function Index() {
                                   <div className="mt-4 w-1/2">
                                     <button
                                       type="submit"
-                                      className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                                      className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-full hover:brightness-110 "
                                     >
                                       Submit
                                     </button>
@@ -2013,6 +2013,12 @@ function Index() {
                             <p className="text-gray text-center text-xs md:text-sm w-4/5">
                               A 6-digit OTP has been sent to {phone} Please
                               Enter the OTP.
+                            </p>
+                          </div>
+                          {/* show error */}
+                          <div className="mt-2 flex items-center justify-center">
+                            <p className="text-red text-center text-xs md:text-sm w-4/5">
+                              {error}
                             </p>
                           </div>
                           <input
@@ -2034,7 +2040,7 @@ function Index() {
                           >
                             <button
                               type="button"
-                              className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                              className="w-full text-black uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
                             >
                               Confirm
                             </button>
@@ -2047,6 +2053,7 @@ function Index() {
               </div>
             </Dialog>
           </Transition>
+
           {/* Descriptive nominee modal */}
           <Transition appear show={isDNomineeOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -2244,6 +2251,7 @@ function Index() {
               </div>
             </Dialog>
           </Transition>
+
           {/* Confirm Vote Modal */}
           <Transition appear show={confirmModalOpen} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -2270,14 +2278,14 @@ function Index() {
                     leaveFrom="opacity-100 scale-100"
                     leaveTo="opacity-0 scale-95"
                   >
-                    <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-scroll bg-cover bg-right transform rounded-2xl bg-white p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
+                    <Dialog.Panel className="w-full  max-w-lg max-h-[1200px] overflow-scroll bg-cover bg-right transform rounded-2xl border border-white/10 bg-black p-6 text-left flex justify-center items-center flex-col align-middle shadow-xl transition-all">
                       <Dialog.Title
                         as="h1"
-                        className="text-lg md:text-xl grid grid-cols-1 gap-y-4  text-center text-secondary font-semibold leading-6 text-gray-900"
+                        className="text-lg md:text-xl grid grid-cols-1 gap-y-4  text-center text-primary font-semibold leading-6 text-gray-900"
                       >
                         <h1 className="text">Voting Confirmation</h1>
                         {selectedNominee && (
-                          <p className="text-sm font-normal">
+                          <p className="text-sm font-normal text-white">
                             {pageData.business && (
                               <>
                                 Are you sure you want to vote for{" "}
@@ -2307,7 +2315,7 @@ function Index() {
                           </button>
                           <button
                             onClick={() => voteHandler()}
-                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-primary px-2 p-1.5 rounded-full hover:brightness-110 "
+                            className="w-full text-white uppercase hover:bg-gradient-to-b border-2  text-xs md:text-sm  font-medium bg-secondary px-2 p-1.5 rounded-full hover:brightness-110 "
                           >
                             Confirm
                           </button>

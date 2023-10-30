@@ -34,7 +34,7 @@ function Banner(props) {
         className="text-center space-y-10 md:text-center items-center md:items-center  flex flex-col px-6 md:px-40 max-w-none md:max-w-6xl lg:max-w-7xl "
       >
         <img
-          src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/Boating Awards Logo.png"
+          src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/footer/awards-logo.png"
           className="w-32 brightness-200 md:w-44 pt-0 md:pt-10 "
         />
         <h1
