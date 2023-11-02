@@ -65,7 +65,7 @@ function Index() {
           data-aos="fade-up"
         >
           <Heading
-            heading={"2022 Nominees"}
+            heading={"2023 Nominees"}
             position="center"
             color="secondary"
           />

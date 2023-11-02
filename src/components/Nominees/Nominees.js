@@ -1518,7 +1518,7 @@ const countries = [
 ];
 
 function Index() {
-  let token = localStorage.getItem("token");
+  let token = sessionStorage.getItem("token");
   let [error, setError] = useState("");
   let { id } = useParams();
   let [isOpen, setIsOpen] = useState(false);
@@ -1635,7 +1635,7 @@ function Index() {
       },
     }).then((res) => {
       if (res.status === 200) {
-        localStorage.setItem("token", res.data.token);
+        sessionStorage.setItem("token", res.data.token);
         setSignedIn(true);
         closeModal();
       } else {
