@@ -1783,7 +1783,7 @@ function Index() {
                   <div className="grid grid-cols-1">
                     <img
                       src={votedNom?.imageURI}
-                      className="bg-purple-200 h-40 w-40 lg:h-[300px] lg:w-[350px] rounded-lg  hover:scale-110 transition-all duration-500"
+                      className="bg-purple-200 h-40 w-40 lg:h-[300px] md:w-fit rounded-lg  hover:scale-110 transition-all duration-500"
                       alt=""
                     />
                   </div>
@@ -1840,7 +1840,7 @@ function Index() {
             <div
               data-aos="fade-up"
               className={`grid px-10 w-fit ${
-                pageData.data.length < 4
+                pageData?.data?.length <= 2
                   ? `grid-cols-1   md:grid-cols-${pageData.data.length}`
                   : ` grid-cols-1 lg:grid-cols-4`
               } max-w-7xl gap-6`}
@@ -1860,7 +1860,7 @@ function Index() {
                           {!pageData.business && (
                             <img
                               src={nom.imageURI}
-                              className="bg-purple-200 object-cover  w-full h-[200px]  rounded-t-2xl   transition-all duration-500"
+                              className="bg-purple-200 object-cover object-center  w-full h-[300px]  rounded-t-2xl   transition-all duration-500"
                               alt=""
                             />
                           )}
