@@ -141,7 +141,7 @@ function AboutTabMenu() {
             className={`mt-5 lg:h-[55vh] w-screen flex justify-center items-center flex-col px-20`}
           >
             <p className="text-sm lg:text-3xl text-white text-center font-medium">
-              Winners will be announced once the voting is completed
+              Winners will be announced once the judging process is complete.
             </p>
             <Lottie
               loop={false}

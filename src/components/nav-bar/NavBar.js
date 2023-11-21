@@ -63,11 +63,11 @@ function NavBar() {
               </div>
             </div>
             <Link
-              to="/nominees"
+              to="/winners"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
               <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white/2 hover:text-primary bg-transparent rounded-full">
-                vote now
+                View Winners
               </a>
             </Link>
           </div>

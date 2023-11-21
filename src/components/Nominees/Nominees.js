@@ -1893,7 +1893,7 @@ function Index() {
                             >
                               View More
                             </button> */}
-                            {!voted && (
+                            {/* {!voted && (
                               <>
                                 <div
                                   className="w-full mt-3"
@@ -1914,7 +1914,7 @@ function Index() {
                                   </button>
                                 </div>
                               </>
-                            )}
+                            )} */}
                           </div>
                         </div>
                       </div>
