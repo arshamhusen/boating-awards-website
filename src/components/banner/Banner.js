@@ -17,7 +17,7 @@ function Banner(props) {
       }}
       className="h-screen relative w-screen  bg-cover  bg-left flex flex-col justify-start md:justify-center pt-40 lg:pt-0 item-start lg:items-center"
     >
-      <video
+      {/* <video
         autoPlay
         muted
         playsInline
@@ -28,7 +28,7 @@ function Banner(props) {
           src="https://boatingawards-bucket.s3.ap-south-1.amazonaws.com/videos/loop.mp4"
           type="video/mp4"
         />
-      </video>
+      </video> */}
       <div
         data-aos="fade-up"
         className="text-center space-y-10 md:text-center items-center md:items-center  flex flex-col px-6 md:px-40 max-w-none md:max-w-6xl lg:max-w-7xl "
@@ -41,13 +41,13 @@ function Banner(props) {
           data-aos="fade-up"
           className="text-4xl md:text-6xl lg:text-7xl  text-primary font-bold"
         >
-          {props.data.heading}
+          The Site is Under Construction
         </h1>
         <h3 className="text-lg md:text-2xl lg:text-3xl w-3/4 mt-5 mb-8 text-white font-medium">
-          {props.data.title}
+          Please visit us again soon
         </h3>
 
-        {props.data.button_href && (
+        {props?.data?.button_href && (
           <a
             className="uppercase p-1.5 lg:p-3 px-12 lg:px-20 font-medium text-sm lg:text-base text-white hover:brightness-125 bg-secondary rounded-full"
             href={props.data.button_href}

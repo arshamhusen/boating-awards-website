@@ -40,7 +40,7 @@ function NavBar() {
             <div className=" hidden lg:flex flex-row  md:col-span-7 lg:col-span-8 justify-center items-center">
               <div>
                 <ul className="hidden md:flex items-center  justify-center gap-x-5 xl:gap-x-10  text-sm md:text-md  uppercase text-primary font-medium">
-                  <Link to="/home/1" className="link hover:brightness-125 ">
+                  {/* <Link to="/home/1" className="link hover:brightness-125 ">
                     Home
                   </Link>
 
@@ -58,18 +58,18 @@ function NavBar() {
 
                   <Link to="/downloads" className="link hover:brightness-125 ">
                     downloads
-                  </Link>
+                  </Link> */}
                 </ul>
               </div>
             </div>
-            <Link
+            {/* <Link
               to="/winners"
               className="col-span-2 hidden lg:flex items-center justify-center "
             >
               <a className="uppercase p-2 px-12 font-medium text-sm border-2 border-white text-white transition-all hover:bg-white/2 hover:text-primary bg-transparent rounded-full">
                 View Winners
               </a>
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* Menu */}
@@ -119,7 +119,7 @@ function NavBar() {
                 >
                   <Popover.Panel className="absolute backdrop-blur-8xl h-[94vh] z-10 top-full inset-x-0 transform shadow-lg bg-black/90">
                     <div className="p-10 flex flex-col justify-between h-[8vh]  gap-y-10">
-                      <ul className="flex flex-col items-start  justify-start gap-y-5 xl:gap-x-20 text-base uppercase text-white/80 font-semibold">
+                      {/* <ul className="flex flex-col items-start  justify-start gap-y-5 xl:gap-x-20 text-base uppercase text-white/80 font-semibold">
                         <Link
                           to="/home/1"
                           className="link hover:brightness-125 "
@@ -152,7 +152,7 @@ function NavBar() {
                         >
                           Downloads
                         </Link>
-                      </ul>
+                      </ul> */}
                     </div>
                   </Popover.Panel>
                 </Transition>

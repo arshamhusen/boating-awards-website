@@ -21,14 +21,14 @@ function PageRoutes() {
       <Routes>
         <Route path="/" element={<Navigate replace to="/home/1" />} />
         <Route exact path="/home/:id" element={<Home />} />
-        <Route exact path="/nominees" element={<Nominees />} />
+        {/* <Route exact path="/nominees" element={<Nominees />} />
         <Route exact path="/nominees/general" element={<General />} />
         <Route exact path="/nominees/fob" element={<FOB />} />
         <Route exact path="/winners" element={<Winners />} />
         <Route exact path="/nominees/:id" element={<Nominate />} />
         <Route exact path="/gallery" element={<Galllery />} />
         <Route exact path="/press-releases" element={<PressReleases />} />
-        <Route exact path="/downloads" element={<Downloads />} />
+        <Route exact path="/downloads" element={<Downloads />} /> */}
       </Routes>
     </Router>
   );
